@@ -1,0 +1,29 @@
+=.=.=.=.=.=.=.=.=.=.=
+     Linear C++
+=.=.=.=.=.=.=.=.=.=.=
+
+
+What it is
+==========
+This is a library for doing linear algebra in C++. So far it includes:
+
+- a Matrix class
+- RowVector and ColumnVector classes
+- basic Matrix and Vector operations such as multiplication,
+  addition, and length (for RowVector and ColumnVector)
+- convenience methods for populating randomly or making identity matrices
+- a method for solving a system of linear equations via Gauss-Jordan
+
+Why
+===
+I realize that many better packages exist for Linear Algebra in C++.
+This library is not suitable for any intensive computation, but it's
+a great way to gain expertise in both Linear Algebra and C++.
+
+My goal with this project is to gain a better understanding of both.
+
+
+Who
+===
+
+copyleft Aditya Bhargava @ wefoundland.com. This code is in the public domain.
