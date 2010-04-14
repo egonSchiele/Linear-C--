@@ -14,20 +14,44 @@ class Matrix {
         
         // make this matrix an identity matrix
         Matrix& populateIdentity();
+        
+        // transpose of the Matrix
+        Matrix& transpose();
             
         // access the data in the matrix directly
         int& operator()(int i, int j);
+        
+        // add a row
+        virtual void appendRow(std::vector<int> &r);
+        virtual void appendRow(int *r, int size);
+
+        // add a col
+        virtual void appendCol(std::vector<int> &r);
+        virtual void appendCol(int *r, int size);
+
     protected:
         std::vector<std::vector<int> > data;
 };
 
 
 // how to multiply two Matrix objects
-Matrix& operator*( Matrix &a,  Matrix &b);
+Matrix& operator*(Matrix &a,  Matrix &b);
+
+// how to multiply a Matrix object by a scalar
+Matrix& operator*(double s, Matrix &a);
+
+// how to add two Matrix objects
+Matrix& operator+(Matrix &a, Matrix &b);
+
+// how to subtract two Matrix objects
+Matrix& operator-(Matrix &a, Matrix &b);
+
 
 // how to print out a matrix
 std::ostream& operator<<(std::ostream& s,  Matrix &m);
 
+// test if two Matrix objects are equivalent
+bool operator==(Matrix &a, Matrix &b);
 
 /*
     Here are two classes that inherit from class Matrix.
@@ -45,6 +69,8 @@ class RowVector : public Matrix {
         RowVector(std::vector<int> &a);
         RowVector(int *a, int size);
         double length() ;
+        void appendRow();
+        void appendCol();         
 };
 
 class ColumnVector : public Matrix {
@@ -53,4 +79,6 @@ class ColumnVector : public Matrix {
         ColumnVector(std::vector<int> &a);
         ColumnVector(int *a, int size);
         double length() ;
+        void appendRow();
+        void appendCol();
 };

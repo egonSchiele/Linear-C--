@@ -43,6 +43,54 @@ Matrix::Matrix(vector<vector<int> >& a)
     
 }
 
+// append a row
+void Matrix::appendRow(std::vector<int>& r)
+{
+    data.resize(data.size()+1);
+    
+    int f = rows()-1;
+    data[f].resize(r.size());
+    for (int i=0;i<r.size();i++)
+    {
+        data[f][i] = r[i];
+    }
+}
+
+// append a row - array version
+void Matrix::appendRow(int *r, int size)
+{
+    data.resize(data.size()+1);
+    
+    int f = rows()-1;
+    data[f].resize(size);
+    for (int i=0;i<size;i++)
+    {
+        data[f][i] = r[i];
+    }
+}
+
+// append a col
+void Matrix::appendCol(std::vector<int>& r)
+{
+    int cur_cols = cols();
+    for (int i=0;i<r.size();i++)
+    {
+        data[i].resize(cur_cols + 1);
+        data[i][cur_cols] = r[i];
+    }
+}
+
+// append a col
+void Matrix::appendCol(int *r, int size)
+{
+    int cur_cols = cols();
+    for (int i=0;i<size;i++)
+    {
+        data[i].resize(cur_cols + 1);
+        data[i][cur_cols] = r[i];
+    }
+}
+
 // populate the matrix with random numbers in the range 0-9
 Matrix& Matrix::populateRandom()
 {
@@ -102,6 +150,54 @@ Matrix& operator*( Matrix &a,  Matrix &b)
     return *res;
 }
 
+// a scalar * a matrix
+Matrix& operator*(double s, Matrix &a)
+{
+    Matrix *b = new Matrix(a.rows(), a.cols());
+    
+    for (int i=0;i<a.rows();i++)
+    {
+        for (int j=0;j<a.cols();j++)
+        {
+            (*b)(i,j) = s * a(i,j);
+        }        
+    }
+    return *b;
+}
+
+
+// how to add two matrices
+Matrix& operator+(Matrix &a, Matrix &b){
+    assert(a.cols() == b.cols() && a.rows() == b.rows());    
+    Matrix *c = new Matrix(a.rows(),a.cols());
+    
+    for (int i=0;i<a.rows();i++)
+    {
+        for (int j=0;j<a.cols();j++)
+        {
+            (*c)(i,j) = a(i,j) + b(i,j);
+        }        
+    }
+    
+    return *c;
+}
+
+// how to subtract two matrices
+Matrix& operator-(Matrix &a, Matrix &b){
+    assert(a.cols() == b.cols() && a.rows() == b.rows());    
+    Matrix *c = new Matrix(a.rows(),a.cols());
+    
+    for (int i=0;i<a.rows();i++)
+    {
+        for (int j=0;j<a.cols();j++)
+        {
+            (*c)(i,j) = a(i,j) - b(i,j);
+        }        
+    }
+    
+    return *c;
+}
+
 // how to print out a matrix
 ostream& operator<<(ostream& s,  Matrix &m)
 {
@@ -122,6 +218,37 @@ ostream& operator<<(ostream& s,  Matrix &m)
 int& Matrix::operator()(int i, int j)
 {
     return data[i][j];
+}
+
+Matrix& Matrix::transpose()
+{
+    Matrix *c = new Matrix(cols(),rows());
+    for (int i=0;i<rows();i++)
+    {
+        for (int j=0;j<cols();j++)
+        {
+            (*c)(j,i) = data[i][j];
+        }        
+    }
+    return *c;
+}
+
+// test two Matrix objects to see if they are equal
+bool operator==(Matrix &a, Matrix &b)
+{
+    if(a.cols() != b.cols() && a.rows() != b.rows())
+    return false;
+    
+    for (int i=0;i<a.rows();i++)
+    {
+        for (int j=0;j<a.cols();j++)
+        {
+            if(a(i,j)!=b(i,j))
+            {
+                return false;
+            }
+        }        
+    }    
 }
 
 /* RowVector */
