@@ -1,3 +1,6 @@
+#ifndef MATRIX_H
+#define MATRIX_H
+
 #include <iostream>
 #include <vector>
 /* using namespace std; */
@@ -7,7 +10,7 @@ class Matrix {
         int rows();
         int cols();
         // create the matrix from a vector
-        Matrix(std::vector<std::vector<int> >& a);
+        Matrix(std::vector<std::vector<double> >& a);
         
         // populate the matrix with random numbers in the range 0-9
         Matrix& populateRandom();
@@ -19,18 +22,25 @@ class Matrix {
         Matrix& transpose();
             
         // access the data in the matrix directly
-        int& operator()(int i, int j);
+        double& operator()(int i, int j);
         
         // add a row
-        virtual void appendRow(std::vector<int> &r);
-        virtual void appendRow(int *r, int size);
-
+        virtual void appendRow(std::vector<double> &r);
+        virtual void appendRow(double *r, int size);
+        virtual void appendRow(Matrix &b);
+        
         // add a col
-        virtual void appendCol(std::vector<int> &r);
-        virtual void appendCol(int *r, int size);
+        virtual void appendCol(std::vector<double> &r);
+        virtual void appendCol(double *r, int size);
+        virtual void appendCol(Matrix& b);
+        // swap rows
+        void swapRows(int rowA, int rowB);
+
+        // swap cols
+        void swapCols(int colA, int colB);
 
     protected:
-        std::vector<std::vector<int> > data;
+        std::vector<std::vector<double> > data;
 };
 
 
@@ -66,8 +76,8 @@ bool operator==(Matrix &a, Matrix &b);
 class RowVector : public Matrix {
     public:
         RowVector(int c) : Matrix(1,c) {}
-        RowVector(std::vector<int> &a);
-        RowVector(int *a, int size);
+        RowVector(std::vector<double> &a);
+        RowVector(double *a, int size);
         double length() ;
         void appendRow();
         void appendCol();         
@@ -76,9 +86,11 @@ class RowVector : public Matrix {
 class ColumnVector : public Matrix {
     public:
         ColumnVector(int r) : Matrix(r,1) {}
-        ColumnVector(std::vector<int> &a);
-        ColumnVector(int *a, int size);
+        ColumnVector(std::vector<double> &a);
+        ColumnVector(double *a, int size);
         double length() ;
         void appendRow();
         void appendCol();
 };
+
+#endif

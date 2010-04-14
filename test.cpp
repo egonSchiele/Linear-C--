@@ -1,22 +1,16 @@
 #include <iostream>
 using namespace std;
 #include "Matrix.h"
-
+#include "MatrixFunctions.h"
 int main(int argc, char * argv[])
 {
+    Matrix m(2,2);
+    m.populateRandom();
+    cout << m << endl;
+    Matrix b(2,1);
+    b.populateRandom();
+    
+    cout << gaussJordan(m,b) << endl;   
 
-    int b[2][2] = { {1,0},
-                    {0,1} };
-    Matrix a(2,2);
-    a.populateRandom();
-    int c[] = {50,50};
-    a.appendCol(c,2);
-    
-    RowVector x(2);
-    x.populateRandom();
-    cout << x << endl;
-    
-    cout << a << endl;
-    cout << a.transpose() << endl;
-	return 0;
+    return 0;
 }

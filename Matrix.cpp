@@ -27,7 +27,7 @@ int Matrix::cols()
 }
 
 // create the matrix from a vector
-Matrix::Matrix(vector<vector<int> >& a)
+Matrix::Matrix(vector<vector<double> >& a)
 {
     int rows = a.size();
     int cols = a[0].size();
@@ -44,7 +44,7 @@ Matrix::Matrix(vector<vector<int> >& a)
 }
 
 // append a row
-void Matrix::appendRow(std::vector<int>& r)
+void Matrix::appendRow(std::vector<double>& r)
 {
     data.resize(data.size()+1);
     
@@ -57,7 +57,7 @@ void Matrix::appendRow(std::vector<int>& r)
 }
 
 // append a row - array version
-void Matrix::appendRow(int *r, int size)
+void Matrix::appendRow(double *r, int size)
 {
     data.resize(data.size()+1);
     
@@ -69,8 +69,41 @@ void Matrix::appendRow(int *r, int size)
     }
 }
 
+// append a row - matrix version
+void Matrix::appendRow(Matrix& b)
+{
+    assert(b.cols() == cols());
+    int cur_rows = rows();
+    data.resize(rows()+b.rows());
+    
+    for (int i=cur_rows;i<rows();i++)
+    {
+        data[i].resize(cols());
+        for (int j=0;j<cols();j++)
+        {
+            data[i][j] = b(i-cur_rows,j);
+        }
+    }
+}
+
+// append a col - matrix version
+void Matrix::appendCol(Matrix& b)
+{
+    assert(b.rows() == rows());
+    int cur_cols = cols();
+    
+    for (int i=0;i<rows();i++)
+    {
+        data[i].resize(cur_cols + b.cols());
+        for (int j=cur_cols;j<cur_cols + b.cols();j++)
+        {
+            data[i][j] = b(i,j-cur_cols);
+        }
+    }
+}
+
 // append a col
-void Matrix::appendCol(std::vector<int>& r)
+void Matrix::appendCol(std::vector<double>& r)
 {
     int cur_cols = cols();
     for (int i=0;i<r.size();i++)
@@ -81,7 +114,7 @@ void Matrix::appendCol(std::vector<int>& r)
 }
 
 // append a col
-void Matrix::appendCol(int *r, int size)
+void Matrix::appendCol(double *r, int size)
 {
     int cur_cols = cols();
     for (int i=0;i<size;i++)
@@ -130,7 +163,7 @@ Matrix& operator*( Matrix &a,  Matrix &b)
 {
     assert(a.cols() > 0);
     assert (a.cols() == b.rows());
-    vector<vector<int> > c;
+    vector<vector<double> > c;
     c.resize(a.rows());
     
     for (int i=0;i<a.rows();i++)
@@ -215,7 +248,7 @@ ostream& operator<<(ostream& s,  Matrix &m)
 }
 
 // access the data in the matrix directly
-int& Matrix::operator()(int i, int j)
+double& Matrix::operator()(int i, int j)
 {
     return data[i][j];
 }
@@ -251,6 +284,30 @@ bool operator==(Matrix &a, Matrix &b)
     }    
 }
 
+void Matrix::swapRows(int rowA, int rowB)
+{
+    double temp[cols()];
+    
+    for (int i=0;i<cols();i++)
+    {
+        temp[i] = data[rowA][i];
+        data[rowA][i] = data[rowB][i];
+        data[rowB][i] = temp[i];
+    }    
+}
+
+void Matrix::swapCols(int colA, int colB)
+{
+    int temp[rows()];
+    
+    for (int i=0;i<rows();i++)
+    {
+        temp[i] = data[i][colA];
+        data[i][colA] = data[i][colB];
+        data[i][colB] = temp[i];
+    }    
+}
+
 /* RowVector */
 double RowVector::length() 
 {
@@ -262,7 +319,7 @@ double RowVector::length()
     return sqrt(sum);
 }
 
-RowVector::RowVector(std::vector<int> &a) : Matrix(1,a.size())
+RowVector::RowVector(std::vector<double> &a) : Matrix(1,a.size())
 {
     for (int i=0;i<cols();i++)
     {
@@ -270,7 +327,7 @@ RowVector::RowVector(std::vector<int> &a) : Matrix(1,a.size())
     }    
 }
 
-RowVector::RowVector(int *a, int size) : Matrix(1,size)
+RowVector::RowVector(double *a, int size) : Matrix(1,size)
 {
     for (int i=0;i<cols();i++)
     {
@@ -289,7 +346,7 @@ double ColumnVector::length()
     return sqrt(sum);
 }
 
-ColumnVector::ColumnVector(std::vector<int> &a) : Matrix(a.size(),1)
+ColumnVector::ColumnVector(std::vector<double> &a) : Matrix(a.size(),1)
 {
     for (int i=0;i<rows();i++)
     {
@@ -297,7 +354,7 @@ ColumnVector::ColumnVector(std::vector<int> &a) : Matrix(a.size(),1)
     }    
 }
 
-ColumnVector::ColumnVector(int *a, int size) : Matrix(size,1)
+ColumnVector::ColumnVector(double *a, int size) : Matrix(size,1)
 {
     for (int i=0;i<rows();i++)
     {
