@@ -6,10 +6,8 @@ using namespace std;
 // has a non-zero value in the given column
 int findNonZero(Matrix &m, int col)
 {
-    cout << "in findNonZero...col is: " << col << endl;
     for (int i=col;i<m.rows();i++)
     {
-        cout << "i: " << i << endl;
         if(m(i,col)!=0)
         {
             return i;
@@ -18,48 +16,59 @@ int findNonZero(Matrix &m, int col)
     return -1;
 }
 
-Matrix& gaussJordan(Matrix& A, Matrix& b)
+ColumnVector& gaussJordan(Matrix& A, Matrix& b)
 {
     Matrix Aug = A;
     Aug.appendCol(b); // make the augmented matrix
-    cout << "original matrix" << A << endl;
-    cout << "augmented matrix" << Aug << endl;
-    cout << "result matrix" << b << endl;
-    
     for (int i=0;i<A.cols();i++)
     {
-        int goodRow = findNonZero(A, i);
-        assert(goodRow >=0);
+        int goodRow = findNonZero(Aug, i);
+        
+        // either we don't have enough equations, or there's
+        // a logical error, like -1 = 0. Either way, no solution.
+        if (goodRow < 0)
+        {
+            cout << "no solution possible." << endl;
+            ColumnVector *n = new ColumnVector(0);
+            return *n;
+        }
         
         // swap the good row with the row we want a 1 in.
         // we want 1's on the diagonal, so the row we want 
         // a 2 in is the same # as the column that we're on.
-        
-        cout << "before swap:" << Aug << endl;
-        
         Aug.swapRows(i, goodRow);
-        cout << "after swap:" << Aug << endl;
-        cout << "col #" << i << endl;
-        cout << "aug is:" << Aug << endl;
-        
+
         // Now we want to zero out this column for all other rows.
+        // In this row (in the diagonal position) we want a 1.
         for (int j=0;j<A.rows();j++)
         {
             if (j==i) {
                 // we want a 1 here.
                 double scalar = Aug(i,i);
-                cout << "scalar is: " << scalar << endl;
-                cout << "1/scalar is: " << 1.0/scalar << endl;
-                cout << "division yields: " << (1.0/scalar) * scalar << endl;
                 for (int k=0;k<Aug.cols();k++)
                 {
                     Aug(i,k) = Aug(i,k) * (1.0/scalar);
                 }                
+            }else{
+                // we want a 0 here
+                double multiplier = Aug(j,i) / Aug(i,i);
+                for (int k=0;k<Aug.cols();k++)
+                {
+                    Aug(j,k) = Aug(j,k) - (Aug(i,k) * multiplier);
+                }                                                
             }
         }
-        cout << "after trying to set diagonal to zero, Aug is:" << Aug << endl;
-                
     }
-    return A;   
+    
+    // at this point, the last column of Aug contains our solution.
+    // Let's return it.
+    
+    ColumnVector *res = new ColumnVector(A.rows());
+    for (int x=0;x<A.rows();x++)
+    {
+        (*res)(x,0) = Aug(x,Aug.cols()-1);
+    }
+        
+    return *res;
 }
 

@@ -6,6 +6,9 @@
 #include "Matrix.h"
 
 int findNonZero(Matrix &m, int col);
-Matrix& gaussJordan(Matrix& A, Matrix& b);
+
+// Given two matrices A and b, solves the linear
+// system of equations assuming the form Ax = b.
+ColumnVector& gaussJordan(Matrix& A, Matrix& b);
 
 #endif
