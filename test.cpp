@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 using namespace std;
 #include "Matrix.h"
@@ -20,8 +21,40 @@ int main(int argc, char * argv[])
     Matrix b(2,1);
     b.populateRandom();
 */
-    
-    cout << gaussJordan(m,b) << endl;   
+/*
+    m.populateRandom();
+    b.populateRandom();
+
+    cout << "answer with gaussJordan:" << gaussJordan(m,b) << endl;
+    cout << "answer with gaussianElimination: " << gaussianElimination(m,b) << endl;   
 
     return 0;
+}
+*/
+
+
+
+#include <iostream>
+using namespace std;
+#include "Matrix.h"
+#include "MatrixFunctions.h"
+#include <boost/progress.hpp>
+int main(int argc, char * argv[])
+{
+    boost::progress_timer t;
+    // time gaussJordan: 7.75 s
+    // time gaussianElimination: 4.10 s
+	for (int i=1;i<100;i++)
+    {
+        Matrix *a = new Matrix(i,i);
+        a->populateRandom();
+        
+        ColumnVector *b = new ColumnVector(i);
+        b->populateRandom();
+        
+        gaussianElimination(*a,*b);
+        cout << i << endl;
+    }
+    
+	return 0;
 }
