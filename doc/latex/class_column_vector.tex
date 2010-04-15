@@ -1,0 +1,86 @@
+\hypertarget{class_column_vector}{
+\section{ColumnVector Class Reference}
+\label{class_column_vector}\index{ColumnVector@{ColumnVector}}
+}
+The \hyperlink{class_column_vector}{ColumnVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class.  
+
+
+{\tt \#include $<$Matrix.h$>$}
+
+Inherits \hyperlink{class_matrix}{Matrix}.
+
+Collaboration diagram for ColumnVector:\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_column_vector_080508988b684290b2a0123a923a1e08}{ColumnVector} (int r)
+\begin{CompactList}\small\item\em Creates a \hyperlink{class_column_vector}{ColumnVector} of the specified length. \item\end{CompactList}\item 
+\hyperlink{class_column_vector_51a68a454f01918fd4bc1736ac0d4264}{ColumnVector} (std::vector$<$ double $>$ \&a)
+\begin{CompactList}\small\item\em Creates a \hyperlink{class_column_vector}{ColumnVector} from a vector of doubles. \item\end{CompactList}\item 
+\hyperlink{class_column_vector_a0b9560305d34dd819e7913a811f3336}{ColumnVector} (double $\ast$a, int size)
+\begin{CompactList}\small\item\em Creates a \hyperlink{class_column_vector}{ColumnVector} from an array of doubles, with the size of the array as the second argument. \item\end{CompactList}\item 
+double \hyperlink{class_column_vector_66329a870ee70b5cd93879d3be247b21}{length} ()
+\begin{CompactList}\small\item\em Calculates and returns the length of the vector. \item\end{CompactList}\item 
+void \hyperlink{class_column_vector_0e67b7831d9d4c02691056a72abc6975}{appendCol} ()
+\begin{CompactList}\small\item\em This method is undefined for a \hyperlink{class_column_vector}{ColumnVector} since a \hyperlink{class_column_vector}{ColumnVector} can only have one column. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_column_vector}{ColumnVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class. 
+
+If you want to do vector-specific operations like get the length of the vector, use this class instead of the \hyperlink{class_matrix}{Matrix} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_column_vector_080508988b684290b2a0123a923a1e08}{
+\index{ColumnVector@{ColumnVector}!ColumnVector@{ColumnVector}}
+\index{ColumnVector@{ColumnVector}!ColumnVector@{ColumnVector}}
+\subsubsection[{ColumnVector}]{\setlength{\rightskip}{0pt plus 5cm}ColumnVector::ColumnVector (int {\em r})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_column_vector_080508988b684290b2a0123a923a1e08}
+
+
+Creates a \hyperlink{class_column_vector}{ColumnVector} of the specified length. 
+
+\hypertarget{class_column_vector_51a68a454f01918fd4bc1736ac0d4264}{
+\index{ColumnVector@{ColumnVector}!ColumnVector@{ColumnVector}}
+\index{ColumnVector@{ColumnVector}!ColumnVector@{ColumnVector}}
+\subsubsection[{ColumnVector}]{\setlength{\rightskip}{0pt plus 5cm}ColumnVector::ColumnVector (std::vector$<$ double $>$ \& {\em a})}}
+\label{class_column_vector_51a68a454f01918fd4bc1736ac0d4264}
+
+
+Creates a \hyperlink{class_column_vector}{ColumnVector} from a vector of doubles. 
+
+\hypertarget{class_column_vector_a0b9560305d34dd819e7913a811f3336}{
+\index{ColumnVector@{ColumnVector}!ColumnVector@{ColumnVector}}
+\index{ColumnVector@{ColumnVector}!ColumnVector@{ColumnVector}}
+\subsubsection[{ColumnVector}]{\setlength{\rightskip}{0pt plus 5cm}ColumnVector::ColumnVector (double $\ast$ {\em a}, \/  int {\em size})}}
+\label{class_column_vector_a0b9560305d34dd819e7913a811f3336}
+
+
+Creates a \hyperlink{class_column_vector}{ColumnVector} from an array of doubles, with the size of the array as the second argument. 
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_column_vector_0e67b7831d9d4c02691056a72abc6975}{
+\index{ColumnVector@{ColumnVector}!appendCol@{appendCol}}
+\index{appendCol@{appendCol}!ColumnVector@{ColumnVector}}
+\subsubsection[{appendCol}]{\setlength{\rightskip}{0pt plus 5cm}void ColumnVector::appendCol ()}}
+\label{class_column_vector_0e67b7831d9d4c02691056a72abc6975}
+
+
+This method is undefined for a \hyperlink{class_column_vector}{ColumnVector} since a \hyperlink{class_column_vector}{ColumnVector} can only have one column. 
+
+\hypertarget{class_column_vector_66329a870ee70b5cd93879d3be247b21}{
+\index{ColumnVector@{ColumnVector}!length@{length}}
+\index{length@{length}!ColumnVector@{ColumnVector}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}double ColumnVector::length ()}}
+\label{class_column_vector_66329a870ee70b5cd93879d3be247b21}
+
+
+Calculates and returns the length of the vector. 
+
+
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+\hyperlink{_matrix_8h}{Matrix.h}\item 
+\hyperlink{_matrix_8cpp}{Matrix.cpp}\end{CompactItemize}

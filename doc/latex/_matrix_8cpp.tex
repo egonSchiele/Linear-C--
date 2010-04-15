@@ -1,0 +1,94 @@
+\hypertarget{_matrix_8cpp}{
+\section{Matrix.cpp File Reference}
+\label{_matrix_8cpp}\index{Matrix.cpp@{Matrix.cpp}}
+}
+{\tt \#include $<$iostream$>$}\par
+{\tt \#include $<$ctime$>$}\par
+{\tt \#include $<$cstdlib$>$}\par
+{\tt \#include $<$vector$>$}\par
+{\tt \#include $<$cassert$>$}\par
+{\tt \#include $<$cmath$>$}\par
+{\tt \#include \char`\"{}Matrix.h\char`\"{}}\par
+
+
+Include dependency graph for Matrix.cpp:\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8cpp_ef0abd0dfab7b317c00f847ea7673842}{operator$\ast$} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{CompactList}\small\item\em Multiplies two matrices and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8cpp_ccade08db7bbcb399bf0f7f6fc0f7a38}{operator$\ast$} (double s, \hyperlink{class_matrix}{Matrix} \&a)
+\begin{CompactList}\small\item\em Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8cpp_ab165f42146537ca4960efd0e1c2975c}{operator$\ast$} (\hyperlink{class_matrix}{Matrix} \&a, double s)
+\begin{CompactList}\small\item\em Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8cpp_3e861c2a1976635b49ded957b0fc1de1}{operator+} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{CompactList}\small\item\em Adds two \hyperlink{class_matrix}{Matrix} objects elementwise and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8cpp_3c8b27309dc425642323ec213fbce7aa}{operator-} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{CompactList}\small\item\em Subtracts the second matrix from the first matrix returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
+ostream \& \hyperlink{_matrix_8cpp_e88f31e57329a153343a5f1fb714c88f}{operator$<$$<$} (ostream \&s, \hyperlink{class_matrix}{Matrix} \&m)
+\item 
+bool \hyperlink{_matrix_8cpp_521b4fbb24969f12c91690fdada71daa}{operator==} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{CompactList}\small\item\em Tests if two \hyperlink{class_matrix}{Matrix} objects are equivalent. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_matrix_8cpp_ab165f42146537ca4960efd0e1c2975c}{
+\index{Matrix.cpp@{Matrix.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix.cpp@{Matrix.cpp}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& operator$\ast$ ({\bf Matrix} \& {\em a}, \/  double {\em s})}}
+\label{_matrix_8cpp_ab165f42146537ca4960efd0e1c2975c}
+
+
+Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
+
+\hypertarget{_matrix_8cpp_ccade08db7bbcb399bf0f7f6fc0f7a38}{
+\index{Matrix.cpp@{Matrix.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix.cpp@{Matrix.cpp}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& operator$\ast$ (double {\em s}, \/  {\bf Matrix} \& {\em a})}}
+\label{_matrix_8cpp_ccade08db7bbcb399bf0f7f6fc0f7a38}
+
+
+Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
+
+\hypertarget{_matrix_8cpp_ef0abd0dfab7b317c00f847ea7673842}{
+\index{Matrix.cpp@{Matrix.cpp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix.cpp@{Matrix.cpp}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& operator$\ast$ ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_8cpp_ef0abd0dfab7b317c00f847ea7673842}
+
+
+Multiplies two matrices and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
+
+\hypertarget{_matrix_8cpp_3e861c2a1976635b49ded957b0fc1de1}{
+\index{Matrix.cpp@{Matrix.cpp}!operator+@{operator+}}
+\index{operator+@{operator+}!Matrix.cpp@{Matrix.cpp}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& operator+ ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_8cpp_3e861c2a1976635b49ded957b0fc1de1}
+
+
+Adds two \hyperlink{class_matrix}{Matrix} objects elementwise and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
+
+\hypertarget{_matrix_8cpp_3c8b27309dc425642323ec213fbce7aa}{
+\index{Matrix.cpp@{Matrix.cpp}!operator-@{operator-}}
+\index{operator-@{operator-}!Matrix.cpp@{Matrix.cpp}}
+\subsubsection[{operator-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& operator- ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_8cpp_3c8b27309dc425642323ec213fbce7aa}
+
+
+Subtracts the second matrix from the first matrix returns the resulting \hyperlink{class_matrix}{Matrix} object. 
+
+\hypertarget{_matrix_8cpp_e88f31e57329a153343a5f1fb714c88f}{
+\index{Matrix.cpp@{Matrix.cpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Matrix.cpp@{Matrix.cpp}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (ostream \& {\em s}, \/  {\bf Matrix} \& {\em m})}}
+\label{_matrix_8cpp_e88f31e57329a153343a5f1fb714c88f}
+
+
+\hypertarget{_matrix_8cpp_521b4fbb24969f12c91690fdada71daa}{
+\index{Matrix.cpp@{Matrix.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!Matrix.cpp@{Matrix.cpp}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool operator== ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_8cpp_521b4fbb24969f12c91690fdada71daa}
+
+
+Tests if two \hyperlink{class_matrix}{Matrix} objects are equivalent. 
+

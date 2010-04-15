@@ -34,6 +34,7 @@ int main(int argc, char * argv[])
 
 
 
+/*
 #include <iostream>
 using namespace std;
 #include "Matrix.h"
@@ -57,4 +58,25 @@ int main(int argc, char * argv[])
     }
     
 	return 0;
+}
+*/
+
+#include <iostream>
+using namespace std;
+#include "Matrix.h"
+#include "MatrixFunctions.h"
+#include <boost/progress.hpp>
+int main(int argc, char * argv[])
+{
+    RowVector m(10);
+    m.populateRandom();
+    cout << m << endl;
+
+    RowVector n(5);
+    n.populateRandom();
+    cout << n << endl;
+    m.appendCol(n);
+    cout << m << endl;
+    
+    return 0;
 }

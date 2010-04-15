@@ -1,0 +1,48 @@
+\hypertarget{_matrix_functions_8cpp}{
+\section{MatrixFunctions.cpp File Reference}
+\label{_matrix_functions_8cpp}\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+}
+{\tt \#include \char`\"{}MatrixFunctions.h\char`\"{}}\par
+{\tt \#include \char`\"{}Matrix.h\char`\"{}}\par
+
+
+Include dependency graph for MatrixFunctions.cpp:\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int \hyperlink{_matrix_functions_8cpp_a7678f1d5dfe64cad1897e1a78da2c10}{findNonZero} (\hyperlink{class_matrix}{Matrix} \&m, int col)
+\begin{CompactList}\small\item\em Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-zero value in that column. \item\end{CompactList}\item 
+\hyperlink{class_column_vector}{ColumnVector} \& \hyperlink{_matrix_functions_8cpp_e86ee38cefc33e331d995efa27d9cce2}{gaussJordan} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{CompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{CompactList}\item 
+\hyperlink{class_column_vector}{ColumnVector} \& \hyperlink{_matrix_functions_8cpp_01929463f1c2846012d5ac2f1e1c1e4e}{gaussianElimination} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{CompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_matrix_functions_8cpp_a7678f1d5dfe64cad1897e1a78da2c10}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!findNonZero@{findNonZero}}
+\index{findNonZero@{findNonZero}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{findNonZero}]{\setlength{\rightskip}{0pt plus 5cm}int findNonZero ({\bf Matrix} \& {\em m}, \/  int {\em col})}}
+\label{_matrix_functions_8cpp_a7678f1d5dfe64cad1897e1a78da2c10}
+
+
+Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-zero value in that column. 
+
+If all rows have zeroes, it returns -1. This function is used by both gaussJordan and gaussianElimination. \hypertarget{_matrix_functions_8cpp_01929463f1c2846012d5ac2f1e1c1e4e}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!gaussianElimination@{gaussianElimination}}
+\index{gaussianElimination@{gaussianElimination}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{gaussianElimination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ColumnVector} \& gaussianElimination ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8cpp_01929463f1c2846012d5ac2f1e1c1e4e}
+
+
+Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
+
+Uses Gaussian Elimination with backsubstitution. Returns a \hyperlink{class_column_vector}{ColumnVector} object containing the solution. \hypertarget{_matrix_functions_8cpp_e86ee38cefc33e331d995efa27d9cce2}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!gaussJordan@{gaussJordan}}
+\index{gaussJordan@{gaussJordan}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{gaussJordan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ColumnVector} \& gaussJordan ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8cpp_e86ee38cefc33e331d995efa27d9cce2}
+
+
+Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
+
+Uses Gauss-Jordan. Returns a \hyperlink{class_column_vector}{ColumnVector} object containing the solution. 

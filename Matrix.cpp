@@ -9,6 +9,8 @@ using namespace std;
 
 Matrix::Matrix(int r, int c)
 {
+    assert(r>=0);
+    assert(c>=0);
     data.resize(r);
     for (int i=0;i<r;i++)
     {
@@ -26,7 +28,8 @@ int Matrix::cols()
     return data[0].size();
 }
 
-// create the matrix from a vector
+
+// Create a matrix from a vector.
 Matrix::Matrix(vector<vector<double> >& a)
 {
     int rows = a.size();
@@ -198,6 +201,13 @@ Matrix& operator*(double s, Matrix &a)
     return *b;
 }
 
+// a scalar * a matrix (the other way)
+Matrix& operator*(Matrix &a, double s)
+{
+    return s * a;
+
+}
+
 
 // how to add two matrices
 Matrix& operator+(Matrix &a, Matrix &b){
@@ -286,6 +296,8 @@ bool operator==(Matrix &a, Matrix &b)
 
 void Matrix::swapRows(int rowA, int rowB)
 {
+    assert(rowA >= 0 && rowB >= 0 && rowA < rows() && rowB < rows());
+
     double temp[cols()];
     
     for (int i=0;i<cols();i++)
@@ -298,6 +310,8 @@ void Matrix::swapRows(int rowA, int rowB)
 
 void Matrix::swapCols(int colA, int colB)
 {
+    assert(colA >= 0 && colB >= 0 && colA < cols() && colB < cols());
+    
     int temp[rows()];
     
     for (int i=0;i<rows();i++)
