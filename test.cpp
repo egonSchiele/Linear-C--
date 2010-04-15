@@ -68,15 +68,11 @@ using namespace std;
 #include <boost/progress.hpp>
 int main(int argc, char * argv[])
 {
-    RowVector m(10);
-    m.populateRandom();
+    Matrix m(3,3);
+    m.populateIdentity();
+    m(1,0) = 2;
     cout << m << endl;
-
-    RowVector n(5);
-    n.populateRandom();
-    cout << n << endl;
-    m.appendCol(n);
-    cout << m << endl;
-    
+    cout << m.inverse() << endl;
+    cout << m*m.inverse() << endl;
     return 0;
 }

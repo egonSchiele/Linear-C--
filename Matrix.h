@@ -55,7 +55,9 @@ class Matrix {
         
         /** Returns a Matrix object that is the transpose of the current Matrix. */
         Matrix& transpose();
-            
+
+        /** Returns a Matrix object that is the inverse of the current Matrix. */
+        Matrix& inverse();
         /** This allows you to access the elements in the matrix using subscripts.
 
             Example:

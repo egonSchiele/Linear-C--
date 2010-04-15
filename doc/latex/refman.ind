@@ -1,0 +1,133 @@
+\begin{theindex}
+
+  \item {appendCol}
+    \subitem {ColumnVector}, \hyperpage{10}
+    \subitem {Matrix}, \hyperpage{12}
+  \item {appendRow}
+    \subitem {Matrix}, \hyperpage{13}
+    \subitem {RowVector}, \hyperpage{16}
+
+  \indexspace
+
+  \item {cols}
+    \subitem {Matrix}, \hyperpage{13}
+  \item {ColumnVector}, \hyperpage{9}
+    \subitem {appendCol}, \hyperpage{10}
+    \subitem {ColumnVector}, \hyperpage{10}
+    \subitem {length}, \hyperpage{10}
+
+  \indexspace
+
+  \item {data}
+    \subitem {Matrix}, \hyperpage{14}
+
+  \indexspace
+
+  \item {findNonZero}
+    \subitem {MatrixFunctions.cpp}, \hyperpage{21}
+    \subitem {MatrixFunctions.h}, \hyperpage{22}
+
+  \indexspace
+
+  \item {gaussianElimination}
+    \subitem {MatrixFunctions.cpp}, \hyperpage{21}
+    \subitem {MatrixFunctions.h}, \hyperpage{22}
+  \item {gaussJordan}
+    \subitem {MatrixFunctions.cpp}, \hyperpage{21}
+    \subitem {MatrixFunctions.h}, \hyperpage{22}
+
+  \indexspace
+
+  \item {length}
+    \subitem {ColumnVector}, \hyperpage{10}
+    \subitem {RowVector}, \hyperpage{16}
+
+  \indexspace
+
+  \item {main}
+    \subitem {test.cpp}, \hyperpage{24}
+  \item {Matrix}, \hyperpage{11}
+    \subitem {appendCol}, \hyperpage{12}
+    \subitem {appendRow}, \hyperpage{13}
+    \subitem {cols}, \hyperpage{13}
+    \subitem {data}, \hyperpage{14}
+    \subitem {Matrix}, \hyperpage{12}
+    \subitem {operator()}, \hyperpage{13}
+    \subitem {populateIdentity}, \hyperpage{13}
+    \subitem {populateRandom}, \hyperpage{13}
+    \subitem {rows}, \hyperpage{13}
+    \subitem {swapCols}, \hyperpage{13}
+    \subitem {swapRows}, \hyperpage{14}
+    \subitem {transpose}, \hyperpage{14}
+  \item {Matrix.cpp}, \hyperpage{17}
+    \subitem {operator$<$$<$}, \hyperpage{18}
+    \subitem {operator$\ast $}, \hyperpage{18}
+    \subitem {operator+}, \hyperpage{18}
+    \subitem {operator-}, \hyperpage{18}
+    \subitem {operator==}, \hyperpage{18}
+  \item {Matrix.h}, \hyperpage{19}
+    \subitem {operator$<$$<$}, \hyperpage{20}
+    \subitem {operator$\ast $}, \hyperpage{20}
+    \subitem {operator+}, \hyperpage{20}
+    \subitem {operator-}, \hyperpage{20}
+    \subitem {operator==}, \hyperpage{20}
+  \item {MatrixFunctions.cpp}, \hyperpage{21}
+    \subitem {findNonZero}, \hyperpage{21}
+    \subitem {gaussianElimination}, \hyperpage{21}
+    \subitem {gaussJordan}, \hyperpage{21}
+  \item {MatrixFunctions.h}, \hyperpage{22}
+    \subitem {findNonZero}, \hyperpage{22}
+    \subitem {gaussianElimination}, \hyperpage{22}
+    \subitem {gaussJordan}, \hyperpage{22}
+
+  \indexspace
+
+  \item {operator$<$$<$}
+    \subitem {Matrix.cpp}, \hyperpage{18}
+    \subitem {Matrix.h}, \hyperpage{20}
+  \item {operator$\ast $}
+    \subitem {Matrix.cpp}, \hyperpage{18}
+    \subitem {Matrix.h}, \hyperpage{20}
+  \item {operator()}
+    \subitem {Matrix}, \hyperpage{13}
+  \item {operator+}
+    \subitem {Matrix.cpp}, \hyperpage{18}
+    \subitem {Matrix.h}, \hyperpage{20}
+  \item {operator-}
+    \subitem {Matrix.cpp}, \hyperpage{18}
+    \subitem {Matrix.h}, \hyperpage{20}
+  \item {operator==}
+    \subitem {Matrix.cpp}, \hyperpage{18}
+    \subitem {Matrix.h}, \hyperpage{20}
+
+  \indexspace
+
+  \item {populateIdentity}
+    \subitem {Matrix}, \hyperpage{13}
+  \item {populateRandom}
+    \subitem {Matrix}, \hyperpage{13}
+
+  \indexspace
+
+  \item {rows}
+    \subitem {Matrix}, \hyperpage{13}
+  \item {RowVector}, \hyperpage{15}
+    \subitem {appendRow}, \hyperpage{16}
+    \subitem {length}, \hyperpage{16}
+    \subitem {RowVector}, \hyperpage{15}
+
+  \indexspace
+
+  \item {swapCols}
+    \subitem {Matrix}, \hyperpage{13}
+  \item {swapRows}
+    \subitem {Matrix}, \hyperpage{14}
+
+  \indexspace
+
+  \item {test.cpp}, \hyperpage{24}
+    \subitem {main}, \hyperpage{24}
+  \item {transpose}
+    \subitem {Matrix}, \hyperpage{14}
+
+\end{theindex}

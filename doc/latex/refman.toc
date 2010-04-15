@@ -1,0 +1,83 @@
+\contentsline {chapter}{\numberline {1}LinearC++ Documentation}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}Class Documentation}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}ColumnVector Class Reference}{9}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{9}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Constructor \& Destructor Documentation}{10}{subsection.5.1.2}
+\contentsline {subsubsection}{\numberline {5.1.2.1}ColumnVector}{10}{subsubsection.5.1.2.1}
+\contentsline {subsubsection}{\numberline {5.1.2.2}ColumnVector}{10}{subsubsection.5.1.2.2}
+\contentsline {subsubsection}{\numberline {5.1.2.3}ColumnVector}{10}{subsubsection.5.1.2.3}
+\contentsline {subsection}{\numberline {5.1.3}Member Function Documentation}{10}{subsection.5.1.3}
+\contentsline {subsubsection}{\numberline {5.1.3.1}appendCol}{10}{subsubsection.5.1.3.1}
+\contentsline {subsubsection}{\numberline {5.1.3.2}length}{10}{subsubsection.5.1.3.2}
+\contentsline {section}{\numberline {5.2}Matrix Class Reference}{11}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Detailed Description}{12}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Constructor \& Destructor Documentation}{12}{subsection.5.2.2}
+\contentsline {subsubsection}{\numberline {5.2.2.1}Matrix}{12}{subsubsection.5.2.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2.2}Matrix}{12}{subsubsection.5.2.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Member Function Documentation}{12}{subsection.5.2.3}
+\contentsline {subsubsection}{\numberline {5.2.3.1}appendCol}{12}{subsubsection.5.2.3.1}
+\contentsline {subsubsection}{\numberline {5.2.3.2}appendCol}{12}{subsubsection.5.2.3.2}
+\contentsline {subsubsection}{\numberline {5.2.3.3}appendCol}{13}{subsubsection.5.2.3.3}
+\contentsline {subsubsection}{\numberline {5.2.3.4}appendRow}{13}{subsubsection.5.2.3.4}
+\contentsline {subsubsection}{\numberline {5.2.3.5}appendRow}{13}{subsubsection.5.2.3.5}
+\contentsline {subsubsection}{\numberline {5.2.3.6}appendRow}{13}{subsubsection.5.2.3.6}
+\contentsline {subsubsection}{\numberline {5.2.3.7}cols}{13}{subsubsection.5.2.3.7}
+\contentsline {subsubsection}{\numberline {5.2.3.8}operator()}{13}{subsubsection.5.2.3.8}
+\contentsline {subsubsection}{\numberline {5.2.3.9}populateIdentity}{13}{subsubsection.5.2.3.9}
+\contentsline {subsubsection}{\numberline {5.2.3.10}populateRandom}{13}{subsubsection.5.2.3.10}
+\contentsline {subsubsection}{\numberline {5.2.3.11}rows}{13}{subsubsection.5.2.3.11}
+\contentsline {subsubsection}{\numberline {5.2.3.12}swapCols}{14}{subsubsection.5.2.3.12}
+\contentsline {subsubsection}{\numberline {5.2.3.13}swapRows}{14}{subsubsection.5.2.3.13}
+\contentsline {subsubsection}{\numberline {5.2.3.14}transpose}{14}{subsubsection.5.2.3.14}
+\contentsline {subsection}{\numberline {5.2.4}Member Data Documentation}{14}{subsection.5.2.4}
+\contentsline {subsubsection}{\numberline {5.2.4.1}data}{14}{subsubsection.5.2.4.1}
+\contentsline {section}{\numberline {5.3}RowVector Class Reference}{15}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Detailed Description}{15}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Constructor \& Destructor Documentation}{15}{subsection.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.2.1}RowVector}{15}{subsubsection.5.3.2.1}
+\contentsline {subsubsection}{\numberline {5.3.2.2}RowVector}{15}{subsubsection.5.3.2.2}
+\contentsline {subsubsection}{\numberline {5.3.2.3}RowVector}{15}{subsubsection.5.3.2.3}
+\contentsline {subsection}{\numberline {5.3.3}Member Function Documentation}{16}{subsection.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.3.1}appendRow}{16}{subsubsection.5.3.3.1}
+\contentsline {subsubsection}{\numberline {5.3.3.2}length}{16}{subsubsection.5.3.3.2}
+\contentsline {chapter}{\numberline {6}File Documentation}{17}{chapter.6}
+\contentsline {section}{\numberline {6.1}Matrix.cpp File Reference}{17}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Function Documentation}{18}{subsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.1}operator$\ast $}{18}{subsubsection.6.1.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.2}operator$\ast $}{18}{subsubsection.6.1.1.2}
+\contentsline {subsubsection}{\numberline {6.1.1.3}operator$\ast $}{18}{subsubsection.6.1.1.3}
+\contentsline {subsubsection}{\numberline {6.1.1.4}operator+}{18}{subsubsection.6.1.1.4}
+\contentsline {subsubsection}{\numberline {6.1.1.5}operator-}{18}{subsubsection.6.1.1.5}
+\contentsline {subsubsection}{\numberline {6.1.1.6}operator$<$$<$}{18}{subsubsection.6.1.1.6}
+\contentsline {subsubsection}{\numberline {6.1.1.7}operator==}{18}{subsubsection.6.1.1.7}
+\contentsline {section}{\numberline {6.2}Matrix.h File Reference}{19}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Detailed Description}{20}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Function Documentation}{20}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}operator$\ast $}{20}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}operator$\ast $}{20}{subsubsection.6.2.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.3}operator$\ast $}{20}{subsubsection.6.2.2.3}
+\contentsline {subsubsection}{\numberline {6.2.2.4}operator+}{20}{subsubsection.6.2.2.4}
+\contentsline {subsubsection}{\numberline {6.2.2.5}operator-}{20}{subsubsection.6.2.2.5}
+\contentsline {subsubsection}{\numberline {6.2.2.6}operator$<$$<$}{20}{subsubsection.6.2.2.6}
+\contentsline {subsubsection}{\numberline {6.2.2.7}operator==}{20}{subsubsection.6.2.2.7}
+\contentsline {section}{\numberline {6.3}MatrixFunctions.cpp File Reference}{21}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Function Documentation}{21}{subsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.1.1}findNonZero}{21}{subsubsection.6.3.1.1}
+\contentsline {subsubsection}{\numberline {6.3.1.2}gaussianElimination}{21}{subsubsection.6.3.1.2}
+\contentsline {subsubsection}{\numberline {6.3.1.3}gaussJordan}{21}{subsubsection.6.3.1.3}
+\contentsline {section}{\numberline {6.4}MatrixFunctions.h File Reference}{22}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{22}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Function Documentation}{22}{subsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.2.1}findNonZero}{22}{subsubsection.6.4.2.1}
+\contentsline {subsubsection}{\numberline {6.4.2.2}gaussianElimination}{22}{subsubsection.6.4.2.2}
+\contentsline {subsubsection}{\numberline {6.4.2.3}gaussJordan}{22}{subsubsection.6.4.2.3}
+\contentsline {section}{\numberline {6.5}test.cpp File Reference}{24}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Function Documentation}{24}{subsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.1.1}main}{24}{subsubsection.6.5.1.1}

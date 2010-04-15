@@ -5,6 +5,7 @@
 #include <cassert>
 #include <cmath>
 #include "Matrix.h"
+#include "MatrixFunctions.h"
 using namespace std;
 
 Matrix::Matrix(int r, int c)
@@ -274,6 +275,23 @@ Matrix& Matrix::transpose()
         }        
     }
     return *c;
+}
+
+// get the inverse of the matrix
+Matrix& Matrix::inverse()
+{
+    assert(rows() == cols()); // must be a square matrix
+    
+    Matrix *inv = new Matrix(rows(),0);
+    
+    for (int i=0;i<cols();i++)
+    {
+        ColumnVector *b = new ColumnVector(cols());
+        (*b)(i,0) = 1;
+        ColumnVector x = gaussianElimination(*this, *b);
+        inv->appendCol(x);
+    }
+    return *inv;    
 }
 
 // test two Matrix objects to see if they are equal
