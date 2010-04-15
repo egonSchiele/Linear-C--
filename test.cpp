@@ -68,11 +68,15 @@ using namespace std;
 #include <boost/progress.hpp>
 int main(int argc, char * argv[])
 {
-    Matrix m(3,3);
-    m.populateIdentity();
-    m(1,0) = 2;
-    cout << m << endl;
-    cout << m.inverse() << endl;
-    cout << m*m.inverse() << endl;
+    boost::progress_timer t;
+    Matrix A(2,2);
+    A.populateRandom();
+    cout << A << endl;
+    Matrix b(2,2);
+    b.populateIdentity();
+    cout << b << endl;
+    cout << gaussJordan(A,b) << endl;
+    cout << gaussianElimination(A,b) << endl;
+    cout << A.inverse() << endl;
     return 0;
 }

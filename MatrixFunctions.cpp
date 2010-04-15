@@ -18,7 +18,7 @@ int findNonZero(Matrix &m, int col)
 
 // Given two matrices A and b, solves the linear system of equations
 // assuming the form Ax = b. Uses Gauss-Jordan.
-ColumnVector& gaussJordan(Matrix& A, Matrix& b)
+Matrix& gaussJordan(Matrix& A, Matrix& b)
 {
     Matrix Aug = A;
     Aug.appendCol(b); // make the augmented matrix
@@ -62,13 +62,17 @@ ColumnVector& gaussJordan(Matrix& A, Matrix& b)
         }
     }
     
-    // at this point, the last column of Aug contains our solution.
+    // at this point, the augmented part of Aug contains our solution.
     // Let's return it.
     
-    ColumnVector *res = new ColumnVector(A.rows());
+    Matrix *res = new Matrix(b.rows(), b.cols());
     for (int x=0;x<A.rows();x++)
     {
-        (*res)(x,0) = Aug(x,Aug.cols()-1);
+        for (int y=A.cols();y<A.cols() + b.cols();y++)
+        {
+
+            (*res)(x,y-A.cols()) = Aug(x,y);
+        }
     }
         
     return *res;
@@ -77,7 +81,7 @@ ColumnVector& gaussJordan(Matrix& A, Matrix& b)
 
 // Given two matrices A and b, solves the linear system of equations
 // assuming the form Ax = b. Uses Gaussian Elimination with backsubstitution.
-ColumnVector& gaussianElimination(Matrix& A, Matrix& b)
+Matrix& gaussianElimination(Matrix& A, Matrix& b)
 {
     // First let's get it in row-echelon form.
     // This code is actually very similar to the code for
@@ -131,27 +135,32 @@ ColumnVector& gaussianElimination(Matrix& A, Matrix& b)
     // Now we do backsubstitution.
     
     // start from the last row, work our way up.
-    int lastcol = Aug.cols() - 1;
     for (int x=Aug.rows()-2;x>=0;x--)
     {
         for (int y=A.cols()-1;y>x;y--)
         {
-            // set the final column value to the answer.
-            Aug(x,lastcol) = Aug(x,lastcol) - (Aug(x,y) * Aug(y,lastcol));
-            
+            // set the augmented columns values to the answer.
+            for (int z=A.cols();z<A.cols() + b.cols();z++)
+            {
+                Aug(x,z) = Aug(x,z) - (Aug(x,y) * Aug(y,z));
+            }
             // set the substituted column to zero since we moved it
             // to the other side of the = sign.
             Aug(x,y) = 0;
         }
     }
     
-    // at this point, the last column of Aug contains our solution.
+    // at this point, the augmented part of Aug contains our solution.
     // Let's return it.
     
-    ColumnVector *res = new ColumnVector(A.rows());
+    Matrix *res = new Matrix(b.rows(), b.cols());
     for (int x=0;x<A.rows();x++)
     {
-        (*res)(x,0) = Aug(x,Aug.cols()-1);
+        for (int y=A.cols();y<A.cols() + b.cols();y++)
+        {
+
+            (*res)(x,y-A.cols()) = Aug(x,y);
+        }
     }
         
     return *res;

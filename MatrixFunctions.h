@@ -20,20 +20,20 @@
 */
 int findNonZero(Matrix &m, int col);
 
-/** \fn ColumnVector& gaussJordan(Matrix& A, Matrix& b);
+/** \fn Matrix& gaussJordan(Matrix& A, Matrix& b);
     
     Given two matrices A and b, solves the linear system of equations
-    assuming the form Ax = b. Uses Gauss-Jordan. Returns a ColumnVector
+    assuming the form Ax = b. Uses Gauss-Jordan. Returns a Matrix
     object containing the solution.
 */
-ColumnVector& gaussJordan(Matrix& A, Matrix& b);
+Matrix& gaussJordan(Matrix& A, Matrix& b);
 
-/** \fn ColumnVector& gaussianElimination(Matrix& A, Matrix& b);
+/** \fn Matrix& gaussianElimination(Matrix& A, Matrix& b);
     
     Given two matrices A and b, solves the linear system of equations
     assuming the form Ax = b. Uses Gaussian Elimination with backsubstitution.
-    Returns a ColumnVector object containing the solution.
+    Returns a Matrix object containing the solution.
 */
-ColumnVector& gaussianElimination(Matrix& A, Matrix& b);
+Matrix& gaussianElimination(Matrix& A, Matrix& b);
 
 #endif

@@ -282,16 +282,10 @@ Matrix& Matrix::inverse()
 {
     assert(rows() == cols()); // must be a square matrix
     
-    Matrix *inv = new Matrix(rows(),0);
-    
-    for (int i=0;i<cols();i++)
-    {
-        ColumnVector *b = new ColumnVector(cols());
-        (*b)(i,0) = 1;
-        ColumnVector x = gaussianElimination(*this, *b);
-        inv->appendCol(x);
-    }
-    return *inv;    
+    // just solve for the identity matrix using Gauss-Jordan.
+    Matrix *b = new Matrix(rows(),cols());
+    b->populateIdentity();
+    return gaussJordan(*this,*b);
 }
 
 // test two Matrix objects to see if they are equal
