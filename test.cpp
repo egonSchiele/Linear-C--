@@ -1,82 +1,32 @@
-/*
 #include <iostream>
 using namespace std;
 #include "Matrix.h"
 #include "MatrixFunctions.h"
+#include "boost/tuple/tuple.hpp"
+
 int main(int argc, char * argv[])
 {
+
+    Matrix L(2,2);
+    L(0,0) = 1;
+    L(0,1) = 0;
+    L(1,0) = 4;
+    L(1,1) = 1;
+
+    Matrix U(2,2);
+    U(0,0) = 2;
+    U(0,1) = 1;
+    U(1,0) = 0;
+    U(1,1) = 3;
     
-    Matrix m(2,2);
-    m(0,0) = 1;
-    m(0,1) = 2;
-    m(1,0) = 2;
-    m(1,1) = 5;
-    
-    cout << "A:" << m << endl;
-    
-    double arr[] = {2,5};
-    ColumnVector b(arr,2);
-    cout << "b:" << b << endl;
-/*
-    Matrix b(2,1);
-    b.populateRandom();
-*/
-/*
-    m.populateRandom();
-    b.populateRandom();
-
-    cout << "answer with gaussJordan:" << gaussJordan(m,b) << endl;
-    cout << "answer with gaussianElimination: " << gaussianElimination(m,b) << endl;   
-
-    return 0;
-}
-*/
-
-
-
-/*
-#include <iostream>
-using namespace std;
-#include "Matrix.h"
-#include "MatrixFunctions.h"
-#include <boost/progress.hpp>
-int main(int argc, char * argv[])
-{
-    boost::progress_timer t;
-    // time gaussJordan: 7.75 s
-    // time gaussianElimination: 4.10 s
-	for (int i=1;i<100;i++)
-    {
-        Matrix *a = new Matrix(i,i);
-        a->populateRandom();
-        
-        ColumnVector *b = new ColumnVector(i);
-        b->populateRandom();
-        
-        gaussianElimination(*a,*b);
-        cout << i << endl;
-    }
-    
-	return 0;
-}
-*/
-
-#include <iostream>
-using namespace std;
-#include "Matrix.h"
-#include "MatrixFunctions.h"
-#include <boost/progress.hpp>
-int main(int argc, char * argv[])
-{
-    boost::progress_timer t;
-    Matrix A(2,2);
-    A.populateRandom();
+    Matrix A = L*U;
     cout << A << endl;
-    Matrix b(2,2);
-    b.populateIdentity();
-    cout << b << endl;
-    cout << gaussJordan(A,b) << endl;
-    cout << gaussianElimination(A,b) << endl;
-    cout << A.inverse() << endl;
+    boost::tuple<Matrix,Matrix> lu = LUDecompose(A);
+    L = lu.get<0>();
+    U = lu.get<1>();
+    
+    cout << L << endl;
+    cout << U << endl;
+    cout << L*U << endl;
     return 0;
 }

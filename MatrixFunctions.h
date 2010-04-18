@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include "Matrix.h"
+#include "boost/tuple/tuple.hpp"
 
 /*! \file MatrixFunctions.h
     
@@ -36,4 +37,26 @@ Matrix& gaussJordan(Matrix& A, Matrix& b);
 */
 Matrix& gaussianElimination(Matrix& A, Matrix& b);
 
+/** \fn boost::tuple<Matrix,Matrix> LUDecompose(Matrix A);
+    
+    Given a matrix, returns it's LU decomposition. Two matrices L and U are returned
+    as a boost tuple. Example usage:
+    
+    #include "boost/tuple/tuple.hpp"
+
+    // create a new matrix
+    Matrix A(3,3);
+    A.populateRandom();
+  
+    // get its decomposition
+    boost::tuple<Matrix,Matrix> lu = LUDecompose(A);
+    Matrix L = lu.get<0>();
+    Matrix U = lu.get<1>();
+    
+    // print out L and U matrices
+    cout << L << endl;
+    cout << U << endl;
+ 
+*/
+boost::tuple<Matrix,Matrix> LUDecompose(Matrix A);
 #endif

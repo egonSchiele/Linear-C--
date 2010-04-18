@@ -1,5 +1,7 @@
 #include "MatrixFunctions.h"
 #include "Matrix.h"
+#include "boost/tuple/tuple.hpp"
+
 using namespace std;
 
 // returns the # of first row of this matrix that
@@ -164,4 +166,63 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b)
     }
         
     return *res;
+}
+
+boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
+{
+    /* although not required ofr general LU decomposition, we require
+       matrices to be square. */
+    assert(A.rows()==A.cols());
+    Matrix L(A.rows(),A.cols());
+    L.populateIdentity();
+
+    /* gaussian Elimination to get us in upper triangular form. */
+    for (int c=0;c<A.cols();c++)
+    {    
+        int goodRow = findNonZero(A, c);
+        
+        // either we don't have enough equations, or there's
+        // a logical error, like -1 = 0. Either way, no solution.
+        if (goodRow < 0)
+        {
+            cout << "no solution possible." << endl;
+            Matrix *l = new Matrix(0,0);
+            Matrix *u = new Matrix(0,0);
+            return boost::tuple<Matrix&, Matrix&>(*l,*u);
+        }
+        
+        // swap the good row with the row we want a 1 in.
+        // we want 1's on the diagonal, so the row we want 
+        // a 2 in is the same # as the column that we're on.
+        A.swapRows(c, goodRow);
+
+        for (int r=c+1;r<A.rows();r++)
+        {
+            if (r==c) {
+                // we want a 1 here.
+                double scalar = A(c,c);
+                /* set L-inverse to reflect this. */
+                L(c,c) = 1.0/scalar;
+                for (int k=0;k<A.cols();k++)
+                {
+                    /* multiply through by 1/x to make the current cell = 1. */
+                    A(r,k) = A(r,k) * (1.0/scalar);
+                }                
+            }else{
+                // we want a 0 here
+                double multiplier = A(r,c) / A(c,c);
+                /* set L-inverse to reflect this. */
+                L(r,c) = -multiplier;
+                for (int k=0;k<A.cols();k++)
+                {
+                    A(r,k) = A(r,k) - (A(c,k) * multiplier);
+                }                                                
+            }
+        }
+
+    }
+    Matrix *L2 = &(L.inverse());
+    Matrix *U = &A;
+    return boost::make_tuple(*L2, *U);
+    
 }
