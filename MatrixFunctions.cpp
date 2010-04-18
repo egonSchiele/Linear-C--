@@ -175,7 +175,7 @@ boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
     assert(A.rows()==A.cols());
     Matrix L(A.rows(),A.cols());
     L.populateIdentity();
-
+    Matrix Lfinal(L);
     /* gaussian Elimination to get us in upper triangular form. */
     for (int c=0;c<A.cols();c++)
     {    
@@ -195,7 +195,17 @@ boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
         // we want 1's on the diagonal, so the row we want 
         // a 2 in is the same # as the column that we're on.
         A.swapRows(c, goodRow);
-
+        
+        // adjust L-inverse if we did have to swap a row
+        // (i.e. the good row wasn't the current diagonal)
+        if (goodRow != c)
+        {
+            L(c,c) = 0;
+            L(c,goodRow) = 1;
+            L(goodRow,c) = 1;
+            L(goodRow,goodRow) = 0;
+        }
+        
         for (int r=c+1;r<A.rows();r++)
         {
             if (r==c) {
@@ -212,16 +222,21 @@ boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
                 // we want a 0 here
                 double multiplier = A(r,c) / A(c,c);
                 /* set L-inverse to reflect this. */
-                L(r,c) = -multiplier;
+                if (multiplier!=0) L(r,c) = multiplier;
                 for (int k=0;k<A.cols();k++)
                 {
                     A(r,k) = A(r,k) - (A(c,k) * multiplier);
                 }                                                
             }
+            
+/*
+            Lfinal = L*Lfinal;
+            L.populateIdentity();
+*/
         }
 
     }
-    Matrix *L2 = &(L.inverse());
+    Matrix *L2 = &(L);
     Matrix *U = &A;
     return boost::make_tuple(*L2, *U);
     

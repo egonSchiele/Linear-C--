@@ -6,27 +6,33 @@ using namespace std;
 
 int main(int argc, char * argv[])
 {
+    Matrix A(3,3);
+    A.populateRandom();
+/*
+[ 0  2  9 ]
+[ 7  5  0 ]
+[ 3  9  6 ]
+*/
+/*
 
-    Matrix L(2,2);
-    L(0,0) = 1;
-    L(0,1) = 0;
-    L(1,0) = 4;
-    L(1,1) = 1;
-
-    Matrix U(2,2);
-    U(0,0) = 2;
-    U(0,1) = 1;
-    U(1,0) = 0;
-    U(1,1) = 3;
+    A(0,0) = 0;
+    A(0,1) = 2;
+    A(0,2) = 9;
+    A(1,0) = 7;
+    A(1,1) = 5;
+    A(1,2) = 0;
+    A(2,0) = 3;
+    A(2,1) = 9;
+    A(2,2) = 6;
+        
+*/
+    boost::tuple<Matrix,Matrix> t = LUDecompose(A);
     
-    Matrix A = L*U;
-    cout << A << endl;
-    boost::tuple<Matrix,Matrix> lu = LUDecompose(A);
-    L = lu.get<0>();
-    U = lu.get<1>();
+    Matrix L = t.get<0>();
+    Matrix U = t.get<1>();
     
-    cout << L << endl;
-    cout << U << endl;
-    cout << L*U << endl;
-    return 0;
+    cout << "A:" << A << endl;
+    cout << "L:" << L << endl;
+    cout << "U:" << U << endl;
+    cout << "A again?:" << L*U << endl;
 }

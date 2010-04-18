@@ -1,2 +1,3 @@
 - Make LU Decomposition work with any matrix, not just square matrices.
 - Factor out common code in gaussian elimination, gauss jordan, and LU decomposition if possible.
+- matrix equality.
