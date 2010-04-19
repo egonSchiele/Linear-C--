@@ -291,9 +291,7 @@ Matrix& Matrix::inverse()
 // test two Matrix objects to see if they are equal
 bool operator==(Matrix &a, Matrix &b)
 {
-    if(a.cols() != b.cols() && a.rows() != b.rows())
-    return false;
-    
+    if(a.cols() != b.cols() && a.rows() != b.rows()) { return false; }    
     for (int i=0;i<a.rows();i++)
     {
         for (int j=0;j<a.cols();j++)
@@ -303,7 +301,8 @@ bool operator==(Matrix &a, Matrix &b)
                 return false;
             }
         }        
-    }    
+    }
+    return true;
 }
 
 void Matrix::swapRows(int rowA, int rowB)

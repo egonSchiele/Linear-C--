@@ -1,0 +1,2 @@
+all: TestMatrix.cpp Main.cpp
+	g++ -I/usr/local/boost TestMatrix.cpp Main.cpp ../Matrix.cpp ../MatrixFunctions.cpp -o Main

@@ -1,3 +1,5 @@
 - Make LU Decomposition work with any matrix, not just square matrices.
 - Factor out common code in gaussian elimination, gauss jordan, and LU decomposition if possible.
-- matrix equality.
+- make the findNonZero function return the max value in that column instead of the first non-zero value. Same linear running time, but this is a *lot* better numerically speaking, especially since we're using doubles.
+- convert LU decompose to LUP decompose and return the permutation matrix separately.
+- explicitly initialize matrices to zeroes.

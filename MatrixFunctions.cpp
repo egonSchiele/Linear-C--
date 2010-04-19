@@ -33,6 +33,7 @@ Matrix& gaussJordan(Matrix& A, Matrix& b)
         if (goodRow < 0)
         {
             cout << "no solution possible." << endl;
+            cout << "matrix is:" << Aug << endl;
             ColumnVector *n = new ColumnVector(0);
             return *n;
         }
@@ -220,9 +221,10 @@ boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
                 }                
             }else{
                 // we want a 0 here
+                if (A(r,c) == 0) continue;
                 double multiplier = A(r,c) / A(c,c);
                 /* set L-inverse to reflect this. */
-                if (multiplier!=0) L(r,c) = multiplier;
+                L(r,c) = multiplier;
                 for (int k=0;k<A.cols();k++)
                 {
                     A(r,k) = A(r,k) - (A(c,k) * multiplier);
