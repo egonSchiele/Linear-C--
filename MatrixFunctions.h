@@ -41,7 +41,7 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b);
     
     Given a matrix, returns it's LUP decomposition. Three matrices L, U and P
     are returned as a boost tuple. Example usage:
-    
+    \code
     #include "boost/tuple/tuple.hpp"
 
     // create a new matrix
@@ -58,7 +58,7 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b);
     cout << L << endl;
     cout << U << endl;
     cout << P << endl;
- 
+    \endcode
 */
 boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A);
 #endif

@@ -61,10 +61,11 @@ class Matrix {
         /** This allows you to access the elements in the matrix using subscripts.
 
             Example:
+            \code
                 Matrix m(10,10);        // create a 10x10 Matrix
                 m(0,0) = 10;            // set it's first element to 10
                 cout << m(9,9) << endl; // print it's last element
-
+            \endcode
             This is similar to MATLAB's notation for matrices, but our matrices
             are zero-indexed.
         */

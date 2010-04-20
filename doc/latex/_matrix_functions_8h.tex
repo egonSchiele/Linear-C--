@@ -2,58 +2,99 @@
 \section{MatrixFunctions.h File Reference}
 \label{_matrix_functions_8h}\index{MatrixFunctions.h@{MatrixFunctions.h}}
 }
+
+
 This file contains the declarations of the basic Linear Algebra classes and some methods that operate on them.  
 
 
-{\tt \#include $<$iostream$>$}\par
-{\tt \#include $<$vector$>$}\par
-{\tt \#include \char`\"{}Matrix.h\char`\"{}}\par
-
-
-Include dependency graph for MatrixFunctions.h:
-
-This graph shows which files directly or indirectly include this file:\subsection*{Functions}
-\begin{CompactItemize}
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$vector$>$}\par
+{\ttfamily \#include \char`\"{}Matrix.h\char`\"{}}\par
+{\ttfamily \#include \char`\"{}boost/tuple/tuple.hpp\char`\"{}}\par
+Include dependency graph for MatrixFunctions.h:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{_matrix_functions_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=111pt]{_matrix_functions_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
 \item 
-int \hyperlink{_matrix_functions_8h_a7678f1d5dfe64cad1897e1a78da2c10}{findNonZero} (\hyperlink{class_matrix}{Matrix} \&m, int col)
-\begin{CompactList}\small\item\em Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-zero value in that column. \item\end{CompactList}\item 
-\hyperlink{class_column_vector}{ColumnVector} \& \hyperlink{_matrix_functions_8h_e8abda6337ff8ad8a26a434b95b46f3d}{gaussJordan} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{CompactList}\item 
-\hyperlink{class_column_vector}{ColumnVector} \& \hyperlink{_matrix_functions_8h_7337b39f018c263fd459fcba13bb7a8a}{gaussianElimination} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{CompactList}\end{CompactItemize}
+int \hyperlink{_matrix_functions_8h_aa7678f1d5dfe64cad1897e1a78da2c10}{findNonZero} (\hyperlink{class_matrix}{Matrix} \&m, int col)
+\begin{DoxyCompactList}\small\item\em Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-\/zero value in that column. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_functions_8h_a77b7bbc23b94764daf1def2756ed78a2}{gaussJordan} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_functions_8h_ae3f5418ded795e1220e7caac7771494b}{gaussianElimination} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
+boost::tuple$<$ \hyperlink{class_matrix}{Matrix}, \hyperlink{class_matrix}{Matrix}, \hyperlink{class_matrix}{Matrix} $>$ \hyperlink{_matrix_functions_8h_a3a79c07a22dd5e176404f713b54e5dfc}{LUPDecompose} (\hyperlink{class_matrix}{Matrix} A)
+\begin{DoxyCompactList}\small\item\em Given a matrix, returns it's LUP decomposition. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 This file contains the declarations of the basic Linear Algebra classes and some methods that operate on them. 
 
-
-
 \subsection{Function Documentation}
-\hypertarget{_matrix_functions_8h_a7678f1d5dfe64cad1897e1a78da2c10}{
+\hypertarget{_matrix_functions_8h_aa7678f1d5dfe64cad1897e1a78da2c10}{
 \index{MatrixFunctions.h@{MatrixFunctions.h}!findNonZero@{findNonZero}}
 \index{findNonZero@{findNonZero}!MatrixFunctions.h@{MatrixFunctions.h}}
 \subsubsection[{findNonZero}]{\setlength{\rightskip}{0pt plus 5cm}int findNonZero ({\bf Matrix} \& {\em m}, \/  int {\em col})}}
-\label{_matrix_functions_8h_a7678f1d5dfe64cad1897e1a78da2c10}
+\label{_matrix_functions_8h_aa7678f1d5dfe64cad1897e1a78da2c10}
 
 
-Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-zero value in that column. 
+Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-\/zero value in that column. 
 
-If all rows have zeroes, it returns -1. This function is used by both gaussJordan and gaussianElimination. \hypertarget{_matrix_functions_8h_7337b39f018c263fd459fcba13bb7a8a}{
+If all rows have zeroes, it returns -\/1. This function is used by both gaussJordan and gaussianElimination. \hypertarget{_matrix_functions_8h_ae3f5418ded795e1220e7caac7771494b}{
 \index{MatrixFunctions.h@{MatrixFunctions.h}!gaussianElimination@{gaussianElimination}}
 \index{gaussianElimination@{gaussianElimination}!MatrixFunctions.h@{MatrixFunctions.h}}
-\subsubsection[{gaussianElimination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ColumnVector}\& gaussianElimination ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_functions_8h_7337b39f018c263fd459fcba13bb7a8a}
+\subsubsection[{gaussianElimination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& gaussianElimination ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8h_ae3f5418ded795e1220e7caac7771494b}
 
 
 Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
 
-Uses Gaussian Elimination with backsubstitution. Returns a \hyperlink{class_column_vector}{ColumnVector} object containing the solution. \hypertarget{_matrix_functions_8h_e8abda6337ff8ad8a26a434b95b46f3d}{
+Uses Gaussian Elimination with backsubstitution. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8h_a77b7bbc23b94764daf1def2756ed78a2}{
 \index{MatrixFunctions.h@{MatrixFunctions.h}!gaussJordan@{gaussJordan}}
 \index{gaussJordan@{gaussJordan}!MatrixFunctions.h@{MatrixFunctions.h}}
-\subsubsection[{gaussJordan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ColumnVector}\& gaussJordan ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_functions_8h_e8abda6337ff8ad8a26a434b95b46f3d}
+\subsubsection[{gaussJordan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& gaussJordan ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8h_a77b7bbc23b94764daf1def2756ed78a2}
 
 
 Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
 
-Uses Gauss-Jordan. Returns a \hyperlink{class_column_vector}{ColumnVector} object containing the solution. 
+Uses Gauss-\/Jordan. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8h_a3a79c07a22dd5e176404f713b54e5dfc}{
+\index{MatrixFunctions.h@{MatrixFunctions.h}!LUPDecompose@{LUPDecompose}}
+\index{LUPDecompose@{LUPDecompose}!MatrixFunctions.h@{MatrixFunctions.h}}
+\subsubsection[{LUPDecompose}]{\setlength{\rightskip}{0pt plus 5cm}boost::tuple$<${\bf Matrix}, {\bf Matrix}, {\bf Matrix}$>$ LUPDecompose ({\bf Matrix} {\em A})}}
+\label{_matrix_functions_8h_a3a79c07a22dd5e176404f713b54e5dfc}
+
+
+Given a matrix, returns it's LUP decomposition. 
+
+Three matrices L, U and P are returned as a boost tuple. Example usage: 
+\begin{DoxyCode}
+    #include "boost/tuple/tuple.hpp"
+
+    // create a new matrix
+    Matrix A(3,3);
+    A.populateRandom();
+  
+    // get its decomposition
+    boost::tuple<Matrix,Matrix,Matrix> lu = LUPDecompose(A);
+    Matrix L = lu.get<0>();
+    Matrix U = lu.get<1>();
+    Matrix P = lu.get<2>();
+    
+    // print out matrices
+    cout << L << endl;
+    cout << U << endl;
+    cout << P << endl;
+\end{DoxyCode}
+ 

@@ -2,108 +2,118 @@
 \section{Matrix.h File Reference}
 \label{_matrix_8h}\index{Matrix.h@{Matrix.h}}
 }
+
+
 This file contains the declarations of the basic Linear Algebra classes and some methods that operate on them.  
 
 
-{\tt \#include $<$iostream$>$}\par
-{\tt \#include $<$vector$>$}\par
-
-
-Include dependency graph for Matrix.h:
-
-This graph shows which files directly or indirectly include this file:\subsection*{Classes}
-\begin{CompactItemize}
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$vector$>$}\par
+Include dependency graph for Matrix.h:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=81pt]{_matrix_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{_matrix_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_matrix}{Matrix}
-\begin{CompactList}\small\item\em The general \hyperlink{class_matrix}{Matrix} class. \item\end{CompactList}\item 
+\begin{DoxyCompactList}\small\item\em The general \hyperlink{class_matrix}{Matrix} class. \item\end{DoxyCompactList}\item 
 class \hyperlink{class_row_vector}{RowVector}
-\begin{CompactList}\small\item\em The \hyperlink{class_row_vector}{RowVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class. \item\end{CompactList}\item 
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_row_vector}{RowVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class. \item\end{DoxyCompactList}\item 
 class \hyperlink{class_column_vector}{ColumnVector}
-\begin{CompactList}\small\item\em The \hyperlink{class_column_vector}{ColumnVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class. \item\end{CompactList}\end{CompactItemize}
+\begin{DoxyCompactList}\small\item\em The \hyperlink{class_column_vector}{ColumnVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_583d1589aee3559d4442488c512046a5}{operator$\ast$} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Multiplies two matrices and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_c7712e631a367916e502bba3761b63de}{operator$\ast$} (double s, \hyperlink{class_matrix}{Matrix} \&a)
-\begin{CompactList}\small\item\em Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_d6a8417fcb147d2bbecbe674572d57b9}{operator$\ast$} (\hyperlink{class_matrix}{Matrix} \&a, double s)
-\begin{CompactList}\small\item\em Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_fdfd38437764622830248868384327b9}{operator+} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Adds two \hyperlink{class_matrix}{Matrix} objects elementwise and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_c9e409817c609f095d0fe666b1093f0e}{operator-} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Subtracts the second matrix from the first matrix returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-std::ostream \& \hyperlink{_matrix_8h_a4a618cf39cf99ebadd2b230fbbacfd5}{operator$<$$<$} (std::ostream \&s, \hyperlink{class_matrix}{Matrix} \&m)
-\begin{CompactList}\small\item\em Prints out a \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-bool \hyperlink{_matrix_8h_521b4fbb24969f12c91690fdada71daa}{operator==} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Tests if two \hyperlink{class_matrix}{Matrix} objects are equivalent. \item\end{CompactList}\end{CompactItemize}
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_a583d1589aee3559d4442488c512046a5}{operator$\ast$} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Multiplies two matrices and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_ac7712e631a367916e502bba3761b63de}{operator$\ast$} (double s, \hyperlink{class_matrix}{Matrix} \&a)
+\begin{DoxyCompactList}\small\item\em Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_ad6a8417fcb147d2bbecbe674572d57b9}{operator$\ast$} (\hyperlink{class_matrix}{Matrix} \&a, double s)
+\begin{DoxyCompactList}\small\item\em Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_afdfd38437764622830248868384327b9}{operator+} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Adds two \hyperlink{class_matrix}{Matrix} objects elementwise and returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_8h_ac9e409817c609f095d0fe666b1093f0e}{operator-\/} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Subtracts the second matrix from the first matrix returns the resulting \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+std::ostream \& \hyperlink{_matrix_8h_aa4a618cf39cf99ebadd2b230fbbacfd5}{operator$<$$<$} (std::ostream \&s, \hyperlink{class_matrix}{Matrix} \&m)
+\begin{DoxyCompactList}\small\item\em Prints out a \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+bool \hyperlink{_matrix_8h_a521b4fbb24969f12c91690fdada71daa}{operator==} (\hyperlink{class_matrix}{Matrix} \&a, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Tests if two \hyperlink{class_matrix}{Matrix} objects are equivalent. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 This file contains the declarations of the basic Linear Algebra classes and some methods that operate on them. 
 
-
-
 \subsection{Function Documentation}
-\hypertarget{_matrix_8h_d6a8417fcb147d2bbecbe674572d57b9}{
+\hypertarget{_matrix_8h_ad6a8417fcb147d2bbecbe674572d57b9}{
 \index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
 \subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& operator$\ast$ ({\bf Matrix} \& {\em a}, \/  double {\em s})}}
-\label{_matrix_8h_d6a8417fcb147d2bbecbe674572d57b9}
+\label{_matrix_8h_ad6a8417fcb147d2bbecbe674572d57b9}
 
 
 Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
 
-\hypertarget{_matrix_8h_c7712e631a367916e502bba3761b63de}{
+\hypertarget{_matrix_8h_ac7712e631a367916e502bba3761b63de}{
 \index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
 \subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& operator$\ast$ (double {\em s}, \/  {\bf Matrix} \& {\em a})}}
-\label{_matrix_8h_c7712e631a367916e502bba3761b63de}
+\label{_matrix_8h_ac7712e631a367916e502bba3761b63de}
 
 
 Multiplies a \hyperlink{class_matrix}{Matrix} object by a scalar (double) and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
 
-\hypertarget{_matrix_8h_583d1589aee3559d4442488c512046a5}{
+\hypertarget{_matrix_8h_a583d1589aee3559d4442488c512046a5}{
 \index{Matrix.h@{Matrix.h}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Matrix.h@{Matrix.h}}
 \subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& operator$\ast$ ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_8h_583d1589aee3559d4442488c512046a5}
+\label{_matrix_8h_a583d1589aee3559d4442488c512046a5}
 
 
 Multiplies two matrices and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
 
-\hypertarget{_matrix_8h_fdfd38437764622830248868384327b9}{
+\hypertarget{_matrix_8h_afdfd38437764622830248868384327b9}{
 \index{Matrix.h@{Matrix.h}!operator+@{operator+}}
 \index{operator+@{operator+}!Matrix.h@{Matrix.h}}
 \subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& operator+ ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_8h_fdfd38437764622830248868384327b9}
+\label{_matrix_8h_afdfd38437764622830248868384327b9}
 
 
 Adds two \hyperlink{class_matrix}{Matrix} objects elementwise and returns the resulting \hyperlink{class_matrix}{Matrix} object. 
 
-\hypertarget{_matrix_8h_c9e409817c609f095d0fe666b1093f0e}{
-\index{Matrix.h@{Matrix.h}!operator-@{operator-}}
-\index{operator-@{operator-}!Matrix.h@{Matrix.h}}
-\subsubsection[{operator-}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& operator- ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_8h_c9e409817c609f095d0fe666b1093f0e}
+\hypertarget{_matrix_8h_ac9e409817c609f095d0fe666b1093f0e}{
+\index{Matrix.h@{Matrix.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Matrix.h@{Matrix.h}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& operator-\/ ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_8h_ac9e409817c609f095d0fe666b1093f0e}
 
 
 Subtracts the second matrix from the first matrix returns the resulting \hyperlink{class_matrix}{Matrix} object. 
 
-\hypertarget{_matrix_8h_a4a618cf39cf99ebadd2b230fbbacfd5}{
+\hypertarget{_matrix_8h_aa4a618cf39cf99ebadd2b230fbbacfd5}{
 \index{Matrix.h@{Matrix.h}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!Matrix.h@{Matrix.h}}
 \subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std::ostream \& operator$<$$<$ (std::ostream \& {\em s}, \/  {\bf Matrix} \& {\em m})}}
-\label{_matrix_8h_a4a618cf39cf99ebadd2b230fbbacfd5}
+\label{_matrix_8h_aa4a618cf39cf99ebadd2b230fbbacfd5}
 
 
 Prints out a \hyperlink{class_matrix}{Matrix} object. 
 
-\hypertarget{_matrix_8h_521b4fbb24969f12c91690fdada71daa}{
+\hypertarget{_matrix_8h_a521b4fbb24969f12c91690fdada71daa}{
 \index{Matrix.h@{Matrix.h}!operator==@{operator==}}
 \index{operator==@{operator==}!Matrix.h@{Matrix.h}}
 \subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool operator== ({\bf Matrix} \& {\em a}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_8h_521b4fbb24969f12c91690fdada71daa}
+\label{_matrix_8h_a521b4fbb24969f12c91690fdada71daa}
 
 
 Tests if two \hyperlink{class_matrix}{Matrix} objects are equivalent. 

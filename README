@@ -22,6 +22,11 @@ a great way to gain expertise in both Linear Algebra and C++.
 
 My goal with this project is to gain a better understanding of both.
 
+Dependencies
+============
+The Boost library for tuples (boost.org)
+If you want to run the tests you will need UnitTest++ (unittest-cpp.sourceforge.net)
+If you want to edit and re-generate the documentation you will need doxygen (doxygen.org)
 
 Who
 ===

@@ -2,77 +2,83 @@
 \section{Matrix Class Reference}
 \label{class_matrix}\index{Matrix@{Matrix}}
 }
+
+
 The general \hyperlink{class_matrix}{Matrix} class.  
 
 
-{\tt \#include $<$Matrix.h$>$}
+
+
+{\ttfamily \#include $<$Matrix.h$>$}
+
+
 
 Inherited by \hyperlink{class_column_vector}{ColumnVector}, and \hyperlink{class_row_vector}{RowVector}.
 
 \subsection*{Public Member Functions}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_matrix_07a3cee5bc286ca27ceffe81ce5a2d01}{Matrix} (int r, int c)
-\begin{CompactList}\small\item\em Creates a zero matrix of the given size. \item\end{CompactList}\item 
-int \hyperlink{class_matrix_dd9c23e5ff5e2456a8d48024ab19fe96}{rows} ()
-\begin{CompactList}\small\item\em Returns the number of rows in the matrix. \item\end{CompactList}\item 
-int \hyperlink{class_matrix_35649f43610688d020b2cad91f616d51}{cols} ()
-\begin{CompactList}\small\item\em Returns the number of columns in the matrix. \item\end{CompactList}\item 
-\hyperlink{class_matrix_0db283ef4ea2660f8d0c1b58f9e74f49}{Matrix} (std::vector$<$ std::vector$<$ double $>$ $>$ \&a)
-\begin{CompactList}\small\item\em Creates a \hyperlink{class_matrix}{Matrix} object from a 2d vector of doubles. \item\end{CompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_375fc575a7e042d0eed3d76c7470e59f}{populateRandom} ()
-\begin{CompactList}\small\item\em Populates the matrix with random integers in the range 0-9. \item\end{CompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_0ee71091770a4e83e54860f291ef1b7d}{populateIdentity} ()
-\begin{CompactList}\small\item\em Makes this matrix an identity matrix. \item\end{CompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_d609fedfd61e93679803bb114e544569}{transpose} ()
-\begin{CompactList}\small\item\em Returns a \hyperlink{class_matrix}{Matrix} object that is the transpose of the current \hyperlink{class_matrix}{Matrix}. \item\end{CompactList}\item 
-double \& \hyperlink{class_matrix_83a1c6c6f2f7c88a72a7ee98cae90c24}{operator()} (int i, int j)
-\begin{CompactList}\small\item\em This allows you to access the elements in the matrix using subscripts. \item\end{CompactList}\item 
-virtual void \hyperlink{class_matrix_20c175983a6b23a83fccfe8f726b3b07}{appendRow} (\hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Adds a row to the current \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-virtual void \hyperlink{class_matrix_55104cb3fcf93a887ac713955fc0f5c9}{appendRow} (double $\ast$r, int size)
-\begin{CompactList}\small\item\em Same as appendRow, but takes an array as the first argument and the length of the array as the second argument. \item\end{CompactList}\item 
-virtual void \hyperlink{class_matrix_934b0686d9a2b971e9740b9a29224a54}{appendRow} (std::vector$<$ double $>$ \&r)
-\begin{CompactList}\small\item\em Same as appendRow, but takes a vector. \item\end{CompactList}\item 
-virtual void \hyperlink{class_matrix_6d7061bb02cf34f6c79a01ff25b41e84}{appendCol} (\hyperlink{class_matrix}{Matrix} \&b)
-\begin{CompactList}\small\item\em Adds a column to the current \hyperlink{class_matrix}{Matrix} object. \item\end{CompactList}\item 
-virtual void \hyperlink{class_matrix_ae8efe9de26740e3c953e43de55963b2}{appendCol} (double $\ast$r, int size)
-\begin{CompactList}\small\item\em Same as appendCol, but takes an array as the first argument and the length of the array as the second argument. \item\end{CompactList}\item 
-virtual void \hyperlink{class_matrix_726f7ae83284c090af821752628974af}{appendCol} (std::vector$<$ double $>$ \&r)
-\begin{CompactList}\small\item\em Same as appendCol, but takes a vector. \item\end{CompactList}\item 
-void \hyperlink{class_matrix_c0e73d5e98817e12b82a3f626c8343de}{swapRows} (int rowA, int rowB)
-\begin{CompactList}\small\item\em Swaps the given rows in the \hyperlink{class_matrix}{Matrix}. \item\end{CompactList}\item 
-void \hyperlink{class_matrix_505f924baa7c236280751499da56ecee}{swapCols} (int colA, int colB)
-\begin{CompactList}\small\item\em Swaps the given cols in the \hyperlink{class_matrix}{Matrix}. \item\end{CompactList}\end{CompactItemize}
+\hyperlink{class_matrix_a07a3cee5bc286ca27ceffe81ce5a2d01}{Matrix} (int r, int c)
+\begin{DoxyCompactList}\small\item\em Creates a zero matrix of the given size. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_matrix_add9c23e5ff5e2456a8d48024ab19fe96}{rows} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of rows in the matrix. \item\end{DoxyCompactList}\item 
+int \hyperlink{class_matrix_a35649f43610688d020b2cad91f616d51}{cols} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of columns in the matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix_a0db283ef4ea2660f8d0c1b58f9e74f49}{Matrix} (std::vector$<$ std::vector$<$ double $>$ $>$ \&a)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_matrix}{Matrix} object from a 2d vector of doubles. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a375fc575a7e042d0eed3d76c7470e59f}{populateRandom} ()
+\begin{DoxyCompactList}\small\item\em Populates the matrix with random integers in the range 0-\/9. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a0ee71091770a4e83e54860f291ef1b7d}{populateIdentity} ()
+\begin{DoxyCompactList}\small\item\em Makes this matrix an identity matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_ad609fedfd61e93679803bb114e544569}{transpose} ()
+\begin{DoxyCompactList}\small\item\em Returns a \hyperlink{class_matrix}{Matrix} object that is the transpose of the current \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a474b9ebea883f90ee54d963f5af8d33e}{inverse} ()
+\begin{DoxyCompactList}\small\item\em Returns a \hyperlink{class_matrix}{Matrix} object that is the inverse of the current \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\item 
+double \& \hyperlink{class_matrix_a83a1c6c6f2f7c88a72a7ee98cae90c24}{operator()} (int i, int j)
+\begin{DoxyCompactList}\small\item\em This allows you to access the elements in the matrix using subscripts. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_matrix_a20c175983a6b23a83fccfe8f726b3b07}{appendRow} (\hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Adds a row to the current \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_matrix_a55104cb3fcf93a887ac713955fc0f5c9}{appendRow} (double $\ast$r, int size)
+\begin{DoxyCompactList}\small\item\em Same as appendRow, but takes an array as the first argument and the length of the array as the second argument. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_matrix_a934b0686d9a2b971e9740b9a29224a54}{appendRow} (std::vector$<$ double $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Same as appendRow, but takes a vector. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_matrix_a6d7061bb02cf34f6c79a01ff25b41e84}{appendCol} (\hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Adds a column to the current \hyperlink{class_matrix}{Matrix} object. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_matrix_aae8efe9de26740e3c953e43de55963b2}{appendCol} (double $\ast$r, int size)
+\begin{DoxyCompactList}\small\item\em Same as appendCol, but takes an array as the first argument and the length of the array as the second argument. \item\end{DoxyCompactList}\item 
+virtual void \hyperlink{class_matrix_a726f7ae83284c090af821752628974af}{appendCol} (std::vector$<$ double $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Same as appendCol, but takes a vector. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_matrix_ac0e73d5e98817e12b82a3f626c8343de}{swapRows} (int rowA, int rowB)
+\begin{DoxyCompactList}\small\item\em Swaps the given rows in the \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_matrix_a505f924baa7c236280751499da56ecee}{swapCols} (int colA, int colB)
+\begin{DoxyCompactList}\small\item\em Swaps the given cols in the \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
-\begin{CompactItemize}
+\begin{DoxyCompactItemize}
 \item 
-std::vector$<$ std::vector$<$ double $>$ $>$ \hyperlink{class_matrix_dab4557133e13b08ae470a8e5df7b99c}{data}
-\begin{CompactList}\small\item\em Here's where the matrix is actually stored. \item\end{CompactList}\end{CompactItemize}
+std::vector$<$ std::vector$<$ double $>$ $>$ \hyperlink{class_matrix_adab4557133e13b08ae470a8e5df7b99c}{data}
+\begin{DoxyCompactList}\small\item\em Here's where the matrix is actually stored. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The general \hyperlink{class_matrix}{Matrix} class. 
-
-Defines several methods to create and populate matrices. Each element in a matrix is a double.
+The general \hyperlink{class_matrix}{Matrix} class. Defines several methods to create and populate matrices. Each element in a matrix is a double.
 
 If you really want a vector instead, use \hyperlink{class_row_vector}{RowVector} or \hyperlink{class_column_vector}{ColumnVector}. This allows for additional operations such as length(). 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_matrix_07a3cee5bc286ca27ceffe81ce5a2d01}{
+\hypertarget{class_matrix_a07a3cee5bc286ca27ceffe81ce5a2d01}{
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::Matrix (int {\em r}, \/  int {\em c})}}
-\label{class_matrix_07a3cee5bc286ca27ceffe81ce5a2d01}
+\label{class_matrix_a07a3cee5bc286ca27ceffe81ce5a2d01}
 
 
 Creates a zero matrix of the given size. 
 
-Will throw an error if you try to create a matrix of negative dimensions. \hypertarget{class_matrix_0db283ef4ea2660f8d0c1b58f9e74f49}{
+Will throw an error if you try to create a matrix of negative dimensions. \hypertarget{class_matrix_a0db283ef4ea2660f8d0c1b58f9e74f49}{
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::Matrix (std::vector$<$ std::vector$<$ double $>$ $>$ \& {\em a})}}
-\label{class_matrix_0db283ef4ea2660f8d0c1b58f9e74f49}
+\label{class_matrix_a0db283ef4ea2660f8d0c1b58f9e74f49}
 
 
 Creates a \hyperlink{class_matrix}{Matrix} object from a 2d vector of doubles. 
@@ -80,130 +86,143 @@ Creates a \hyperlink{class_matrix}{Matrix} object from a 2d vector of doubles.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_matrix_726f7ae83284c090af821752628974af}{
+\hypertarget{class_matrix_a726f7ae83284c090af821752628974af}{
 \index{Matrix@{Matrix}!appendCol@{appendCol}}
 \index{appendCol@{appendCol}!Matrix@{Matrix}}
-\subsubsection[{appendCol}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendCol (std::vector$<$ double $>$ \& {\em r})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{class_matrix_726f7ae83284c090af821752628974af}
+\subsubsection[{appendCol}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendCol (std::vector$<$ double $>$ \& {\em r})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_matrix_a726f7ae83284c090af821752628974af}
 
 
 Same as appendCol, but takes a vector. 
 
-\hypertarget{class_matrix_ae8efe9de26740e3c953e43de55963b2}{
+\hypertarget{class_matrix_aae8efe9de26740e3c953e43de55963b2}{
 \index{Matrix@{Matrix}!appendCol@{appendCol}}
 \index{appendCol@{appendCol}!Matrix@{Matrix}}
-\subsubsection[{appendCol}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendCol (double $\ast$ {\em r}, \/  int {\em size})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{class_matrix_ae8efe9de26740e3c953e43de55963b2}
+\subsubsection[{appendCol}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendCol (double $\ast$ {\em r}, \/  int {\em size})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_matrix_aae8efe9de26740e3c953e43de55963b2}
 
 
 Same as appendCol, but takes an array as the first argument and the length of the array as the second argument. 
 
-\hypertarget{class_matrix_6d7061bb02cf34f6c79a01ff25b41e84}{
+\hypertarget{class_matrix_a6d7061bb02cf34f6c79a01ff25b41e84}{
 \index{Matrix@{Matrix}!appendCol@{appendCol}}
 \index{appendCol@{appendCol}!Matrix@{Matrix}}
-\subsubsection[{appendCol}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendCol ({\bf Matrix} \& {\em b})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{class_matrix_6d7061bb02cf34f6c79a01ff25b41e84}
+\subsubsection[{appendCol}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendCol ({\bf Matrix} \& {\em b})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_matrix_a6d7061bb02cf34f6c79a01ff25b41e84}
 
 
 Adds a column to the current \hyperlink{class_matrix}{Matrix} object. 
 
-The new column must be the same length as all the other column in the matrix. \hypertarget{class_matrix_934b0686d9a2b971e9740b9a29224a54}{
+The new column must be the same length as all the other column in the matrix. \hypertarget{class_matrix_a934b0686d9a2b971e9740b9a29224a54}{
 \index{Matrix@{Matrix}!appendRow@{appendRow}}
 \index{appendRow@{appendRow}!Matrix@{Matrix}}
-\subsubsection[{appendRow}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendRow (std::vector$<$ double $>$ \& {\em r})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{class_matrix_934b0686d9a2b971e9740b9a29224a54}
+\subsubsection[{appendRow}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendRow (std::vector$<$ double $>$ \& {\em r})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_matrix_a934b0686d9a2b971e9740b9a29224a54}
 
 
 Same as appendRow, but takes a vector. 
 
-\hypertarget{class_matrix_55104cb3fcf93a887ac713955fc0f5c9}{
+\hypertarget{class_matrix_a55104cb3fcf93a887ac713955fc0f5c9}{
 \index{Matrix@{Matrix}!appendRow@{appendRow}}
 \index{appendRow@{appendRow}!Matrix@{Matrix}}
-\subsubsection[{appendRow}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendRow (double $\ast$ {\em r}, \/  int {\em size})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{class_matrix_55104cb3fcf93a887ac713955fc0f5c9}
+\subsubsection[{appendRow}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendRow (double $\ast$ {\em r}, \/  int {\em size})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_matrix_a55104cb3fcf93a887ac713955fc0f5c9}
 
 
 Same as appendRow, but takes an array as the first argument and the length of the array as the second argument. 
 
-\hypertarget{class_matrix_20c175983a6b23a83fccfe8f726b3b07}{
+\hypertarget{class_matrix_a20c175983a6b23a83fccfe8f726b3b07}{
 \index{Matrix@{Matrix}!appendRow@{appendRow}}
 \index{appendRow@{appendRow}!Matrix@{Matrix}}
-\subsubsection[{appendRow}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendRow ({\bf Matrix} \& {\em b})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{class_matrix_20c175983a6b23a83fccfe8f726b3b07}
+\subsubsection[{appendRow}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::appendRow ({\bf Matrix} \& {\em b})\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_matrix_a20c175983a6b23a83fccfe8f726b3b07}
 
 
 Adds a row to the current \hyperlink{class_matrix}{Matrix} object. 
 
-The new row must be the same length as all the other rows in the matrix. \hypertarget{class_matrix_35649f43610688d020b2cad91f616d51}{
+The new row must be the same length as all the other rows in the matrix. \hypertarget{class_matrix_a35649f43610688d020b2cad91f616d51}{
 \index{Matrix@{Matrix}!cols@{cols}}
 \index{cols@{cols}!Matrix@{Matrix}}
 \subsubsection[{cols}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix::cols ()}}
-\label{class_matrix_35649f43610688d020b2cad91f616d51}
+\label{class_matrix_a35649f43610688d020b2cad91f616d51}
 
 
 Returns the number of columns in the matrix. 
 
-\hypertarget{class_matrix_83a1c6c6f2f7c88a72a7ee98cae90c24}{
+\hypertarget{class_matrix_a474b9ebea883f90ee54d963f5af8d33e}{
+\index{Matrix@{Matrix}!inverse@{inverse}}
+\index{inverse@{inverse}!Matrix@{Matrix}}
+\subsubsection[{inverse}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::inverse ()}}
+\label{class_matrix_a474b9ebea883f90ee54d963f5af8d33e}
+
+
+Returns a \hyperlink{class_matrix}{Matrix} object that is the inverse of the current \hyperlink{class_matrix}{Matrix}. 
+
+\hypertarget{class_matrix_a83a1c6c6f2f7c88a72a7ee98cae90c24}{
 \index{Matrix@{Matrix}!operator()@{operator()}}
 \index{operator()@{operator()}!Matrix@{Matrix}}
 \subsubsection[{operator()}]{\setlength{\rightskip}{0pt plus 5cm}double \& Matrix::operator() (int {\em i}, \/  int {\em j})}}
-\label{class_matrix_83a1c6c6f2f7c88a72a7ee98cae90c24}
+\label{class_matrix_a83a1c6c6f2f7c88a72a7ee98cae90c24}
 
 
 This allows you to access the elements in the matrix using subscripts. 
 
-Example: \hyperlink{class_matrix}{Matrix} m(10,10); // create a 10x10 \hyperlink{class_matrix}{Matrix} m(0,0) = 10; // set it's first element to 10 cout $<$$<$ m(9,9) $<$$<$ endl; // print it's last element
-
-This is similar to MATLAB's notation for matrices, but our matrices are zero-indexed. \hypertarget{class_matrix_0ee71091770a4e83e54860f291ef1b7d}{
+Example: 
+\begin{DoxyCode}
+                Matrix m(10,10);        // create a 10x10 Matrix
+                m(0,0) = 10;            // set it's first element to 10
+                cout << m(9,9) << endl; // print it's last element
+\end{DoxyCode}
+ This is similar to MATLAB's notation for matrices, but our matrices are zero-\/indexed. \hypertarget{class_matrix_a0ee71091770a4e83e54860f291ef1b7d}{
 \index{Matrix@{Matrix}!populateIdentity@{populateIdentity}}
 \index{populateIdentity@{populateIdentity}!Matrix@{Matrix}}
 \subsubsection[{populateIdentity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::populateIdentity ()}}
-\label{class_matrix_0ee71091770a4e83e54860f291ef1b7d}
+\label{class_matrix_a0ee71091770a4e83e54860f291ef1b7d}
 
 
 Makes this matrix an identity matrix. 
 
-Throws an error if this is not a square matrix. \hypertarget{class_matrix_375fc575a7e042d0eed3d76c7470e59f}{
+Throws an error if this is not a square matrix. \hypertarget{class_matrix_a375fc575a7e042d0eed3d76c7470e59f}{
 \index{Matrix@{Matrix}!populateRandom@{populateRandom}}
 \index{populateRandom@{populateRandom}!Matrix@{Matrix}}
 \subsubsection[{populateRandom}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::populateRandom ()}}
-\label{class_matrix_375fc575a7e042d0eed3d76c7470e59f}
+\label{class_matrix_a375fc575a7e042d0eed3d76c7470e59f}
 
 
-Populates the matrix with random integers in the range 0-9. 
+Populates the matrix with random integers in the range 0-\/9. 
 
-\hypertarget{class_matrix_dd9c23e5ff5e2456a8d48024ab19fe96}{
+\hypertarget{class_matrix_add9c23e5ff5e2456a8d48024ab19fe96}{
 \index{Matrix@{Matrix}!rows@{rows}}
 \index{rows@{rows}!Matrix@{Matrix}}
 \subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix::rows ()}}
-\label{class_matrix_dd9c23e5ff5e2456a8d48024ab19fe96}
+\label{class_matrix_add9c23e5ff5e2456a8d48024ab19fe96}
 
 
 Returns the number of rows in the matrix. 
 
-\hypertarget{class_matrix_505f924baa7c236280751499da56ecee}{
+\hypertarget{class_matrix_a505f924baa7c236280751499da56ecee}{
 \index{Matrix@{Matrix}!swapCols@{swapCols}}
 \index{swapCols@{swapCols}!Matrix@{Matrix}}
 \subsubsection[{swapCols}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::swapCols (int {\em colA}, \/  int {\em colB})}}
-\label{class_matrix_505f924baa7c236280751499da56ecee}
+\label{class_matrix_a505f924baa7c236280751499da56ecee}
 
 
 Swaps the given cols in the \hyperlink{class_matrix}{Matrix}. 
 
-\hypertarget{class_matrix_c0e73d5e98817e12b82a3f626c8343de}{
+\hypertarget{class_matrix_ac0e73d5e98817e12b82a3f626c8343de}{
 \index{Matrix@{Matrix}!swapRows@{swapRows}}
 \index{swapRows@{swapRows}!Matrix@{Matrix}}
 \subsubsection[{swapRows}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::swapRows (int {\em rowA}, \/  int {\em rowB})}}
-\label{class_matrix_c0e73d5e98817e12b82a3f626c8343de}
+\label{class_matrix_ac0e73d5e98817e12b82a3f626c8343de}
 
 
 Swaps the given rows in the \hyperlink{class_matrix}{Matrix}. 
 
-\hypertarget{class_matrix_d609fedfd61e93679803bb114e544569}{
+\hypertarget{class_matrix_ad609fedfd61e93679803bb114e544569}{
 \index{Matrix@{Matrix}!transpose@{transpose}}
 \index{transpose@{transpose}!Matrix@{Matrix}}
 \subsubsection[{transpose}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::transpose ()}}
-\label{class_matrix_d609fedfd61e93679803bb114e544569}
+\label{class_matrix_ad609fedfd61e93679803bb114e544569}
 
 
 Returns a \hyperlink{class_matrix}{Matrix} object that is the transpose of the current \hyperlink{class_matrix}{Matrix}. 
@@ -211,18 +230,18 @@ Returns a \hyperlink{class_matrix}{Matrix} object that is the transpose of the c
 
 
 \subsection{Member Data Documentation}
-\hypertarget{class_matrix_dab4557133e13b08ae470a8e5df7b99c}{
+\hypertarget{class_matrix_adab4557133e13b08ae470a8e5df7b99c}{
 \index{Matrix@{Matrix}!data@{data}}
 \index{data@{data}!Matrix@{Matrix}}
-\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$std::vector$<$double$>$ $>$ {\bf Matrix::data}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
-\label{class_matrix_dab4557133e13b08ae470a8e5df7b99c}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$std::vector$<$double$>$ $>$ {\bf Matrix::data}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_matrix_adab4557133e13b08ae470a8e5df7b99c}
 
 
 Here's where the matrix is actually stored. 
 
 
 
-The documentation for this class was generated from the following files:\begin{CompactItemize}
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
 \hyperlink{_matrix_8h}{Matrix.h}\item 
-\hyperlink{_matrix_8cpp}{Matrix.cpp}\end{CompactItemize}
+\hyperlink{_matrix_8cpp}{Matrix.cpp}\end{DoxyCompactItemize}

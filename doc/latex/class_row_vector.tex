@@ -2,57 +2,70 @@
 \section{RowVector Class Reference}
 \label{class_row_vector}\index{RowVector@{RowVector}}
 }
+
+
 The \hyperlink{class_row_vector}{RowVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class.  
 
 
-{\tt \#include $<$Matrix.h$>$}
+
+
+{\ttfamily \#include $<$Matrix.h$>$}
+
+
 
 Inherits \hyperlink{class_matrix}{Matrix}.
 
-Collaboration diagram for RowVector:\subsection*{Public Member Functions}
-\begin{CompactItemize}
+
+
+Collaboration diagram for RowVector:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=110pt]{class_row_vector__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_row_vector_2f27ef01198c0c996290f5d6d1680297}{RowVector} (int c)
-\begin{CompactList}\small\item\em Creates a \hyperlink{class_row_vector}{RowVector} of the specified length. \item\end{CompactList}\item 
-\hyperlink{class_row_vector_6f0b27522b67138a7313c4a75750a7a6}{RowVector} (std::vector$<$ double $>$ \&a)
-\begin{CompactList}\small\item\em Creates a \hyperlink{class_row_vector}{RowVector} from a vector of doubles. \item\end{CompactList}\item 
-\hyperlink{class_row_vector_fdb9cc1d09c9dfaef6af93aec542f498}{RowVector} (double $\ast$a, int size)
-\begin{CompactList}\small\item\em Creates a \hyperlink{class_row_vector}{RowVector} from an array of doubles, with the size of the array as the second argument. \item\end{CompactList}\item 
-double \hyperlink{class_row_vector_5c2dde299464fd200026db5515480275}{length} ()
-\begin{CompactList}\small\item\em Calculates and returns the length of the vector. \item\end{CompactList}\item 
-void \hyperlink{class_row_vector_a04552c6bdfed758bc06815d8696b44c}{appendRow} ()
-\begin{CompactList}\small\item\em This method is undefined for a \hyperlink{class_row_vector}{RowVector} since a \hyperlink{class_row_vector}{RowVector} can only have one row. \item\end{CompactList}\end{CompactItemize}
+\hyperlink{class_row_vector_a2f27ef01198c0c996290f5d6d1680297}{RowVector} (int c)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_row_vector}{RowVector} of the specified length. \item\end{DoxyCompactList}\item 
+\hyperlink{class_row_vector_a6f0b27522b67138a7313c4a75750a7a6}{RowVector} (std::vector$<$ double $>$ \&a)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_row_vector}{RowVector} from a vector of doubles. \item\end{DoxyCompactList}\item 
+\hyperlink{class_row_vector_afdb9cc1d09c9dfaef6af93aec542f498}{RowVector} (double $\ast$a, int size)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_row_vector}{RowVector} from an array of doubles, with the size of the array as the second argument. \item\end{DoxyCompactList}\item 
+double \hyperlink{class_row_vector_a5c2dde299464fd200026db5515480275}{length} ()
+\begin{DoxyCompactList}\small\item\em Calculates and returns the length of the vector. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_row_vector_aa04552c6bdfed758bc06815d8696b44c}{appendRow} ()
+\begin{DoxyCompactList}\small\item\em This method is undefined for a \hyperlink{class_row_vector}{RowVector} since a \hyperlink{class_row_vector}{RowVector} can only have one row. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The \hyperlink{class_row_vector}{RowVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class. 
-
-If you want to do vector-specific operations like get the length of the vector, use this class instead of the \hyperlink{class_matrix}{Matrix} class. 
+The \hyperlink{class_row_vector}{RowVector} class, which inherits from the general \hyperlink{class_matrix}{Matrix} class. If you want to do vector-\/specific operations like get the length of the vector, use this class instead of the \hyperlink{class_matrix}{Matrix} class. 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_row_vector_2f27ef01198c0c996290f5d6d1680297}{
+\hypertarget{class_row_vector_a2f27ef01198c0c996290f5d6d1680297}{
 \index{RowVector@{RowVector}!RowVector@{RowVector}}
 \index{RowVector@{RowVector}!RowVector@{RowVector}}
-\subsubsection[{RowVector}]{\setlength{\rightskip}{0pt plus 5cm}RowVector::RowVector (int {\em c})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
-\label{class_row_vector_2f27ef01198c0c996290f5d6d1680297}
+\subsubsection[{RowVector}]{\setlength{\rightskip}{0pt plus 5cm}RowVector::RowVector (int {\em c})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_row_vector_a2f27ef01198c0c996290f5d6d1680297}
 
 
 Creates a \hyperlink{class_row_vector}{RowVector} of the specified length. 
 
-\hypertarget{class_row_vector_6f0b27522b67138a7313c4a75750a7a6}{
+\hypertarget{class_row_vector_a6f0b27522b67138a7313c4a75750a7a6}{
 \index{RowVector@{RowVector}!RowVector@{RowVector}}
 \index{RowVector@{RowVector}!RowVector@{RowVector}}
 \subsubsection[{RowVector}]{\setlength{\rightskip}{0pt plus 5cm}RowVector::RowVector (std::vector$<$ double $>$ \& {\em a})}}
-\label{class_row_vector_6f0b27522b67138a7313c4a75750a7a6}
+\label{class_row_vector_a6f0b27522b67138a7313c4a75750a7a6}
 
 
 Creates a \hyperlink{class_row_vector}{RowVector} from a vector of doubles. 
 
-\hypertarget{class_row_vector_fdb9cc1d09c9dfaef6af93aec542f498}{
+\hypertarget{class_row_vector_afdb9cc1d09c9dfaef6af93aec542f498}{
 \index{RowVector@{RowVector}!RowVector@{RowVector}}
 \index{RowVector@{RowVector}!RowVector@{RowVector}}
 \subsubsection[{RowVector}]{\setlength{\rightskip}{0pt plus 5cm}RowVector::RowVector (double $\ast$ {\em a}, \/  int {\em size})}}
-\label{class_row_vector_fdb9cc1d09c9dfaef6af93aec542f498}
+\label{class_row_vector_afdb9cc1d09c9dfaef6af93aec542f498}
 
 
 Creates a \hyperlink{class_row_vector}{RowVector} from an array of doubles, with the size of the array as the second argument. 
@@ -60,27 +73,27 @@ Creates a \hyperlink{class_row_vector}{RowVector} from an array of doubles, with
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_row_vector_a04552c6bdfed758bc06815d8696b44c}{
+\hypertarget{class_row_vector_aa04552c6bdfed758bc06815d8696b44c}{
 \index{RowVector@{RowVector}!appendRow@{appendRow}}
 \index{appendRow@{appendRow}!RowVector@{RowVector}}
 \subsubsection[{appendRow}]{\setlength{\rightskip}{0pt plus 5cm}void RowVector::appendRow ()}}
-\label{class_row_vector_a04552c6bdfed758bc06815d8696b44c}
+\label{class_row_vector_aa04552c6bdfed758bc06815d8696b44c}
 
 
 This method is undefined for a \hyperlink{class_row_vector}{RowVector} since a \hyperlink{class_row_vector}{RowVector} can only have one row. 
 
-\hypertarget{class_row_vector_5c2dde299464fd200026db5515480275}{
+\hypertarget{class_row_vector_a5c2dde299464fd200026db5515480275}{
 \index{RowVector@{RowVector}!length@{length}}
 \index{length@{length}!RowVector@{RowVector}}
 \subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}double RowVector::length ()}}
-\label{class_row_vector_5c2dde299464fd200026db5515480275}
+\label{class_row_vector_a5c2dde299464fd200026db5515480275}
 
 
 Calculates and returns the length of the vector. 
 
 
 
-The documentation for this class was generated from the following files:\begin{CompactItemize}
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
 \hyperlink{_matrix_8h}{Matrix.h}\item 
-\hyperlink{_matrix_8cpp}{Matrix.cpp}\end{CompactItemize}
+\hyperlink{_matrix_8cpp}{Matrix.cpp}\end{DoxyCompactItemize}
