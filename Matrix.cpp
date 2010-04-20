@@ -50,6 +50,7 @@ Matrix::Matrix(vector<vector<double> >& a)
 // append a row
 void Matrix::appendRow(std::vector<double>& r)
 {
+    assert(cols()==r.size());
     data.resize(data.size()+1);
     
     int f = rows()-1;
@@ -63,6 +64,7 @@ void Matrix::appendRow(std::vector<double>& r)
 // append a row - array version
 void Matrix::appendRow(double *r, int size)
 {
+    assert(cols()==size);
     data.resize(data.size()+1);
     
     int f = rows()-1;
@@ -109,6 +111,7 @@ void Matrix::appendCol(Matrix& b)
 // append a col
 void Matrix::appendCol(std::vector<double>& r)
 {
+    assert(rows()==r.size());
     int cur_cols = cols();
     for (int i=0;i<r.size();i++)
     {
@@ -120,6 +123,7 @@ void Matrix::appendCol(std::vector<double>& r)
 // append a col
 void Matrix::appendCol(double *r, int size)
 {
+    assert(rows()==size);
     int cur_cols = cols();
     for (int i=0;i<size;i++)
     {

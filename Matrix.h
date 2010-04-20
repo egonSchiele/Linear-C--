@@ -84,7 +84,7 @@ class Matrix {
         /** Same as appendRow, but takes a vector. */
         virtual void appendRow(std::vector<double> &r);
 
-        
+
         /** Adds a column to the current Matrix object.
             The new column must be the same length as all the other
             column in the matrix.

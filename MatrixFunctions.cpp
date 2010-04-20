@@ -8,6 +8,8 @@ using namespace std;
 // has a non-zero value in the given column
 int findNonZero(Matrix &m, int col)
 {
+    // initial row to look at has to be the current row:
+    // we can NOT look above! That would be a disaster.
     for (int i=col;i<m.rows();i++)
     {
         if(m(i,col)!=0)
@@ -33,7 +35,6 @@ Matrix& gaussJordan(Matrix& A, Matrix& b)
         if (goodRow < 0)
         {
             cout << "no solution possible." << endl;
-            cout << "matrix is:" << Aug << endl;
             ColumnVector *n = new ColumnVector(0);
             return *n;
         }
@@ -169,13 +170,15 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b)
     return *res;
 }
 
-boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
+boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A)
 {
     /* although not required ofr general LU decomposition, we require
        matrices to be square. */
     assert(A.rows()==A.cols());
     Matrix L(A.rows(),A.cols());
+    Matrix *P = new Matrix(A.rows(),A.cols()); // permutation matrix    
     L.populateIdentity();
+    P->populateIdentity();
     Matrix Lfinal(L);
     /* gaussian Elimination to get us in upper triangular form. */
     for (int c=0;c<A.cols();c++)
@@ -189,7 +192,8 @@ boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
             cout << "no solution possible." << endl;
             Matrix *l = new Matrix(0,0);
             Matrix *u = new Matrix(0,0);
-            return boost::tuple<Matrix&, Matrix&>(*l,*u);
+            Matrix *p = new Matrix(0,0);
+           return boost::make_tuple(*l,*u,*p);
         }
         
         // swap the good row with the row we want a 1 in.
@@ -201,10 +205,10 @@ boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
         // (i.e. the good row wasn't the current diagonal)
         if (goodRow != c)
         {
-            L(c,c) = 0;
-            L(c,goodRow) = 1;
-            L(goodRow,c) = 1;
-            L(goodRow,goodRow) = 0;
+            (*P)(c,c) = 0;
+            (*P)(c,goodRow) = 1;
+            (*P)(goodRow,c) = 1;
+            (*P)(goodRow,goodRow) = 0;
         }
         
         for (int r=c+1;r<A.rows();r++)
@@ -240,6 +244,6 @@ boost::tuple<Matrix,Matrix> LUDecompose(Matrix A)
     }
     Matrix *L2 = &(L);
     Matrix *U = &A;
-    return boost::make_tuple(*L2, *U);
+    return boost::make_tuple(*L2, *U, *P);
     
 }

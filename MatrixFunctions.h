@@ -37,10 +37,10 @@ Matrix& gaussJordan(Matrix& A, Matrix& b);
 */
 Matrix& gaussianElimination(Matrix& A, Matrix& b);
 
-/** \fn boost::tuple<Matrix,Matrix> LUDecompose(Matrix A);
+/** \fn boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A);
     
-    Given a matrix, returns it's LU decomposition. Two matrices L and U are returned
-    as a boost tuple. Example usage:
+    Given a matrix, returns it's LUP decomposition. Three matrices L, U and P
+    are returned as a boost tuple. Example usage:
     
     #include "boost/tuple/tuple.hpp"
 
@@ -49,14 +49,16 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b);
     A.populateRandom();
   
     // get its decomposition
-    boost::tuple<Matrix,Matrix> lu = LUDecompose(A);
+    boost::tuple<Matrix,Matrix,Matrix> lu = LUPDecompose(A);
     Matrix L = lu.get<0>();
     Matrix U = lu.get<1>();
+    Matrix P = lu.get<2>();
     
-    // print out L and U matrices
+    // print out matrices
     cout << L << endl;
     cout << U << endl;
+    cout << P << endl;
  
 */
-boost::tuple<Matrix,Matrix> LUDecompose(Matrix A);
+boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A);
 #endif
