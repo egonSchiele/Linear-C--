@@ -44,6 +44,8 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the number of columns in the matrix.  <a href="#a35649f43610688d020b2cad91f616d51"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0db283ef4ea2660f8d0c1b58f9e74f49">Matrix</a> (std::vector&lt; std::vector&lt; double &gt; &gt; &amp;a)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object from a 2d vector of doubles.  <a href="#a0db283ef4ea2660f8d0c1b58f9e74f49"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a3179cefb929e09cbdc95d143e1d9e3d2">Matrix</a> (double *a, int rows, int cols)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object from an array of doubles.  <a href="#a3179cefb929e09cbdc95d143e1d9e3d2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a375fc575a7e042d0eed3d76c7470e59f">populateRandom</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Populates the matrix with random integers in the range 0-9.  <a href="#a375fc575a7e042d0eed3d76c7470e59f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0ee71091770a4e83e54860f291ef1b7d">populateIdentity</a> ()</td></tr>
@@ -128,6 +130,48 @@
 
 <p>Creates a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object from a 2d vector of doubles. </p>
 
+</div>
+</div>
+<a class="anchor" id="a3179cefb929e09cbdc95d143e1d9e3d2"></a><!-- doxytag: member="Matrix::Matrix" ref="a3179cefb929e09cbdc95d143e1d9e3d2" args="(double *a, int rows, int cols)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix::Matrix </td>
+          <td>(</td>
+          <td class="paramtype">double *&nbsp;</td>
+          <td class="paramname"> <em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&nbsp;</td>
+          <td class="paramname"> <em>cols</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Creates a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object from an array of doubles. </p>
+<p>The array should be a 1-d array, even if it is a matrix. The # of rows and # of columns are then passed as the second and third parameter. For example:</p>
+<div class="fragment"><pre class="fragment">            <span class="comment">// Here we&#39;re creating a 2x2 identity matrix:</span>
+            <span class="keywordtype">double</span> v[] = {1,0,0,1};
+            <a class="code" href="class_matrix.html" title="The general Matrix class.">Matrix</a> A(v,2,2);
+            
+            <span class="comment">// print out the matrix:</span>
+            cout &lt;&lt; A &lt;&lt; endl;
+</pre></div> 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
@@ -499,7 +543,7 @@
 <li><a class="el" href="_matrix_8cpp.html">Matrix.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Apr 19 22:22:02 2010 for LinearC++ by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Apr 19 23:42:18 2010 for LinearC++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

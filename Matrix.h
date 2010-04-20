@@ -45,6 +45,23 @@ class Matrix {
         
         /** Creates a Matrix object from a 2d vector of doubles. */
         Matrix(std::vector<std::vector<double> >& a);
+
+        /** Creates a Matrix object from an array of doubles.
+            The array should be a 1-d array, even if it is
+            a matrix. The # of rows and # of columns are then
+            passed as the second and third parameter. For example:
+            
+            \code
+            // Here we're creating a 2x2 identity matrix:
+            double v[] = {1,0,0,1};
+            Matrix A(v,2,2);
+            
+            // print out the matrix:
+            cout << A << endl;
+            \endcode
+        */
+        Matrix(double *a, int rows, int cols);
+
         
         /** Populates the matrix with random integers in the range 0-9. */
         Matrix& populateRandom();

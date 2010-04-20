@@ -26,6 +26,8 @@ int \hyperlink{class_matrix_a35649f43610688d020b2cad91f616d51}{cols} ()
 \begin{DoxyCompactList}\small\item\em Returns the number of columns in the matrix. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix_a0db283ef4ea2660f8d0c1b58f9e74f49}{Matrix} (std::vector$<$ std::vector$<$ double $>$ $>$ \&a)
 \begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_matrix}{Matrix} object from a 2d vector of doubles. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix_a3179cefb929e09cbdc95d143e1d9e3d2}{Matrix} (double $\ast$a, int rows, int cols)
+\begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_matrix}{Matrix} object from an array of doubles. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a375fc575a7e042d0eed3d76c7470e59f}{populateRandom} ()
 \begin{DoxyCompactList}\small\item\em Populates the matrix with random integers in the range 0-\/9. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a0ee71091770a4e83e54860f291ef1b7d}{populateIdentity} ()
@@ -83,7 +85,27 @@ Will throw an error if you try to create a matrix of negative dimensions. \hyper
 
 Creates a \hyperlink{class_matrix}{Matrix} object from a 2d vector of doubles. 
 
+\hypertarget{class_matrix_a3179cefb929e09cbdc95d143e1d9e3d2}{
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::Matrix (double $\ast$ {\em a}, \/  int {\em rows}, \/  int {\em cols})}}
+\label{class_matrix_a3179cefb929e09cbdc95d143e1d9e3d2}
 
+
+Creates a \hyperlink{class_matrix}{Matrix} object from an array of doubles. 
+
+The array should be a 1-\/d array, even if it is a matrix. The \# of rows and \# of columns are then passed as the second and third parameter. For example:
+
+
+\begin{DoxyCode}
+            // Here we're creating a 2x2 identity matrix:
+            double v[] = {1,0,0,1};
+            Matrix A(v,2,2);
+            
+            // print out the matrix:
+            cout << A << endl;
+\end{DoxyCode}
+ 
 
 \subsection{Member Function Documentation}
 \hypertarget{class_matrix_a726f7ae83284c090af821752628974af}{

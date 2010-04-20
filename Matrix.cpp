@@ -47,6 +47,20 @@ Matrix::Matrix(vector<vector<double> >& a)
     
 }
 
+// Matrix from array
+Matrix::Matrix(double *a, int rows, int cols)
+{
+    data.resize(rows);
+    for (int i=0;i<rows;i++)
+    {
+        data[i].resize(cols);
+        for (int j=0;j<cols;j++)
+        {
+            data[i][j] = a[(i*rows) + j];
+        }
+    }
+}
+
 // append a row
 void Matrix::appendRow(std::vector<double>& r)
 {
