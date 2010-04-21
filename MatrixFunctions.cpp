@@ -27,7 +27,7 @@ Matrix& gaussJordan(Matrix& A, Matrix& b)
     Matrix Aug = A;
     Aug.appendCol(b); // make the augmented matrix
     for (int i=0;i<A.cols();i++)
-    {
+    {        
         int goodRow = findNonZero(Aug, i);
         
         // either we don't have enough equations, or there's
