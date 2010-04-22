@@ -34,7 +34,6 @@ Matrix& gaussJordan(Matrix& A, Matrix& b)
         // a logical error, like -1 = 0. Either way, no solution.
         if (goodRow < 0)
         {
-            cout << "no solution possible." << endl;
             ColumnVector *n = new ColumnVector(0);
             return *n;
         }
@@ -95,7 +94,8 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b)
     
     Matrix Aug = A;
     Aug.appendCol(b); // make the augmented matrix
-    for (int i=0;i<A.cols();i++)
+    int i;
+    for (i=0;i<A.cols();i++)
     {
         int goodRow = findNonZero(Aug, i);
         
@@ -103,7 +103,6 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b)
         // a logical error, like -1 = 0. Either way, no solution.
         if (goodRow < 0)
         {
-            cout << "no solution possible." << endl;
             ColumnVector *n = new ColumnVector(0);
             return *n;
         }
@@ -189,7 +188,6 @@ boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A)
         // a logical error, like -1 = 0. Either way, no solution.
         if (goodRow < 0)
         {
-            cout << "no solution possible." << endl;
             Matrix *l = new Matrix(0,0);
             Matrix *u = new Matrix(0,0);
             Matrix *p = new Matrix(0,0);

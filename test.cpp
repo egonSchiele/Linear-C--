@@ -6,11 +6,10 @@ using namespace std;
 #include <vector>
 int main(int argc, char * argv[])
 {
-    double ar[] = {1,2,3,3,4,5,7,2,5};
-    Matrix *m = new Matrix(ar,3,3);
-    Matrix *I = new Matrix(3,3);
-    I->populateIdentity();
-    Matrix *n = &(m->inverse());
-    Matrix *sol = &(gaussJordan(*m,*I));
-    cout << *sol << endl;
+    double ar1[] = {2, 1, 1, 2, 2.5, -1};
+    Matrix A(ar1,2,3);
+    cout << A << endl;
+    ColumnVector b(2);
+    
+    cout << gaussianElimination(A,b) << endl;
 }

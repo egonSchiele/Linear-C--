@@ -10,6 +10,13 @@ using namespace std;
 
 Matrix::Matrix(int r, int c)
 {
+    /* 
+        since 'data' is a vector,
+        it will run the default constructor
+        of all the members. So all members
+        will automatically be initialized to 0.
+        
+    */
     assert(r>=0);
     assert(c>=0);
     data.resize(r);
@@ -39,10 +46,7 @@ Matrix::Matrix(vector<vector<double> >& a)
     for (int i=0;i<rows;i++)
     {
         data[i].resize(cols);
-        for (int j=0;j<cols;j++)
-        {
-            data[i][j] = a[i][j];
-        }
+        data[i].assign(a[i].begin(),a[i].end());
     }
     
 }
@@ -54,10 +58,7 @@ Matrix::Matrix(double *a, int rows, int cols)
     for (int i=0;i<rows;i++)
     {
         data[i].resize(cols);
-        for (int j=0;j<cols;j++)
-        {
-            data[i][j] = a[(i*rows) + j];
-        }
+        data[i].assign(&a[i*rows],&a[(i*rows)+cols]);
     }
 }
 
@@ -69,10 +70,7 @@ void Matrix::appendRow(std::vector<double>& r)
     
     int f = rows()-1;
     data[f].resize(r.size());
-    for (int i=0;i<r.size();i++)
-    {
-        data[f][i] = r[i];
-    }
+    data[f].assign(r.begin(),r.end());
 }
 
 // append a row - array version
@@ -83,10 +81,7 @@ void Matrix::appendRow(double *r, int size)
     
     int f = rows()-1;
     data[f].resize(size);
-    for (int i=0;i<size;i++)
-    {
-        data[f][i] = r[i];
-    }
+    data[f].assign(r,&r[size]);
 }
 
 // append a row - matrix version
@@ -179,6 +174,7 @@ Matrix& Matrix::populateIdentity()
     
     return *this;
 }
+
 
 // how to multiply two Matrix objects
 Matrix& operator*( Matrix &a,  Matrix &b)

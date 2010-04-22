@@ -122,7 +122,7 @@ class Matrix {
 
         /** Swaps the given cols in the Matrix. */
         void swapCols(int colA, int colB);
-
+        
     protected:
         /** Here's where the matrix is actually stored. */
         std::vector<std::vector<double> > data;
