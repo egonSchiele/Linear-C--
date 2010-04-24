@@ -14,6 +14,7 @@ This is a library for doing linear algebra in C++. So far it includes:
 - convenience methods for populating randomly or making identity matrices
 - a method for solving a system of linear equations via Gauss-Jordan
 
+
 Why
 ===
 I realize that many better packages exist for Linear Algebra in C++.
@@ -22,13 +23,25 @@ a great way to gain expertise in both Linear Algebra and C++.
 
 My goal with this project is to gain a better understanding of both.
 
+
+Testing and Documentation
+=========================
+Since the focus of this library is on learning, testing and documentation
+is especially important. The goal is to have at least one set of comprehensive
+tests for every object or method. Plus, every feature should have at least
+reference documentation, and hopefully a tutorial.
+
+Tests are written using UnitTest++.
+Documentation is written using Doxygen.
+
+
 Dependencies
 ============
 The Boost library for tuples (boost.org)
 If you want to run the tests you will need UnitTest++ (unittest-cpp.sourceforge.net)
 If you want to edit and re-generate the documentation you will need doxygen (doxygen.org)
 
+
 Who
 ===
-
 copyleft Aditya Bhargava @ wefoundland.com. This code is in the public domain.
