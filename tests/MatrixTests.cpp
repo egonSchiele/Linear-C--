@@ -118,13 +118,11 @@ TEST_FIXTURE(TestMatrix,TestPopulateIdentity)
 TEST_FIXTURE(TestMatrix,TestTranspose)
 {
     m->populateIdentity();
-    Matrix t = m->transpose();
-    CHECK((*m)==t);
+    CHECK((*m)==m->transpose());
         
     m = new Matrix(a);
     Matrix *n = new Matrix(at);
-    t = m->transpose();
-    CHECK(t==(*n));
+    CHECK(m->transpose()==(*n));
     delete n;    
 }
 
@@ -135,8 +133,7 @@ TEST_FIXTURE(TestMatrix,TestInverse)
     Matrix n = m->inverse();
     Matrix I(2,2);
     I.populateIdentity();
-    Matrix mult = (*m)*n;
-    CHECK(mult==I);
+    CHECK((*m)*n==I);
 }
 
 TEST_FIXTURE(TestMatrix,TestElementAccess)

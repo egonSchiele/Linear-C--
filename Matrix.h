@@ -41,10 +41,10 @@ class Matrix {
         Matrix(int r, int c);
         
         /** Returns the number of rows in the matrix. */
-        int rows();
+        int rows() const;
         
         /** Returns the number of columns in the matrix. */
-        int cols();
+        int cols() const;
         
         /** Creates a Matrix object from a 2d vector of doubles. */
         Matrix(std::vector<std::vector<double> >& a);
@@ -89,7 +89,7 @@ class Matrix {
             This is similar to MATLAB's notation for matrices, but our matrices
             are zero-indexed.
         */
-        double& operator()(int i, int j);
+        double& operator()(int i, int j) const;
         
         /** Adds a row to the current Matrix object.
             The new row must be the same length as all the other
@@ -133,57 +133,57 @@ class Matrix {
         MatrixIterator end();
     protected:
         /** Here's where the matrix is actually stored. */
-        std::vector<std::vector<double> > data;
+        std::vector<std::vector<double> > mutable data;
 };
 
 
-/*! \fn Matrix operator*(Matrix &a,  Matrix &b);
+/*! \fn Matrix operator*(const Matrix &a, const Matrix &b);
    
     Multiplies two matrices and returns the resulting Matrix object.
 */
-Matrix operator*(Matrix &a,  Matrix &b);
+Matrix operator*(const Matrix &a, const Matrix &b);
 
 
-/*! \fn Matrix operator*(double s, Matrix &a);
+/*! \fn Matrix operator*(const double s, const Matrix &a);
    
     Multiplies a Matrix object by a scalar (double) and returns the resulting Matrix object.
 */
-Matrix operator*(double s, Matrix &a);
+Matrix operator*(const double s, const Matrix &a);
 
 
-/*! \fn Matrix operator*(Matrix &a, double s);
+/*! \fn Matrix operator*(const Matrix &a, const double s);
    
     Multiplies a Matrix object by a scalar (double) and returns the resulting Matrix object.
 */
-Matrix operator*(Matrix &a, double s);
+Matrix operator*(const Matrix &a, const double s);
 
 
-/*! \fn Matrix operator+(Matrix &a, Matrix &b);
+/*! \fn Matrix operator+(const Matrix &a, const Matrix &b);
     
     Adds two Matrix objects elementwise and returns the resulting Matrix object.
 */
-Matrix operator+(Matrix &a, Matrix &b);
+Matrix operator+(const Matrix &a, const Matrix &b);
 
 
-/*! \fn Matrix operator-(Matrix &a, Matrix &b);
+/*! \fn Matrix operator-(const Matrix &a, const Matrix &b);
     
     Subtracts the second matrix from the first matrix returns the resulting Matrix object.
 */
-Matrix operator-(Matrix &a, Matrix &b);
+Matrix operator-(const Matrix &a, const Matrix &b);
 
 
-/*! \fn std::ostream& operator<<(std::ostream& s,  Matrix &m);
+/*! \fn std::ostream& operator<<(std::ostream& s, const Matrix &m);
     
     Prints out a Matrix object.
 */
-std::ostream& operator<<(std::ostream& s,  Matrix &m);
+std::ostream& operator<<(std::ostream& s, const Matrix &m);
 
 
-/*! \fn bool operator==(Matrix &a, Matrix &b);
+/*! \fn bool operator==(const Matrix &a, const Matrix &b);
     
     Tests if two Matrix objects are equivalent.
 */
-bool operator==(Matrix &a, Matrix &b);
+bool operator==(const Matrix &a, const Matrix &b);
 
 
 /** The RowVector class, which inherits from the general Matrix class.

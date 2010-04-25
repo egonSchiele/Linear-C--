@@ -28,12 +28,12 @@ Matrix::Matrix(int r, int c)
     }    
 }
 
-int Matrix::rows() 
+int Matrix::rows() const
 {
     return data.size();
 }
 
-int Matrix::cols() 
+int Matrix::cols() const
 {
     return data[0].size();
 }
@@ -199,7 +199,7 @@ MatrixIterator Matrix::end()
 
 
 // how to multiply two Matrix objects
-Matrix operator*( Matrix &a,  Matrix &b)
+Matrix operator*( const Matrix &a, const Matrix &b)
 {
     assert(a.cols() > 0);
     assert (a.cols() == b.rows());
@@ -224,7 +224,7 @@ Matrix operator*( Matrix &a,  Matrix &b)
 }
 
 // a scalar * a matrix
-Matrix operator*(double s, Matrix &a)
+Matrix operator*(const double s, const Matrix &a)
 {
     shared_ptr<Matrix> b(new Matrix(a.rows(), a.cols()));
     
@@ -239,7 +239,7 @@ Matrix operator*(double s, Matrix &a)
 }
 
 // a scalar * a matrix (the other way)
-Matrix operator*(Matrix &a, double s)
+Matrix operator*(const Matrix &a, const double s)
 {
     return s * a;
 
@@ -247,7 +247,7 @@ Matrix operator*(Matrix &a, double s)
 
 
 // how to add two matrices
-Matrix operator+(Matrix &a, Matrix &b){
+Matrix operator+(const Matrix &a, const Matrix &b){
     assert(a.cols() == b.cols() && a.rows() == b.rows());    
     shared_ptr<Matrix> c(new Matrix(a.rows(),a.cols()));
     
@@ -263,7 +263,7 @@ Matrix operator+(Matrix &a, Matrix &b){
 }
 
 // how to subtract two matrices
-Matrix operator-(Matrix &a, Matrix &b){
+Matrix operator-(const Matrix &a, const Matrix &b){
     assert(a.cols() == b.cols() && a.rows() == b.rows());    
     shared_ptr<Matrix> c(new Matrix(a.rows(),a.cols()));
     
@@ -279,7 +279,7 @@ Matrix operator-(Matrix &a, Matrix &b){
 }
 
 // how to print out a matrix
-ostream& operator<<(ostream& s,  Matrix &m)
+ostream& operator<<(ostream& s, const Matrix &m)
 {
     s << "[ " << endl;
     for (int i=0;i<m.rows();i++)
@@ -295,7 +295,7 @@ ostream& operator<<(ostream& s,  Matrix &m)
 }
 
 // access the data in the matrix directly
-double& Matrix::operator()(int i, int j)
+double& Matrix::operator()(int i, int j) const
 {
     return data[i][j];
 }
@@ -325,7 +325,7 @@ Matrix Matrix::inverse()
 }
 
 // test two Matrix objects to see if they are equal
-bool operator==(Matrix &a, Matrix &b)
+bool operator==(const Matrix &a, const Matrix &b)
 {
     if(a.cols() != b.cols() && a.rows() != b.rows()) { return false; }    
     for (int i=0;i<a.rows();i++)
