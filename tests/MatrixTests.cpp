@@ -118,11 +118,13 @@ TEST_FIXTURE(TestMatrix,TestPopulateIdentity)
 TEST_FIXTURE(TestMatrix,TestTranspose)
 {
     m->populateIdentity();
-    CHECK((*m)==m->transpose());
+    Matrix t = m->transpose();
+    CHECK((*m)==t);
         
     m = new Matrix(a);
     Matrix *n = new Matrix(at);
-    CHECK(m->transpose()==(*n));
+    t = m->transpose();
+    CHECK(t==(*n));
     delete n;    
 }
 
@@ -130,14 +132,11 @@ TEST_FIXTURE(TestMatrix,TestInverse)
 {
     delete m;
     m = new Matrix(a);
-    Matrix *n = &(m->inverse());
-    Matrix *I = new Matrix(2,2);
-    I->populateIdentity();
-    
-    CHECK((*m)*(*n)==(*I));
-    
-    delete n;
-    delete I;    
+    Matrix n = m->inverse();
+    Matrix I(2,2);
+    I.populateIdentity();
+    Matrix mult = (*m)*n;
+    CHECK(mult==I);
 }
 
 TEST_FIXTURE(TestMatrix,TestElementAccess)
@@ -150,11 +149,9 @@ TEST_FIXTURE(TestMatrix,TestElementAccess)
     (*sq)(1,0) = 0;
     (*sq)(1,1) = 1;
     
-    Matrix *I = new Matrix(2,2);
-    I->populateIdentity();
-    CHECK((*sq)==(*I));
-    
-    delete I;
+    Matrix I(2,2);
+    I.populateIdentity();
+    CHECK((*sq)==I);
 }
 
 TEST_FIXTURE(TestMatrix,TestAppendRow)

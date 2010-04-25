@@ -27,7 +27,7 @@ int findNonZero(Matrix &m, int col);
     assuming the form Ax = b. Uses Gauss-Jordan. Returns a Matrix
     object containing the solution.
 */
-Matrix& gaussJordan(Matrix& A, Matrix& b);
+Matrix gaussJordan(Matrix& A, Matrix& b);
 
 /** \fn Matrix& gaussianElimination(Matrix& A, Matrix& b);
     
@@ -35,7 +35,7 @@ Matrix& gaussJordan(Matrix& A, Matrix& b);
     assuming the form Ax = b. Uses Gaussian Elimination with backsubstitution.
     Returns a Matrix object containing the solution.
 */
-Matrix& gaussianElimination(Matrix& A, Matrix& b);
+Matrix gaussianElimination(Matrix& A, Matrix& b);
 
 /** \fn boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A);
     

@@ -4,10 +4,12 @@
 #include <vector>
 #include <cassert>
 #include <cmath>
+#include <algorithm>
 #include "Matrix.h"
 #include "MatrixFunctions.h"
+#include <boost/shared_ptr.hpp>
 using namespace std;
-
+using boost::shared_ptr;
 Matrix::Matrix(int r, int c)
 {
     /* 
@@ -84,7 +86,12 @@ void Matrix::appendRow(double *r, int size)
     data[f].assign(r,&r[size]);
 }
 
-// append a row - matrix version
+/*  append a row - matrix version
+    we use resize because if the matrix is quite big,
+    resize is going to be more efficient than adding
+    elements with push_back.    
+*/
+
 void Matrix::appendRow(Matrix& b)
 {
     assert(b.cols() == cols());
@@ -176,8 +183,23 @@ Matrix& Matrix::populateIdentity()
 }
 
 
+/* Returns an iterator to the beginning of the matrix. */
+MatrixIterator Matrix::begin()
+{
+    shared_ptr<MatrixIterator> m(new MatrixIterator(this));
+    return *m;
+}
+
+/* Returns an iterator to one past the end of the matrix. */
+MatrixIterator Matrix::end()
+{
+    shared_ptr<MatrixIterator> m(new MatrixIterator(this,this->rows(), 0));
+    return *m;
+}
+
+
 // how to multiply two Matrix objects
-Matrix& operator*( Matrix &a,  Matrix &b)
+Matrix operator*( Matrix &a,  Matrix &b)
 {
     assert(a.cols() > 0);
     assert (a.cols() == b.rows());
@@ -197,14 +219,14 @@ Matrix& operator*( Matrix &a,  Matrix &b)
         }
     }
 
-    Matrix *res = new Matrix(c);
+    shared_ptr<Matrix> res(new Matrix(c));
     return *res;
 }
 
 // a scalar * a matrix
-Matrix& operator*(double s, Matrix &a)
+Matrix operator*(double s, Matrix &a)
 {
-    Matrix *b = new Matrix(a.rows(), a.cols());
+    shared_ptr<Matrix> b(new Matrix(a.rows(), a.cols()));
     
     for (int i=0;i<a.rows();i++)
     {
@@ -217,7 +239,7 @@ Matrix& operator*(double s, Matrix &a)
 }
 
 // a scalar * a matrix (the other way)
-Matrix& operator*(Matrix &a, double s)
+Matrix operator*(Matrix &a, double s)
 {
     return s * a;
 
@@ -225,9 +247,9 @@ Matrix& operator*(Matrix &a, double s)
 
 
 // how to add two matrices
-Matrix& operator+(Matrix &a, Matrix &b){
+Matrix operator+(Matrix &a, Matrix &b){
     assert(a.cols() == b.cols() && a.rows() == b.rows());    
-    Matrix *c = new Matrix(a.rows(),a.cols());
+    shared_ptr<Matrix> c(new Matrix(a.rows(),a.cols()));
     
     for (int i=0;i<a.rows();i++)
     {
@@ -241,9 +263,9 @@ Matrix& operator+(Matrix &a, Matrix &b){
 }
 
 // how to subtract two matrices
-Matrix& operator-(Matrix &a, Matrix &b){
+Matrix operator-(Matrix &a, Matrix &b){
     assert(a.cols() == b.cols() && a.rows() == b.rows());    
-    Matrix *c = new Matrix(a.rows(),a.cols());
+    shared_ptr<Matrix> c(new Matrix(a.rows(),a.cols()));
     
     for (int i=0;i<a.rows();i++)
     {
@@ -278,9 +300,9 @@ double& Matrix::operator()(int i, int j)
     return data[i][j];
 }
 
-Matrix& Matrix::transpose()
+Matrix Matrix::transpose()
 {
-    Matrix *c = new Matrix(cols(),rows());
+    shared_ptr<Matrix> c(new Matrix(cols(),rows()));
     for (int i=0;i<rows();i++)
     {
         for (int j=0;j<cols();j++)
@@ -292,12 +314,12 @@ Matrix& Matrix::transpose()
 }
 
 // get the inverse of the matrix
-Matrix& Matrix::inverse()
+Matrix Matrix::inverse()
 {
     assert(rows() == cols()); // must be a square matrix
     
     // just solve for the identity matrix using Gauss-Jordan.
-    Matrix *b = new Matrix(rows(),cols());
+    shared_ptr<Matrix> b(new Matrix(rows(),cols()));
     b->populateIdentity();
     return gaussJordan(*this,*b);
 }
@@ -399,4 +421,71 @@ ColumnVector::ColumnVector(double *a, int size) : Matrix(size,1)
     {
         data[i][0] = a[i];
     }        
+}
+
+/* MatrixIterator. */
+
+/* Copy constructor. */
+MatrixIterator::MatrixIterator(const MatrixIterator& other)
+{
+    this->m = other.m;
+    this->row = other.row;
+    this->col = other.col;
+}
+
+/** Access the value referred to. */
+double& MatrixIterator::dereference() const
+{
+    return ((*m)(row,col));
+}
+
+/** Compare for equality with another iterator. */
+bool MatrixIterator::equal(const MatrixIterator& other) const
+{
+    return (this->row == other.row && this->col == other.col && this->m == other.m);
+}
+
+/** Advance by one position. */
+void MatrixIterator::increment()
+{
+    /*  if we're at the last column of the current row,
+        go to the next row. */        
+    if (col==(m->cols()-1))
+    {
+        col = 0;
+        row++;
+    }else{
+        col++;
+    }
+}
+
+/** Retreat by one position. */
+void MatrixIterator::decrement()
+{
+    /*  if we're at the first column of the current row,
+        go to the previous row. */        
+    if (col==0)
+    {
+        col = m->cols() - 1;
+        row--;
+    }else{
+        col--;
+    }
+}
+
+/** Advance by n positions. */
+void MatrixIterator::advance(int n)
+{
+    int addrows = floor(n/(m->cols()));
+    int addcols = n % m->cols();
+    col += addcols;
+    row += addrows;
+}
+
+/** Measure the distance to another iterator. */
+int MatrixIterator::distance_to(MatrixIterator other) const
+{
+    int my_abs_location = (row * m->cols()) + col;
+    int other_abs_location = (other.row * other.m->cols()) + other.col;
+    return other_abs_location - my_abs_location;
 }

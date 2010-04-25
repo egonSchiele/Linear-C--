@@ -37,7 +37,10 @@ Documentation is written using Doxygen.
 
 Dependencies
 ============
-The Boost library for tuples (boost.org)
+The only real dependency:
+The Boost library for tuples, shared pointers, iterators, more (boost.org)
+
+Others:
 If you want to run the tests you will need UnitTest++ (unittest-cpp.sourceforge.net)
 If you want to edit and re-generate the documentation you will need doxygen (doxygen.org)
 

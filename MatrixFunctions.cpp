@@ -1,9 +1,11 @@
+#include <memory>
 #include "MatrixFunctions.h"
 #include "Matrix.h"
-#include "boost/tuple/tuple.hpp"
+#include <boost/tuple/tuple.hpp>
+#include <boost/shared_ptr.hpp>
 
 using namespace std;
-
+using boost::shared_ptr;
 // returns the # of first row of this matrix that
 // has a non-zero value in the given column
 int findNonZero(Matrix &m, int col)
@@ -22,7 +24,7 @@ int findNonZero(Matrix &m, int col)
 
 // Given two matrices A and b, solves the linear system of equations
 // assuming the form Ax = b. Uses Gauss-Jordan.
-Matrix& gaussJordan(Matrix& A, Matrix& b)
+Matrix gaussJordan(Matrix& A, Matrix& b)
 {
     Matrix Aug = A;
     Aug.appendCol(b); // make the augmented matrix
@@ -34,7 +36,7 @@ Matrix& gaussJordan(Matrix& A, Matrix& b)
         // a logical error, like -1 = 0. Either way, no solution.
         if (goodRow < 0)
         {
-            ColumnVector *n = new ColumnVector(0);
+            shared_ptr<ColumnVector> n(new ColumnVector(0));
             return *n;
         }
         
@@ -68,7 +70,7 @@ Matrix& gaussJordan(Matrix& A, Matrix& b)
     // at this point, the augmented part of Aug contains our solution.
     // Let's return it.
     
-    Matrix *res = new Matrix(b.rows(), b.cols());
+    shared_ptr<Matrix> res(new Matrix(b.rows(), b.cols()));
     for (int x=0;x<A.rows();x++)
     {
         for (int y=A.cols();y<A.cols() + b.cols();y++)
@@ -84,7 +86,7 @@ Matrix& gaussJordan(Matrix& A, Matrix& b)
 
 // Given two matrices A and b, solves the linear system of equations
 // assuming the form Ax = b. Uses Gaussian Elimination with backsubstitution.
-Matrix& gaussianElimination(Matrix& A, Matrix& b)
+Matrix gaussianElimination(Matrix& A, Matrix& b)
 {
     // First let's get it in row-echelon form.
     // This code is actually very similar to the code for
@@ -103,7 +105,7 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b)
         // a logical error, like -1 = 0. Either way, no solution.
         if (goodRow < 0)
         {
-            ColumnVector *n = new ColumnVector(0);
+            shared_ptr<ColumnVector> n(new ColumnVector(0));
             return *n;
         }
         
@@ -156,7 +158,7 @@ Matrix& gaussianElimination(Matrix& A, Matrix& b)
     // at this point, the augmented part of Aug contains our solution.
     // Let's return it.
     
-    Matrix *res = new Matrix(b.rows(), b.cols());
+    shared_ptr<Matrix> res(new Matrix(b.rows(), b.cols()));
     for (int x=0;x<A.rows();x++)
     {
         for (int y=A.cols();y<A.cols() + b.cols();y++)
@@ -175,7 +177,7 @@ boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A)
        matrices to be square. */
     assert(A.rows()==A.cols());
     Matrix L(A.rows(),A.cols());
-    Matrix *P = new Matrix(A.rows(),A.cols()); // permutation matrix    
+    auto_ptr<Matrix> P(new Matrix(A.rows(),A.cols())); // permutation matrix    
     L.populateIdentity();
     P->populateIdentity();
     Matrix Lfinal(L);
@@ -188,10 +190,10 @@ boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A)
         // a logical error, like -1 = 0. Either way, no solution.
         if (goodRow < 0)
         {
-            Matrix *l = new Matrix(0,0);
-            Matrix *u = new Matrix(0,0);
-            Matrix *p = new Matrix(0,0);
-           return boost::make_tuple(*l,*u,*p);
+            shared_ptr<Matrix> l(new Matrix(0,0));
+            shared_ptr<Matrix> u(new Matrix(0,0));
+            shared_ptr<Matrix> p(new Matrix(0,0));
+            return boost::make_tuple(*l,*u,*p);
         }
         
         // swap the good row with the row we want a 1 in.

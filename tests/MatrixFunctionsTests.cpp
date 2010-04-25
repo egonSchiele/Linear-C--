@@ -34,12 +34,9 @@ TEST_FIXTURE(TestMatrixFunctions, TestGaussJordan)
     delete m;
     double ar[] = {1,2,3,3,4,5,7,2,5};
     m = new Matrix(ar,3,3);
-    Matrix *n = &(m->inverse());
-    Matrix *sol = &(gaussJordan(*m,*I));
-    CHECK((*sol)==(*n));
-    
-    delete n;
-    delete sol;
+    Matrix n = m->inverse();
+    Matrix sol = gaussJordan(*m,*I);
+    CHECK(sol==n);
 }
 
 TEST_FIXTURE(TestMatrixFunctions, TestGaussianElimination)
@@ -47,12 +44,9 @@ TEST_FIXTURE(TestMatrixFunctions, TestGaussianElimination)
     delete m;
     double ar[] = {1,2,3,3,4,5,7,2,5};
     m = new Matrix(ar,3,3);
-    Matrix *n = &(m->inverse());
-    Matrix *sol = &(gaussianElimination(*m,*I));
-    CHECK((*sol)==(*n));
-    
-    delete n;
-    delete sol;
+    Matrix n = m->inverse();
+    Matrix sol = gaussianElimination(*m,*I);
+    CHECK(sol==n);
 }
 
 
@@ -68,8 +62,8 @@ TEST_FIXTURE(TestMatrixFunctions, TestLUPDecompose)
     Matrix U = lu.get<1>();
     Matrix P = lu.get<2>();
     
-    Matrix *newm = &(L*U*P);
-    CHECK((*newm)==(*m));
+    Matrix newm = L*U*P;
+    CHECK(newm==(*m));
 }
 
 // ADD TESTS FOR MATRIX FUNCTIONS HERE.

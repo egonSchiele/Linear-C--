@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+# include <boost/iterator/iterator_facade.hpp>
 
 /*! \mainpage LinearC++ Documentation
  *
@@ -17,6 +18,8 @@
     This file contains the declarations of the basic Linear Algebra classes
     and some methods that operate on them.
 */
+
+class MatrixIterator; // forward declaration necessary
 
 
 /**
@@ -71,10 +74,10 @@ class Matrix {
         Matrix& populateIdentity();
         
         /** Returns a Matrix object that is the transpose of the current Matrix. */
-        Matrix& transpose();
+        Matrix transpose();
 
         /** Returns a Matrix object that is the inverse of the current Matrix. */
-        Matrix& inverse();
+        Matrix inverse();
         /** This allows you to access the elements in the matrix using subscripts.
 
             Example:
@@ -123,45 +126,50 @@ class Matrix {
         /** Swaps the given cols in the Matrix. */
         void swapCols(int colA, int colB);
         
+        /** Returns an iterator to the beginning of the matrix. */
+        MatrixIterator begin();
+
+        /* Returns an iterator to one past the end of the matrix. */
+        MatrixIterator end();
     protected:
         /** Here's where the matrix is actually stored. */
         std::vector<std::vector<double> > data;
 };
 
 
-/*! \fn Matrix& operator*(Matrix &a,  Matrix &b);
+/*! \fn Matrix operator*(Matrix &a,  Matrix &b);
    
     Multiplies two matrices and returns the resulting Matrix object.
 */
-Matrix& operator*(Matrix &a,  Matrix &b);
+Matrix operator*(Matrix &a,  Matrix &b);
 
 
-/*! \fn Matrix& operator*(double s, Matrix &a);
+/*! \fn Matrix operator*(double s, Matrix &a);
    
     Multiplies a Matrix object by a scalar (double) and returns the resulting Matrix object.
 */
-Matrix& operator*(double s, Matrix &a);
+Matrix operator*(double s, Matrix &a);
 
 
-/*! \fn Matrix& operator*(Matrix &a, double s);
+/*! \fn Matrix operator*(Matrix &a, double s);
    
     Multiplies a Matrix object by a scalar (double) and returns the resulting Matrix object.
 */
-Matrix& operator*(Matrix &a, double s);
+Matrix operator*(Matrix &a, double s);
 
 
-/*! \fn Matrix& operator+(Matrix &a, Matrix &b);
+/*! \fn Matrix operator+(Matrix &a, Matrix &b);
     
     Adds two Matrix objects elementwise and returns the resulting Matrix object.
 */
-Matrix& operator+(Matrix &a, Matrix &b);
+Matrix operator+(Matrix &a, Matrix &b);
 
 
-/*! \fn Matrix& operator-(Matrix &a, Matrix &b);
+/*! \fn Matrix operator-(Matrix &a, Matrix &b);
     
     Subtracts the second matrix from the first matrix returns the resulting Matrix object.
 */
-Matrix& operator-(Matrix &a, Matrix &b);
+Matrix operator-(Matrix &a, Matrix &b);
 
 
 /*! \fn std::ostream& operator<<(std::ostream& s,  Matrix &m);
@@ -186,7 +194,7 @@ bool operator==(Matrix &a, Matrix &b);
 class RowVector : public Matrix {
     public:
         /** Creates a RowVector of the specified length. */
-        RowVector(int c) : Matrix(1,c) {}
+        explicit RowVector(int c) : Matrix(1,c) {}
         
         /** Creates a RowVector from a vector of doubles. */
         RowVector(std::vector<double> &a);
@@ -211,7 +219,7 @@ class RowVector : public Matrix {
 class ColumnVector : public Matrix {
     public:
         /** Creates a ColumnVector of the specified length. */
-        ColumnVector(int r) : Matrix(r,1) {}
+        explicit ColumnVector(int r) : Matrix(r,1) {}
 
         /** Creates a ColumnVector from a vector of doubles. */
         ColumnVector(std::vector<double> &a);
@@ -226,6 +234,56 @@ class ColumnVector : public Matrix {
         /** This method is undefined for a ColumnVector since a ColumnVector
             can only have one column. */
         void appendCol();
+};
+
+/** The MatrixIterator class. When you ask for an iterator to a Matrix object,
+    you get back a MatrixIterator.
+*/
+
+class MatrixIterator : public boost::iterator_facade<MatrixIterator, double, boost::bidirectional_traversal_tag>
+{
+    public:
+        /** Default constructor. */
+        MatrixIterator() : m(0), row(0), col(0) {};
+        
+        /** Create a MatrixIterator out of a Matrix.
+            The MatrixIterator points to the first element in the Matrix.
+        */
+        MatrixIterator(Matrix *other) : m(other), row(0), col(0) {};
+
+        /** Create a MatrixIterator out of a Matrix.
+            The MatrixIterator points to the element in the Matrix
+            at row arow and column acol.
+        */
+        MatrixIterator(Matrix *other, int arow, int acol) : m(other), row(arow), col(acol) {};
+
+        /** Copy constructor. */
+        MatrixIterator(const MatrixIterator&);
+    private:    
+        friend class boost::iterator_core_access;        
+        
+        /** Access the value referred to. */
+        double& dereference() const;
+        
+        /** Compare for equality with another iterator. */
+        bool equal(const MatrixIterator&) const;
+        
+        /** Advance by one position. */
+        void increment();
+        
+        /** Retreat by one position. */
+        void decrement();
+        
+        /** Advance by n positions. */
+        void advance(int);
+        
+        /** Measure the distance to another iterator. */
+        int distance_to(MatrixIterator) const;
+        
+        /** the element we're pointing to in the matrix. */
+        Matrix *m;
+        int row;
+        int col;
 };
 
 #endif
