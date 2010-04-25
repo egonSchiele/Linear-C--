@@ -47,8 +47,7 @@ Matrix::Matrix(vector<vector<double> >& a)
     data.resize(rows);
     for (int i=0;i<rows;i++)
     {
-        data[i].resize(cols);
-        data[i].assign(a[i].begin(),a[i].end());
+        copy(a[i].begin(),a[i].end(),back_inserter(data[i]));
     }
     
 }
@@ -59,8 +58,7 @@ Matrix::Matrix(double *a, int rows, int cols)
     data.resize(rows);
     for (int i=0;i<rows;i++)
     {
-        data[i].resize(cols);
-        data[i].assign(&a[i*rows],&a[(i*rows)+cols]);
+        copy(&a[i*rows],&a[(i*rows)+cols],back_inserter(data[i]));
     }
 }
 
@@ -71,8 +69,7 @@ void Matrix::appendRow(std::vector<double>& r)
     data.resize(data.size()+1);
     
     int f = rows()-1;
-    data[f].resize(r.size());
-    data[f].assign(r.begin(),r.end());
+    copy(r.begin(),r.end(),back_inserter(data[f]));
 }
 
 // append a row - array version
@@ -82,8 +79,7 @@ void Matrix::appendRow(double *r, int size)
     data.resize(data.size()+1);
     
     int f = rows()-1;
-    data[f].resize(size);
-    data[f].assign(r,&r[size]);
+    copy(r,&r[size],back_inserter(data[f]));
 }
 
 /*  append a row - matrix version
@@ -153,7 +149,7 @@ Matrix& Matrix::populateRandom()
 {
     srand ( time(NULL) ); // seed the matrix
     for (int i=0;i<rows();i++)
-    {
+    {        
         for (int j=0;j<cols();j++)
         {
             data[i][j] = rand() % 10;
@@ -167,16 +163,11 @@ Matrix& Matrix::populateIdentity()
     // if it's not a square matrix, we cant make an identity matrix.
     assert(cols() == rows());
     
+    fill(begin(),end(),0);
+       
     for (int i=0;i<rows();i++)
     {
-        for (int j=0;j<cols();j++)
-        {
-            if(i==j){
-                data[i][j] = 1;                
-            }else{
-                data[i][j] = 0;
-            }
-        }        
+        data[i][i] = 1;
     }
     
     return *this;
@@ -184,14 +175,14 @@ Matrix& Matrix::populateIdentity()
 
 
 /* Returns an iterator to the beginning of the matrix. */
-MatrixIterator Matrix::begin()
+MatrixIterator Matrix::begin() const
 {
     shared_ptr<MatrixIterator> m(new MatrixIterator(*this));
     return *m;
 }
 
 /* Returns an iterator to one past the end of the matrix. */
-MatrixIterator Matrix::end()
+MatrixIterator Matrix::end() const
 {
     shared_ptr<MatrixIterator> m(new MatrixIterator(*this,this->rows(), 0));
     return *m;
@@ -328,17 +319,7 @@ Matrix Matrix::inverse()
 bool operator==(const Matrix &a, const Matrix &b)
 {
     if(a.cols() != b.cols() && a.rows() != b.rows()) { return false; }    
-    for (int i=0;i<a.rows();i++)
-    {
-        for (int j=0;j<a.cols();j++)
-        {
-            if(a(i,j)!=b(i,j))
-            {
-                return false;
-            }
-        }        
-    }
-    return true;
+    return equal(a.begin(),a.end(),b.begin());
 }
 
 void Matrix::swapRows(int rowA, int rowB)

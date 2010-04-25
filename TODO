@@ -1,6 +1,5 @@
 - Make LU Decomposition work with any matrix, not just square matrices.
 - Factor out common code in gaussian elimination, gauss jordan, and LU decomposition if possible.
 - make the findNonZero function return the max value in that column instead of the first non-zero value. Same linear running time, but this is a *lot* better numerically speaking, especially since we're using doubles.
-- explicitly initialize matrices to zeroes.
 - find the rank of a matrix.
-- LUsolve 
+- LUsolve: automatically choose the right method to solve the matrix (gaussian elimination, cholesky decomposition, etc).

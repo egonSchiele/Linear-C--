@@ -127,10 +127,12 @@ class Matrix {
         void swapCols(int colA, int colB);
         
         /** Returns an iterator to the beginning of the matrix. */
-        MatrixIterator begin();
+        MatrixIterator begin() const;
 
-        /* Returns an iterator to one past the end of the matrix. */
-        MatrixIterator end();
+        /** Returns an iterator to one past the end of the matrix. */
+        MatrixIterator end() const;
+
+            
     protected:
         /** Here's where the matrix is actually stored. */
         std::vector<std::vector<double> > mutable data;
@@ -249,13 +251,13 @@ class MatrixIterator : public boost::iterator_facade<MatrixIterator, double, boo
         /** Create a MatrixIterator out of a Matrix.
             The MatrixIterator points to the first element in the Matrix.
         */
-        MatrixIterator(Matrix& other) : m(&other), row(0), col(0) {};
+        MatrixIterator(const Matrix& other) : m(&other), row(0), col(0) {};
 
         /** Create a MatrixIterator out of a Matrix.
             The MatrixIterator points to the element in the Matrix
             at row arow and column acol.
         */
-        MatrixIterator(Matrix& other, int arow, int acol) : m(&other), row(arow), col(acol) {};
+        MatrixIterator(const Matrix& other, const int arow, const int acol) : m(&other), row(arow), col(acol) {};
 
         /** Copy constructor. */
         MatrixIterator(const MatrixIterator&);
