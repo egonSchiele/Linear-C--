@@ -35,6 +35,7 @@ int Matrix::rows() const
 
 int Matrix::cols() const
 {
+    if(rows()==0) return 0;
     return data[0].size();
 }
 

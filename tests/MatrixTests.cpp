@@ -100,6 +100,32 @@ TEST_FIXTURE(TestMatrix,TestArrayConstructor)
     delete I;
 }
 
+TEST_FIXTURE(TestMatrix,TestRows)
+{
+    CHECK(m->rows()==3);
+}
+
+TEST_FIXTURE(TestMatrix,TestCols)
+{
+    CHECK(m->cols()==3);
+}
+
+// what happens if we make a matrix object
+// that's empty? We should get 0 rows and 0 cols.
+TEST_FIXTURE(TestMatrix,TestZeroRows)
+{
+    delete m;
+    m = new Matrix(0,0);
+    CHECK(m->rows()==0);
+}
+
+TEST_FIXTURE(TestMatrix,TestZeroCols)
+{
+    delete m;
+    m = new Matrix(0,0);
+    CHECK(m->cols()==0);
+}
+
 TEST_FIXTURE(TestMatrix,TestPopulateIdentity)
 {
     // test that populateIdentity actually makes an identity matrix
