@@ -66,7 +66,7 @@ struct TestMatrix
         Matrix *m; // 3x3 matrix
         Matrix *sq; // 2x2 matrix
         vector<vector<double> > i; // 2d vector of identity matrix
-        vector<vector<double> > a; // simple non-singular matrix
+        vector<vector<double> > a; // simple 2x2 non-singular matrix
         vector<vector<double> > twoa; // a * 2
         vector<vector<double> > at; // transpose of a
     
@@ -273,6 +273,22 @@ TEST_FIXTURE(TestMatrix,swapCols)
     CHECK((*sq)(0,0)==0);
 }
 
+TEST_FIXTURE(TestMatrix,TestBeginIterator)
+{
+    delete m;
+    m = new Matrix(a);
+    double d = *(m->begin());
+    CHECK(d==(*m)(0,0));
+}
+
+TEST_FIXTURE(TestMatrix,TestEndIterator)
+{
+    delete m;
+    m = new Matrix(a);
+    MatrixIterator it = m->end();
+    CHECK(*(--it)==(*m)(1,1));
+}
+
 TEST_FIXTURE(TestMatrix,CheckOperatorScalarMultiplyLeft)
 {
     delete m;
@@ -405,8 +421,36 @@ TEST_FIXTURE(TestMatrix,CVCheckLength)
     CHECK(c->length()==1);
 }
 
+/* * * * * * * * * * * * * * * * * * * * 
+     MatrixIterator tests follow:
+ * * * * * * * * * * * * * * * * * * * */
 
-// ADD TESTS FOR MATRIX FUNCTIONS HERE.
+TEST_FIXTURE(TestMatrix,CheckItMatrixConstructor)
+{
+    delete m;
+    m = new Matrix(a);
+    MatrixIterator i(*m);
+    CHECK(*i==(*m)(0,0));
+}
+
+TEST_FIXTURE(TestMatrix,CheckItMatrixConstructorExplicitElement)
+{
+    delete m;
+    m = new Matrix(a);
+    MatrixIterator i(*m,1,0);
+    CHECK(*i==(*m)(1,0));
+}
+
+TEST_FIXTURE(TestMatrix,CheckItCopyConstructor)
+{
+    delete m;
+    m = new Matrix(a);
+    MatrixIterator i(*m,1,0);
+    MatrixIterator j(i);
+    i++;
+    j++;
+    CHECK(*i==*j);
+}
 
 int main(int argc, char * argv[])
 {

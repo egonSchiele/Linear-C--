@@ -249,13 +249,13 @@ class MatrixIterator : public boost::iterator_facade<MatrixIterator, double, boo
         /** Create a MatrixIterator out of a Matrix.
             The MatrixIterator points to the first element in the Matrix.
         */
-        MatrixIterator(Matrix *other) : m(other), row(0), col(0) {};
+        MatrixIterator(Matrix& other) : m(&other), row(0), col(0) {};
 
         /** Create a MatrixIterator out of a Matrix.
             The MatrixIterator points to the element in the Matrix
             at row arow and column acol.
         */
-        MatrixIterator(Matrix *other, int arow, int acol) : m(other), row(arow), col(acol) {};
+        MatrixIterator(Matrix& other, int arow, int acol) : m(&other), row(arow), col(acol) {};
 
         /** Copy constructor. */
         MatrixIterator(const MatrixIterator&);
@@ -281,7 +281,7 @@ class MatrixIterator : public boost::iterator_facade<MatrixIterator, double, boo
         int distance_to(MatrixIterator) const;
         
         /** the element we're pointing to in the matrix. */
-        Matrix *m;
+        const Matrix *m;
         int row;
         int col;
 };

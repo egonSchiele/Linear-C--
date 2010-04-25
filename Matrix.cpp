@@ -186,14 +186,14 @@ Matrix& Matrix::populateIdentity()
 /* Returns an iterator to the beginning of the matrix. */
 MatrixIterator Matrix::begin()
 {
-    shared_ptr<MatrixIterator> m(new MatrixIterator(this));
+    shared_ptr<MatrixIterator> m(new MatrixIterator(*this));
     return *m;
 }
 
 /* Returns an iterator to one past the end of the matrix. */
 MatrixIterator Matrix::end()
 {
-    shared_ptr<MatrixIterator> m(new MatrixIterator(this,this->rows(), 0));
+    shared_ptr<MatrixIterator> m(new MatrixIterator(*this,this->rows(), 0));
     return *m;
 }
 
