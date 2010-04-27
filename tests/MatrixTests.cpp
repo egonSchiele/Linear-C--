@@ -315,6 +315,14 @@ TEST_FIXTURE(TestMatrix,TestEndIterator)
     CHECK(*(--it)==(*m)(1,1));
 }
 
+TEST_FIXTURE(TestMatrix,TestNullMatrix)
+{
+    // Check the static variable NullMatrix
+    delete m;
+    m = new Matrix(0,0);
+    CHECK((*m)==NullMatrix);
+}
+
 TEST_FIXTURE(TestMatrix,CheckOperatorScalarMultiplyLeft)
 {
     delete m;

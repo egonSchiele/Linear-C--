@@ -29,6 +29,7 @@
 <a href="#_details">More...</a></p>
 <code>#include &lt;iostream&gt;</code><br/>
 <code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;boost/iterator/iterator_facade.hpp&gt;</code><br/>
 <div class="dynheader">
 Include dependency graph for Matrix.h:</div>
 <div class="dynsection">
@@ -49,39 +50,80 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The <a class="el" href="class_row_vector.html" title="The RowVector class, which inherits from the general Matrix class.">RowVector</a> class, which inherits from the general <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> class.  <a href="class_row_vector.html#_details">More...</a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_column_vector.html">ColumnVector</a></td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The <a class="el" href="class_column_vector.html" title="The ColumnVector class, which inherits from the general Matrix class.">ColumnVector</a> class, which inherits from the general <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> class.  <a href="class_column_vector.html#_details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix_iterator.html">MatrixIterator</a></td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The <a class="el" href="class_matrix_iterator.html" title="The MatrixIterator class.">MatrixIterator</a> class.  <a href="class_matrix_iterator.html#_details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#a583d1589aee3559d4442488c512046a5">operator*</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;a, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Multiplies two matrices and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#a583d1589aee3559d4442488c512046a5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ac7712e631a367916e502bba3761b63de">operator*</a> (double s, <a class="el" href="class_matrix.html">Matrix</a> &amp;a)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Multiplies a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object by a scalar (double) and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#ac7712e631a367916e502bba3761b63de"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ad6a8417fcb147d2bbecbe674572d57b9">operator*</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;a, double s)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Multiplies a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object by a scalar (double) and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#ad6a8417fcb147d2bbecbe674572d57b9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#afdfd38437764622830248868384327b9">operator+</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;a, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds two <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> objects elementwise and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#afdfd38437764622830248868384327b9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ac9e409817c609f095d0fe666b1093f0e">operator-</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;a, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Subtracts the second matrix from the first matrix returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#ac9e409817c609f095d0fe666b1093f0e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#aa4a618cf39cf99ebadd2b230fbbacfd5">operator&lt;&lt;</a> (std::ostream &amp;s, <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Prints out a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#aa4a618cf39cf99ebadd2b230fbbacfd5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#a521b4fbb24969f12c91690fdada71daa">operator==</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;a, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tests if two <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> objects are equivalent.  <a href="#a521b4fbb24969f12c91690fdada71daa"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ac3e7400b224d99a4b9b96247c5912dfc">NullMatrix</a> (0, 0)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">The NullMatrix is a special type of <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> with zero rows and zero columns.  <a href="#ac3e7400b224d99a4b9b96247c5912dfc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ab0bbb2ec9c1451f42f0270652df8cada">operator*</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;a, const <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Multiplies two matrices and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#ab0bbb2ec9c1451f42f0270652df8cada"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#a66de46fb456158acf519af331ff19038">operator*</a> (const double s, const <a class="el" href="class_matrix.html">Matrix</a> &amp;a)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Multiplies a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object by a scalar (double) and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#a66de46fb456158acf519af331ff19038"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#a7f8bad991fbd1deff94dd1d54134ef32">operator*</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;a, const double s)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Multiplies a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object by a scalar (double) and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#a7f8bad991fbd1deff94dd1d54134ef32"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#ac6d5290381d2afbc2628dacbbacf0a34">operator+</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;a, const <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Adds two <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> objects elementwise and returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#ac6d5290381d2afbc2628dacbbacf0a34"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#a21483b661257edc5f15dbbe7f88e8d84">operator-</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;a, const <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Subtracts the second matrix from the first matrix returns the resulting <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#a21483b661257edc5f15dbbe7f88e8d84"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#aa65f7cc3f08174c421a0b6d24dff90f1">operator&lt;&lt;</a> (std::ostream &amp;s, const <a class="el" href="class_matrix.html">Matrix</a> &amp;m)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Prints out a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object.  <a href="#aa65f7cc3f08174c421a0b6d24dff90f1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_8h.html#add6a39962db51ad24ca0c368177ff888">operator==</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;a, const <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Tests if two <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> objects are equivalent.  <a href="#add6a39962db51ad24ca0c368177ff888"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>This file contains the declarations of the basic Linear Algebra classes and some methods that operate on them. </p>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="ad6a8417fcb147d2bbecbe674572d57b9"></a><!-- doxytag: member="Matrix.h::operator*" ref="ad6a8417fcb147d2bbecbe674572d57b9" args="(Matrix &amp;a, double s)" -->
+<a class="anchor" id="ac3e7400b224d99a4b9b96247c5912dfc"></a><!-- doxytag: member="Matrix.h::NullMatrix" ref="ac3e7400b224d99a4b9b96247c5912dfc" args="(0, 0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&amp; operator* </td>
+          <td class="memname">static const <a class="el" href="class_matrix.html">Matrix</a> NullMatrix </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">0&nbsp;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0&nbsp;</td>
+          <td class="paramname"></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The NullMatrix is a special type of <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> with zero rows and zero columns. </p>
+<p>If a function is supposed to return a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object, but an error has occured and it can't return the proper object, it should return a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> with zero rows and zero columns by saying:</p>
+<div class="fragment"><pre class="fragment">    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="class_matrix.html" title="The general Matrix class.">Matrix</a>(0,0);
+</pre></div><p>The return type should be compared with NullMatrix. For example, gaussJordan and gaussianElimination both return a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> with zero rows and zero columns if no solution could be found; one way to use these functions would be:</p>
+<div class="fragment"><pre class="fragment">    <a class="code" href="class_matrix.html" title="The general Matrix class.">Matrix</a> x = <a class="code" href="_matrix_functions_8cpp.html#a5ab64c0532a96fd250bf278423b326cf" title="Given two matrices A and b, solves the linear system of equations assuming the form...">gaussianElimination</a>(A,b); <span class="comment">// where A and b are two previously defined matrices</span>
+    <span class="keywordflow">if</span> (x == <a class="code" href="_matrix_8h.html#ac3e7400b224d99a4b9b96247c5912dfc" title="The NullMatrix is a special type of Matrix with zero rows and zero columns.">NullMatrix</a>)
+    {
+        <span class="comment">// uh oh!</span>
+    }<span class="keywordflow">else</span> { ... }
+</pre></div> 
+</div>
+</div>
+<a class="anchor" id="a7f8bad991fbd1deff94dd1d54134ef32"></a><!-- doxytag: member="Matrix.h::operator*" ref="a7f8bad991fbd1deff94dd1d54134ef32" args="(const Matrix &amp;a, const double s)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double&nbsp;</td>
           <td class="paramname"> <em>s</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -97,20 +139,20 @@ This graph shows which files directly or indirectly include this file:</div>
 
 </div>
 </div>
-<a class="anchor" id="ac7712e631a367916e502bba3761b63de"></a><!-- doxytag: member="Matrix.h::operator*" ref="ac7712e631a367916e502bba3761b63de" args="(double s, Matrix &amp;a)" -->
+<a class="anchor" id="a66de46fb456158acf519af331ff19038"></a><!-- doxytag: member="Matrix.h::operator*" ref="a66de46fb456158acf519af331ff19038" args="(const double s, const Matrix &amp;a)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&amp; operator* </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> operator* </td>
           <td>(</td>
-          <td class="paramtype">double&nbsp;</td>
+          <td class="paramtype">const double&nbsp;</td>
           <td class="paramname"> <em>s</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>a</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -126,20 +168,20 @@ This graph shows which files directly or indirectly include this file:</div>
 
 </div>
 </div>
-<a class="anchor" id="a583d1589aee3559d4442488c512046a5"></a><!-- doxytag: member="Matrix.h::operator*" ref="a583d1589aee3559d4442488c512046a5" args="(Matrix &amp;a, Matrix &amp;b)" -->
+<a class="anchor" id="ab0bbb2ec9c1451f42f0270652df8cada"></a><!-- doxytag: member="Matrix.h::operator*" ref="ab0bbb2ec9c1451f42f0270652df8cada" args="(const Matrix &amp;a, const Matrix &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&amp; operator* </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> operator* </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -155,20 +197,20 @@ This graph shows which files directly or indirectly include this file:</div>
 
 </div>
 </div>
-<a class="anchor" id="afdfd38437764622830248868384327b9"></a><!-- doxytag: member="Matrix.h::operator+" ref="afdfd38437764622830248868384327b9" args="(Matrix &amp;a, Matrix &amp;b)" -->
+<a class="anchor" id="ac6d5290381d2afbc2628dacbbacf0a34"></a><!-- doxytag: member="Matrix.h::operator+" ref="ac6d5290381d2afbc2628dacbbacf0a34" args="(const Matrix &amp;a, const Matrix &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&amp; operator+ </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> operator+ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -184,20 +226,20 @@ This graph shows which files directly or indirectly include this file:</div>
 
 </div>
 </div>
-<a class="anchor" id="ac9e409817c609f095d0fe666b1093f0e"></a><!-- doxytag: member="Matrix.h::operator&#45;" ref="ac9e409817c609f095d0fe666b1093f0e" args="(Matrix &amp;a, Matrix &amp;b)" -->
+<a class="anchor" id="a21483b661257edc5f15dbbe7f88e8d84"></a><!-- doxytag: member="Matrix.h::operator&#45;" ref="a21483b661257edc5f15dbbe7f88e8d84" args="(const Matrix &amp;a, const Matrix &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&amp; operator- </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> operator- </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -213,7 +255,7 @@ This graph shows which files directly or indirectly include this file:</div>
 
 </div>
 </div>
-<a class="anchor" id="aa4a618cf39cf99ebadd2b230fbbacfd5"></a><!-- doxytag: member="Matrix.h::operator&lt;&lt;" ref="aa4a618cf39cf99ebadd2b230fbbacfd5" args="(std::ostream &amp;s, Matrix &amp;m)" -->
+<a class="anchor" id="aa65f7cc3f08174c421a0b6d24dff90f1"></a><!-- doxytag: member="Matrix.h::operator&lt;&lt;" ref="aa65f7cc3f08174c421a0b6d24dff90f1" args="(std::ostream &amp;s, const Matrix &amp;m)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -226,7 +268,7 @@ This graph shows which files directly or indirectly include this file:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>m</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -242,20 +284,20 @@ This graph shows which files directly or indirectly include this file:</div>
 
 </div>
 </div>
-<a class="anchor" id="a521b4fbb24969f12c91690fdada71daa"></a><!-- doxytag: member="Matrix.h::operator==" ref="a521b4fbb24969f12c91690fdada71daa" args="(Matrix &amp;a, Matrix &amp;b)" -->
+<a class="anchor" id="add6a39962db51ad24ca0c368177ff888"></a><!-- doxytag: member="Matrix.h::operator==" ref="add6a39962db51ad24ca0c368177ff888" args="(const Matrix &amp;a, const Matrix &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool operator== </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
           <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
         </tr>
         <tr>
@@ -272,7 +314,7 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 </div>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Wed Apr 21 17:08:45 2010 for LinearC++ by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Apr 26 23:25:52 2010 for LinearC++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

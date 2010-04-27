@@ -24,23 +24,25 @@
   </div>
 </div>
 <div class="contents">
-<h1>MatrixFunctions.cpp File Reference</h1><code>#include &quot;<a class="el" href="_matrix_functions_8h.html">MatrixFunctions.h</a>&quot;</code><br/>
+<h1>MatrixFunctions.cpp File Reference</h1><code>#include &lt;memory&gt;</code><br/>
+<code>#include &quot;<a class="el" href="_matrix_functions_8h.html">MatrixFunctions.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_matrix_8h.html">Matrix.h</a>&quot;</code><br/>
-<code>#include &quot;boost/tuple/tuple.hpp&quot;</code><br/>
+<code>#include &lt;boost/tuple/tuple.hpp&gt;</code><br/>
+<code>#include &lt;boost/shared_ptr.hpp&gt;</code><br/>
 <div class="dynheader">
 Include dependency graph for MatrixFunctions.cpp:</div>
 <div class="dynsection">
 <div class="center"><img src="_matrix_functions_8cpp__incl.png" border="0" usemap="#_matrix_functions_8cpp_map" alt=""/></div>
 <map name="_matrix_functions_8cpp_map" id="_matrix_functions_8cpp">
-<area shape="rect" href="_matrix_functions_8h.html" title="This file contains the declarations of the basic Linear Algebra classes and some..." alt="" coords="88,80,219,107" /><area shape="rect" href="_matrix_8h.html" title="This file contains the declarations of the basic Linear Algebra classes and some..." alt="" coords="5,155,75,181" /></map>
+<area shape="rect" href="_matrix_functions_8h.html" title="This file contains the declarations of the basic Linear Algebra classes and some..." alt="" coords="307,80,438,107" /><area shape="rect" href="_matrix_8h.html" title="This file contains the declarations of the basic Linear Algebra classes and some..." alt="" coords="224,155,294,181" /></map>
 </div>
 <table border="0" cellpadding="0" cellspacing="0">
 <tr><td colspan="2"><h2>Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#aa7678f1d5dfe64cad1897e1a78da2c10">findNonZero</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;m, int col)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> and a column number, this functions returns the index of the first row which has a non-zero value in that column.  <a href="#aa7678f1d5dfe64cad1897e1a78da2c10"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#aec58045132edaf43914a134b4eb2697f">gaussJordan</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#aec58045132edaf43914a134b4eb2697f">gaussJordan</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given two matrices A and b, solves the linear system of equations assuming the form Ax = b.  <a href="#aec58045132edaf43914a134b4eb2697f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#a5ab64c0532a96fd250bf278423b326cf">gaussianElimination</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#a5ab64c0532a96fd250bf278423b326cf">gaussianElimination</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given two matrices A and b, solves the linear system of equations assuming the form Ax = b.  <a href="#a5ab64c0532a96fd250bf278423b326cf"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">boost::tuple&lt; <a class="el" href="class_matrix.html">Matrix</a>, <a class="el" href="class_matrix.html">Matrix</a>, <br class="typebreak"/>
 <a class="el" href="class_matrix.html">Matrix</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#a4211ea2b9a4462e11be36b7ab09ebf5a">LUPDecompose</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
@@ -175,7 +177,7 @@ Include dependency graph for MatrixFunctions.cpp:</div>
 </div>
 </div>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Wed Apr 21 17:08:46 2010 for LinearC++ by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Apr 26 23:25:52 2010 for LinearC++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

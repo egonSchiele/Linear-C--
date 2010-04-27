@@ -15,7 +15,7 @@ Include dependency graph for MatrixFunctions.h:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=154pt]{_matrix_functions_8h__incl}
+\includegraphics[width=197pt]{_matrix_functions_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file:\nopagebreak
@@ -30,9 +30,9 @@ This graph shows which files directly or indirectly include this file:\nopagebre
 \item 
 int \hyperlink{_matrix_functions_8h_aa7678f1d5dfe64cad1897e1a78da2c10}{findNonZero} (\hyperlink{class_matrix}{Matrix} \&m, int col)
 \begin{DoxyCompactList}\small\item\em Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-\/zero value in that column. \item\end{DoxyCompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_functions_8h_a77b7bbc23b94764daf1def2756ed78a2}{gaussJordan} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8h_a566d910a6ada2d4c7d2eb602861bae9d}{gaussJordan} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
 \begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
-\hyperlink{class_matrix}{Matrix} \& \hyperlink{_matrix_functions_8h_ae3f5418ded795e1220e7caac7771494b}{gaussianElimination} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8h_ae7079e2bd8e1e2bab782ab049b84cc45}{gaussianElimination} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
 \begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
 boost::tuple$<$ \hyperlink{class_matrix}{Matrix}, \hyperlink{class_matrix}{Matrix}, \hyperlink{class_matrix}{Matrix} $>$ \hyperlink{_matrix_functions_8h_a3a79c07a22dd5e176404f713b54e5dfc}{LUPDecompose} (\hyperlink{class_matrix}{Matrix} A)
 \begin{DoxyCompactList}\small\item\em Given a matrix, returns it's LUP decomposition. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -51,20 +51,20 @@ This file contains the declarations of the basic Linear Algebra classes and some
 
 Given a \hyperlink{class_matrix}{Matrix} and a column number, this functions returns the index of the first row which has a non-\/zero value in that column. 
 
-If all rows have zeroes, it returns -\/1. This function is used by both gaussJordan and gaussianElimination. \hypertarget{_matrix_functions_8h_ae3f5418ded795e1220e7caac7771494b}{
+If all rows have zeroes, it returns -\/1. This function is used by both gaussJordan and gaussianElimination. \hypertarget{_matrix_functions_8h_ae7079e2bd8e1e2bab782ab049b84cc45}{
 \index{MatrixFunctions.h@{MatrixFunctions.h}!gaussianElimination@{gaussianElimination}}
 \index{gaussianElimination@{gaussianElimination}!MatrixFunctions.h@{MatrixFunctions.h}}
-\subsubsection[{gaussianElimination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& gaussianElimination ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_functions_8h_ae3f5418ded795e1220e7caac7771494b}
+\subsubsection[{gaussianElimination}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} gaussianElimination ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8h_ae7079e2bd8e1e2bab782ab049b84cc45}
 
 
 Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
 
-Uses Gaussian Elimination with backsubstitution. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8h_a77b7bbc23b94764daf1def2756ed78a2}{
+Uses Gaussian Elimination with backsubstitution. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8h_a566d910a6ada2d4c7d2eb602861bae9d}{
 \index{MatrixFunctions.h@{MatrixFunctions.h}!gaussJordan@{gaussJordan}}
 \index{gaussJordan@{gaussJordan}!MatrixFunctions.h@{MatrixFunctions.h}}
-\subsubsection[{gaussJordan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix}\& gaussJordan ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
-\label{_matrix_functions_8h_a77b7bbc23b94764daf1def2756ed78a2}
+\subsubsection[{gaussJordan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} gaussJordan ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8h_a566d910a6ada2d4c7d2eb602861bae9d}
 
 
 Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 

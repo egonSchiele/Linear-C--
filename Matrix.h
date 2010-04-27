@@ -138,6 +138,30 @@ class Matrix {
         std::vector<std::vector<double> > mutable data;
 };
 
+/** \var static const Matrix NullMatrix(0,0)
+    The NullMatrix is a special type of Matrix with zero rows and zero columns.
+    If a function is supposed to return a Matrix object, but an error has occured
+    and it can't return the proper object, it should return a Matrix with zero rows
+    and zero columns by saying:
+    
+    \code
+    return new Matrix(0,0);
+    \endcode
+    
+    The return type should be compared with NullMatrix. For example, gaussJordan
+    and gaussianElimination both return a Matrix with zero rows and zero columns
+    if no solution could be found; one way to use these functions would be:
+    
+    \code
+    Matrix x = gaussianElimination(A,b); // where A and b are two previously defined matrices
+    if (x == NullMatrix)
+    {
+        // uh oh!
+    }else { ... }
+    
+    \endcode
+*/
+static const Matrix NullMatrix(0,0);
 
 /*! \fn Matrix operator*(const Matrix &a, const Matrix &b);
    
