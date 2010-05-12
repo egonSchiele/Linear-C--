@@ -1,9 +1,7 @@
-#include <iostream>
-using namespace std;
 #include "Matrix.h"
 #include "MatrixFunctions.h"
-#include "boost/tuple/tuple.hpp"
-#include <vector>
+#include <iostream>
+using namespace std;
 #include <algorithm>
 #include <numeric>
 int main(int argc, char * argv[])
