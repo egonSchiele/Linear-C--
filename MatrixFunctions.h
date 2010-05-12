@@ -33,6 +33,7 @@ Matrix gaussJordan(Matrix& A, Matrix& b);
     
     Given two matrices A and b, solves the linear system of equations
     assuming the form Ax = b. Uses Gaussian Elimination with backsubstitution.
+    This is faster than using gaussJordan.
     Returns a Matrix object containing the solution.
 */
 Matrix gaussianElimination(Matrix& A, Matrix& b);
@@ -61,4 +62,22 @@ Matrix gaussianElimination(Matrix& A, Matrix& b);
     \endcode
 */
 boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A);
+
+/** \fn bool isSymmetric(Matrix &A)
+    Checks whether a matrix is symmetric or not.
+*/
+bool isSymmetric(Matrix &A);
+
+/** \fn Matrix steepestDescent(Matrix& A, Matrix& b);
+    Given two matrices A and b, solves the linear system of equations
+    assuming the form Ax = b. Uses the Method of Steepest Descent.
+    This is an iterative method. On sparse matrices, this will usually 
+    be faster than using gaussianElimination or gaussJordan.
+    
+    Warning: A needs to be symmetric and positive definite.
+    
+    Returns a Matrix object containing the solution.
+
+*/
+Matrix steepestDescent(Matrix& A, Matrix& b);
 #endif

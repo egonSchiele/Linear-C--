@@ -32,7 +32,7 @@ struct TestMatrixFunctions
 TEST_FIXTURE(TestMatrixFunctions, TestGaussJordan)
 {
     delete m;
-    double ar[] = {1,2,3,3,4,5,7,2,5};
+    double ar[] = {1,2,3,3,4,5,7,2,5}; // non symmetric, non singular 3x3 matrix
     m = new Matrix(ar,3,3);
     Matrix n = m->inverse();
     Matrix sol = gaussJordan(*m,*I);
@@ -66,7 +66,19 @@ TEST_FIXTURE(TestMatrixFunctions, TestLUPDecompose)
     CHECK(newm==(*m));
 }
 
-// ADD TESTS FOR MATRIX FUNCTIONS HERE.
+TEST_FIXTURE(TestMatrixFunctions, TestIsSymmetric)
+{
+    CHECK(isSymmetric(*I));
+}
+
+TEST_FIXTURE(TestMatrixFunctions, TestIsSymmetricFalse)
+{
+    delete m;
+    double ar[] = {1,2,3,3,4,5,7,2,5}; // non symmetric, non singular 3x3 matrix
+    m = new Matrix(ar,3,3);
+    CHECK(isSymmetric(*m)==false);
+}
+
 
 int main(int argc, char * argv[])
 {

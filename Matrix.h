@@ -68,7 +68,7 @@ class Matrix {
         
         /** Populates the matrix with random integers in the range 0-9. */
         Matrix& populateRandom();
-        
+
         /** Makes this matrix an identity matrix. Throws an error if 
         this is not a square matrix. */
         Matrix& populateIdentity();

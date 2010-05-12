@@ -177,7 +177,7 @@ boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A)
        matrices to be square. */
     assert(A.rows()==A.cols());
     Matrix L(A.rows(),A.cols());
-    auto_ptr<Matrix> P(new Matrix(A.rows(),A.cols())); // permutation matrix    
+    shared_ptr<Matrix> P(new Matrix(A.rows(),A.cols())); // permutation matrix    
     L.populateIdentity();
     P->populateIdentity();
     Matrix Lfinal(L);
@@ -245,5 +245,30 @@ boost::tuple<Matrix, Matrix, Matrix> LUPDecompose(Matrix A)
     Matrix *L2 = &(L);
     Matrix *U = &A;
     return boost::make_tuple(*L2, *U, *P);
+    
+}
+
+/* checks if a matrix is symmetric. */
+bool isSymmetric(Matrix &A)
+{
+    // not square, so definitely not symmetric.
+    if (A.rows() != A.cols()) return false;
+    
+    if (A.transpose() == A) return true;
+    
+    return false;
+}
+
+
+/* solve Ax=b using the Method of Steepest Descent. */
+Matrix steepestDescent(Matrix& A, Matrix& b)
+{
+    // the Method of Steepest Descent *requires* a symmetric matrix.
+    if (isSymmetric(A)==false)
+    {
+        shared_ptr<Matrix> nullMat(new Matrix(0,0));
+        return *nullMat;
+    }
+    
     
 }

@@ -4,6 +4,7 @@
 using namespace std;
 #include <algorithm>
 #include <numeric>
+
 int main(int argc, char * argv[])
 {
     double ar1[] = {2, 1, 1, 2, 2.5, -1};
