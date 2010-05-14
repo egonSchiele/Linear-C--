@@ -3,3 +3,4 @@
 - make the findNonZero function return the max value in that column instead of the first non-zero value. Same linear running time, but this is a *lot* better numerically speaking, especially since we're using doubles.
 - find the rank of a matrix.
 - LUsolve: automatically choose the right method to solve the matrix (gaussian elimination, cholesky decomposition, etc).
+- Currently, converting from matrix to columnvector or rowvector doesn't check the size of the matrix. add this functionality (some commented-out code alreadys exists in Matrix.cpp)

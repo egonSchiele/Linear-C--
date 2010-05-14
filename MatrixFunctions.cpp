@@ -3,6 +3,7 @@
 #include "Matrix.h"
 #include <boost/tuple/tuple.hpp>
 #include <boost/shared_ptr.hpp>
+#include <algorithm>
 
 using namespace std;
 using boost::shared_ptr;
@@ -270,5 +271,98 @@ Matrix steepestDescent(Matrix& A, Matrix& b)
         return *nullMat;
     }
     
+    /* STEP 1: Start with a guess. Our guess is all ones. */
+    ColumnVector x(A.cols());
+    fill(x.begin(),x.end(),1);
     
+    /* This is NOT an infinite loop. There's a break statement inside. */
+    while(true)
+    {
+        /* STEP 2: Calculate the residual r_0 = b - Ax_0 */
+        ColumnVector r =  static_cast<ColumnVector> (b - A*x);
+        
+        cout << "residual: " << r << endl;
+        if (r.length() < 2) break;
+        
+        /* STEP 3: Calculate alpha */
+        double alpha = (r.transpose() * r) / (r.transpose() * A * r);
+        
+        cout << "alpha:" << alpha << endl;
+                
+        /* STEP 4: Calculate new X_1 where X_1 = X_0 + alpha*r_0 */
+        x = x + alpha * r;
+    }
+    
+    shared_ptr<Matrix> final_x(new Matrix(static_cast<Matrix>(x)));
+    
+    return *final_x;
+}
+
+/* Solve Ax = b using the conjugate gradient method. */
+Matrix conjugateGradient(Matrix& A, Matrix& b)
+{
+    double error_tol = .5;      // error tolerance
+    int max_iter = 200;          // max # of iterations
+    ColumnVector x(A.rows());   // the solution we will iteratively arrive at
+    
+    int i = 0;
+    ColumnVector r = static_cast<ColumnVector>(b - A*x);
+    ColumnVector d = r;
+    double sigma_old = 0; // will be used later on, in the loop
+    double sigma_new = r.transpose() * r;
+    double sigma_0 = sigma_new;
+    
+    while (i < max_iter && sigma_new > error_tol * error_tol * sigma_0)
+    {
+        ColumnVector q = A * d;
+        double alpha = sigma_new / (d.transpose() * q);
+        x = x + alpha * d;
+        
+        if (i % 50 == 0)
+        {
+            r = static_cast<ColumnVector>(b - A*x);
+        }else{
+            r = r - alpha * q;
+        }
+        sigma_old = sigma_new;
+        sigma_new = r.transpose() * r;
+        double beta = sigma_new / sigma_old;
+        d = r + beta * d;
+        i++;
+    }
+    
+    shared_ptr<Matrix> final_x(new Matrix(static_cast<Matrix>(x)));    
+    return *final_x;
+}
+
+/* Solve Ax = b using the Jacobi Method. */
+Matrix jacobi(Matrix& A, Matrix& b)
+{
+    ColumnVector x0(A.rows()); // our initial guess
+    ColumnVector x1(A.rows()); // our next guess
+    
+    // STEP 1: Choose an initial guess
+    fill(x0.begin(),x0.end(),1);
+    
+    // STEP 2: While convergence is not reached, iterate.
+    ColumnVector r = static_cast<ColumnVector>(A*x0 - b);
+    while (r.length() > 1)
+    {
+        for (int i=0;i<A.cols();i++)
+        {
+            double sum = 0;
+            for (int j=0;j<A.cols();j++)
+            {
+                if (j==i) continue;
+                sum = sum + A(i,j) * x0(j,0);
+                
+            }            
+            x1(i,0) = (b(i,0) - sum) / A(i,i);
+        }
+        x0 = x1;
+        r = static_cast<ColumnVector>(A*x0 - b);
+    }
+    
+    shared_ptr<Matrix> final_x(new Matrix(static_cast<Matrix>(x0)));
+    return *final_x;
 }

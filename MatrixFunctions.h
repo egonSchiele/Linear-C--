@@ -80,4 +80,32 @@ bool isSymmetric(Matrix &A);
 
 */
 Matrix steepestDescent(Matrix& A, Matrix& b);
+
+/** \fn Matrix conjugateGradient(Matrix& A, Matrix& b);
+    Given two matrices A and b, solves the linear system of equations
+    assuming the form Ax = b. Uses the Method of Conjugate Gradients.
+    This is an iterative method. On sparse matrices, this will usually 
+    be faster than using gaussianElimination, gaussJordan and
+    steepestDescent as well (it's a modified version of steepestDescent).
+    
+    Warning: A needs to be symmetric and positive definite.
+    
+    Returns a Matrix object containing the solution.
+
+*/
+Matrix conjugateGradient(Matrix& A, Matrix& b);
+
+/** \fn Matrix jacobi(Matrix& A, Matrix& b);
+    Given two matrices A and b, solves the linear system of equations
+    assuming the form Ax = b. Uses the Jacobi Method. This is an iterative method.
+    
+    Warning: A needs to be strictly or irreducibly diagonally dominant.
+    Strict row diagonal dominance means that for each row, the absolute
+    value of the diagonal term is greater than the sum of the absolute
+    values of the other terms.
+    
+    Returns a Matrix object containing the solution.
+
+*/
+Matrix jacobi(Matrix& A, Matrix& b);
 #endif

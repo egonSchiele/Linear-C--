@@ -159,6 +159,32 @@ Matrix& Matrix::populateRandom()
     return *this;
 }
 
+// populate the matrix with random numbers in the range 0-9.
+// Ensures that the matrix is symmetric.
+Matrix& Matrix::populateSymmetric()
+{
+    srand ( time(NULL) ); // seed the matrix
+    // upper triangle is random:
+    for (int i=0;i<rows();i++)
+    {        
+        for (int j=i;j<cols();j++)
+        {
+            data[i][j] = rand() % 10;
+        }                
+    }
+    
+    // lower triangle is symmetric:
+    for (int i=0;i<rows();i++)
+    {        
+        for (int j=0;j<i;j++)
+        {
+            data[i][j] = data[j][i];
+        }                
+    }    
+    
+    return *this;
+}
+
 Matrix& Matrix::populateIdentity()
 {
     // if it's not a square matrix, we cant make an identity matrix.
@@ -351,6 +377,14 @@ void Matrix::swapCols(int colA, int colB)
     }    
 }
 
+/* if the Matrix is a 1x1 matrix, allows conversion to a double. */
+Matrix::operator double() const
+{
+    assert(cols()==rows()==1);
+    return data[0][0];
+}
+
+
 /* RowVector */
 double RowVector::length() 
 {
@@ -359,7 +393,7 @@ double RowVector::length()
     {
         sum += data[0][i] * data[0][i];
     }
-    return sqrt(sum);
+    return sqrt(abs(sum));
 }
 
 RowVector::RowVector(std::vector<double> &a) : Matrix(1,a.size())
@@ -379,6 +413,20 @@ RowVector::RowVector(double *a, int size) : Matrix(1,size)
 }
 
 /* ColumnVector */
+
+/* Creates a ColumnVector from a Matrix. */
+/*
+ColumnVector::ColumnVector (Matrix a) 
+{
+    // it's a row vector, convert it to a column vector
+    if (a.rows()==1) a = a.transpose();    
+    assert(a.cols() == 1);
+    
+    vector<double> v(a.rows());
+    copy(a.begin(),a.end(),v.begin());
+}
+*/
+
 double ColumnVector::length() 
 {
     double sum = 0;
@@ -386,7 +434,7 @@ double ColumnVector::length()
     {
         sum += data[i][0] * data[i][0];
     }
-    return sqrt(sum);
+    return sqrt(abs(sum));
 }
 
 ColumnVector::ColumnVector(std::vector<double> &a) : Matrix(a.size(),1)

@@ -141,6 +141,12 @@ TEST_FIXTURE(TestMatrix,TestPopulateIdentity)
     CHECK((*m)(2,2) == 1);
 }
 
+TEST_FIXTURE(TestMatrix,TestPopulateSymmetric)
+{
+    m->populateSymmetric();
+    CHECK(isSymmetric(*m));
+}
+
 TEST_FIXTURE(TestMatrix,TestTranspose)
 {
     m->populateIdentity();

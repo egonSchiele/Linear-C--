@@ -69,6 +69,9 @@ class Matrix {
         /** Populates the matrix with random integers in the range 0-9. */
         Matrix& populateRandom();
 
+        /** Populates the matrix with random integers in the range 0-9. Ensures that the matrix is symmetric. */
+        Matrix& populateSymmetric();
+
         /** Makes this matrix an identity matrix. Throws an error if 
         this is not a square matrix. */
         Matrix& populateIdentity();
@@ -88,6 +91,7 @@ class Matrix {
             \endcode
             This is similar to MATLAB's notation for matrices, but our matrices
             are zero-indexed.
+            Data is accessed via (row#, colunm#).
         */
         double& operator()(int i, int j) const;
         
@@ -131,8 +135,10 @@ class Matrix {
 
         /** Returns an iterator to one past the end of the matrix. */
         MatrixIterator end() const;
-
-            
+        
+        /** if the Matrix is a 1x1 matrix, allows conversion to a double. */
+        operator double() const;
+        
     protected:
         /** Here's where the matrix is actually stored. */
         std::vector<std::vector<double> > mutable data;
@@ -228,6 +234,9 @@ class RowVector : public Matrix {
         /** Creates a RowVector from an array of doubles,
             with the size of the array as the second argument. */
         RowVector(double *a, int size);
+
+        /** Creates a RowVector from a Matrix */
+        RowVector(Matrix a) : Matrix(a) {};
         
         /** Calculates and returns the length of the vector. */
         double length() ;
@@ -245,7 +254,7 @@ class RowVector : public Matrix {
 class ColumnVector : public Matrix {
     public:
         /** Creates a ColumnVector of the specified length. */
-        explicit ColumnVector(int r) : Matrix(r,1) {}
+        explicit ColumnVector(int r) : Matrix(r,1) {}        
 
         /** Creates a ColumnVector from a vector of doubles. */
         ColumnVector(std::vector<double> &a);
@@ -253,6 +262,9 @@ class ColumnVector : public Matrix {
         /** Creates a ColumnVector from an array of doubles,
             with the size of the array as the second argument. */
         ColumnVector(double *a, int size);
+
+        /** Creates a ColumnVector from a Matrix */
+        ColumnVector(Matrix a) : Matrix(a) {};
 
         /** Calculates and returns the length of the vector. */
         double length() ;
