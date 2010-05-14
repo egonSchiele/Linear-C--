@@ -282,7 +282,7 @@ Matrix steepestDescent(Matrix& A, Matrix& b)
         ColumnVector r =  static_cast<ColumnVector> (b - A*x);
         
         cout << "residual: " << r << endl;
-        if (r.length() < 2) break;
+        if (r.length() < .01) break;
         
         /* STEP 3: Calculate alpha */
         double alpha = (r.transpose() * r) / (r.transpose() * A * r);
