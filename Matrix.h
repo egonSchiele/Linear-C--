@@ -66,10 +66,15 @@ class Matrix {
         Matrix(double *a, int rows, int cols);
 
         
-        /** Populates the matrix with random integers in the range 0-9. */
+        /** Populates the matrix with random integers in the range 0-9.
+            Guaranteed to be non-singular.
+         */
         Matrix& populateRandom();
 
-        /** Populates the matrix with random integers in the range 0-9. Ensures that the matrix is symmetric. */
+        /** Populates the matrix with random integers in the range 0-9.
+            Ensures that the matrix is symmetric.
+            Guaranteed to be non-singular.
+            */
         Matrix& populateSymmetric();
 
         /** Makes this matrix an identity matrix. Throws an error if 

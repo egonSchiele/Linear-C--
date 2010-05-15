@@ -5,5 +5,4 @@
 - LUsolve: automatically choose the right method to solve the matrix (gaussian elimination, cholesky decomposition, etc).
 
 - Currently, converting from matrix to columnvector or rowvector doesn't check the size of the matrix. add this functionality (some commented-out code alreadys exists in Matrix.cpp)
-- populateRandom should include a check to guarantee that the matrix isn't singular.
-- add routines to find the rank and the determinant of a matrix.
+- add routine to find the rank of a matrix.

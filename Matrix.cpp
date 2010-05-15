@@ -145,17 +145,23 @@ void Matrix::appendCol(double *r, int size)
     }
 }
 
-// populate the matrix with random numbers in the range 0-9
+// populate the matrix with random numbers in the range 0-9.
+// guaranteed to be non-singular.
 Matrix& Matrix::populateRandom()
 {
-    srand ( time(NULL) ); // seed the matrix
-    for (int i=0;i<rows();i++)
-    {        
-        for (int j=0;j<cols();j++)
-        {
-            data[i][j] = rand() % 10;
-        }                
-    }            
+    double determinant = 0;
+    while(fabs(determinant) < .0001)
+    {
+        srand ( time(NULL) ); // seed the matrix
+        for (int i=0;i<rows();i++)
+        {        
+            for (int j=0;j<cols();j++)
+            {
+                data[i][j] = rand() % 10;
+            }                
+        }
+        determinant = det();
+    }
     return *this;
 }
 
@@ -163,25 +169,29 @@ Matrix& Matrix::populateRandom()
 // Ensures that the matrix is symmetric.
 Matrix& Matrix::populateSymmetric()
 {
-    srand ( time(NULL) ); // seed the matrix
-    // upper triangle is random:
-    for (int i=0;i<rows();i++)
-    {        
-        for (int j=i;j<cols();j++)
-        {
-            data[i][j] = rand() % 10;
-        }                
-    }
-    
-    // lower triangle is symmetric:
-    for (int i=0;i<rows();i++)
-    {        
-        for (int j=0;j<i;j++)
-        {
-            data[i][j] = data[j][i];
-        }                
+    double determinant = 0;
+    while(fabs(determinant) < .0001)
+    {
+        srand ( time(NULL) ); // seed the matrix
+        // upper triangle is random:
+        for (int i=0;i<rows();i++)
+        {        
+            for (int j=i;j<cols();j++)
+            {
+                data[i][j] = rand() % 10;
+            }                
+        }
+        
+        // lower triangle is symmetric:
+        for (int i=0;i<rows();i++)
+        {        
+            for (int j=0;j<i;j++)
+            {
+                data[i][j] = data[j][i];
+            }                
+        }    
+        determinant = det();
     }    
-    
     return *this;
 }
 
