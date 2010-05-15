@@ -377,14 +377,6 @@ void Matrix::swapCols(int colA, int colB)
     }    
 }
 
-/* if the Matrix is a 1x1 matrix, allows conversion to a double. */
-Matrix::operator double() const
-{
-    assert(cols()==rows()==1);
-    return data[0][0];
-}
-
-
 /* RowVector */
 double RowVector::length() 
 {

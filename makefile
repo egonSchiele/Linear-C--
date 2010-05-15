@@ -4,7 +4,7 @@ lib: Matrix.o MatrixFunctions.o
 	g++ -I/usr/local/boost -c Matrix.cpp MatrixFunctions.cpp
 	ar crv libLinearCpp.a Matrix.o MatrixFunctions.o
 clean:
-	-rm test *.o
+	-rm test *.o libLinearCpp.a
 docs:
 	-rm -r doc
 	doxygen

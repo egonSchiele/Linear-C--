@@ -79,6 +79,56 @@ TEST_FIXTURE(TestMatrixFunctions, TestIsSymmetricFalse)
     CHECK(isSymmetric(*m)==false);
 }
 
+TEST_FIXTURE(TestMatrixFunctions, TestSteepestDescent)
+{
+    double ar[] = {1, 2, 2, 5}; // a symmetric, positive definite matrix.
+    Matrix *A = new Matrix(ar,2,2);
+    double ar2[] = {1, 2};
+    Matrix *b = new Matrix(ar2,2,1);
+    ColumnVector sol = static_cast<ColumnVector>(gaussianElimination(*A,*b));
+    ColumnVector sol2 = static_cast<ColumnVector>(steepestDescent(*A,*b));
+    // steepestDescent might give us an answer that's close,
+    // but not exact. So rather than just comparing the solutions,
+    // we check that steepestDescent got close to the correct soln.
+    double dist = sol.length() - sol2.length();
+    CHECK(dist<=1 && dist>=-1);
+    delete A;
+    delete b;
+}
+
+TEST_FIXTURE(TestMatrixFunctions, TestConjugateGradient)
+{
+    double ar[] = {1, 2, 2, 5}; // a symmetric, positive definite matrix.
+    Matrix *A = new Matrix(ar,2,2);
+    double ar2[] = {1, 2};
+    Matrix *b = new Matrix(ar2,2,1);
+    ColumnVector sol = static_cast<ColumnVector>(gaussianElimination(*A,*b));
+    ColumnVector sol2 = static_cast<ColumnVector>(conjugateGradient(*A,*b));
+    // conjugateGradient might give us an answer that's close,
+    // but not exact. So rather than just comparing the solutions,
+    // we check that steepestDescent got close to the correct soln.
+    double dist = sol.length() - sol2.length();
+    CHECK(dist<=1 && dist>=-1);
+    delete A;
+    delete b;
+}
+
+TEST_FIXTURE(TestMatrixFunctions, TestJacobi)
+{
+    double ar[] = {2, 1, 1, 2}; // a diagonally dominant matrix
+    Matrix *A = new Matrix(ar,2,2);
+    double ar2[] = {1, 2};
+    Matrix *b = new Matrix(ar2,2,1);
+    ColumnVector sol = static_cast<ColumnVector>(gaussianElimination(*A,*b));
+    ColumnVector sol2 = static_cast<ColumnVector>(conjugateGradient(*A,*b));
+    // jacobi might give us an answer that's close,
+    // but not exact. So rather than just comparing the solutions,
+    // we check that steepestDescent got close to the correct soln.
+    double dist = sol.length() - sol2.length();
+    CHECK(dist<=1 && dist>=-1);
+    delete A;
+    delete b;
+}
 
 int main(int argc, char * argv[])
 {

@@ -136,9 +136,6 @@ class Matrix {
         /** Returns an iterator to one past the end of the matrix. */
         MatrixIterator end() const;
         
-        /** if the Matrix is a 1x1 matrix, allows conversion to a double. */
-        operator double() const;
-        
     protected:
         /** Here's where the matrix is actually stored. */
         std::vector<std::vector<double> > mutable data;

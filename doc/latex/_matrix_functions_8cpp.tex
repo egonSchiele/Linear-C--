@@ -7,11 +7,12 @@
 {\ttfamily \#include \char`\"{}Matrix.h\char`\"{}}\par
 {\ttfamily \#include $<$boost/tuple/tuple.hpp$>$}\par
 {\ttfamily \#include $<$boost/shared\_\-ptr.hpp$>$}\par
+{\ttfamily \#include $<$algorithm$>$}\par
 Include dependency graph for MatrixFunctions.cpp:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=268pt]{_matrix_functions_8cpp__incl}
+\includegraphics[width=306pt]{_matrix_functions_8cpp__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -24,11 +25,32 @@ int \hyperlink{_matrix_functions_8cpp_aa7678f1d5dfe64cad1897e1a78da2c10}{findNon
 \hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8cpp_a5ab64c0532a96fd250bf278423b326cf}{gaussianElimination} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
 \begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
 boost::tuple$<$ \hyperlink{class_matrix}{Matrix}, \hyperlink{class_matrix}{Matrix}, \hyperlink{class_matrix}{Matrix} $>$ \hyperlink{_matrix_functions_8cpp_a4211ea2b9a4462e11be36b7ab09ebf5a}{LUPDecompose} (\hyperlink{class_matrix}{Matrix} A)
-\begin{DoxyCompactList}\small\item\em Given a matrix, returns it's LUP decomposition. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Given a matrix, returns it's LUP decomposition. \item\end{DoxyCompactList}\item 
+bool \hyperlink{_matrix_functions_8cpp_afd17d61898fe54cfb57b97238a20eab5}{isSymmetric} (\hyperlink{class_matrix}{Matrix} \&A)
+\begin{DoxyCompactList}\small\item\em Checks whether a matrix is symmetric or not. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8cpp_a0ad9f45bf1edd75781d68413d162cb0c}{steepestDescent} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8cpp_a12c19521809b4f556360bbea91aea576}{conjugateGradient} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8cpp_aaf686c3d17b6c76f2d79e291a31c2d02}{jacobi} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\hypertarget{_matrix_functions_8cpp_aa7678f1d5dfe64cad1897e1a78da2c10}{
+\hypertarget{_matrix_functions_8cpp_a12c19521809b4f556360bbea91aea576}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!conjugateGradient@{conjugateGradient}}
+\index{conjugateGradient@{conjugateGradient}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{conjugateGradient}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} conjugateGradient ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8cpp_a12c19521809b4f556360bbea91aea576}
+
+
+Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
+
+Uses the Method of Conjugate Gradients. This is an iterative method. On sparse matrices, this will usually be faster than using gaussianElimination, gaussJordan and steepestDescent as well (it's a modified version of steepestDescent).
+
+Warning: A needs to be symmetric and positive definite.
+
+Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8cpp_aa7678f1d5dfe64cad1897e1a78da2c10}{
 \index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!findNonZero@{findNonZero}}
 \index{findNonZero@{findNonZero}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
 \subsubsection[{findNonZero}]{\setlength{\rightskip}{0pt plus 5cm}int findNonZero ({\bf Matrix} \& {\em m}, \/  int {\em col})}}
@@ -46,7 +68,7 @@ If all rows have zeroes, it returns -\/1. This function is used by both gaussJor
 
 Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
 
-Uses Gaussian Elimination with backsubstitution. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8cpp_aec58045132edaf43914a134b4eb2697f}{
+Uses Gaussian Elimination with backsubstitution. This is faster than using gaussJordan. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8cpp_aec58045132edaf43914a134b4eb2697f}{
 \index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!gaussJordan@{gaussJordan}}
 \index{gaussJordan@{gaussJordan}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
 \subsubsection[{gaussJordan}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& gaussJordan ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
@@ -55,7 +77,29 @@ Uses Gaussian Elimination with backsubstitution. Returns a \hyperlink{class_matr
 
 Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
 
-Uses Gauss-\/Jordan. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8cpp_a4211ea2b9a4462e11be36b7ab09ebf5a}{
+Uses Gauss-\/Jordan. Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8cpp_afd17d61898fe54cfb57b97238a20eab5}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!isSymmetric@{isSymmetric}}
+\index{isSymmetric@{isSymmetric}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{isSymmetric}]{\setlength{\rightskip}{0pt plus 5cm}bool isSymmetric ({\bf Matrix} \& {\em A})}}
+\label{_matrix_functions_8cpp_afd17d61898fe54cfb57b97238a20eab5}
+
+
+Checks whether a matrix is symmetric or not. 
+
+\hypertarget{_matrix_functions_8cpp_aaf686c3d17b6c76f2d79e291a31c2d02}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!jacobi@{jacobi}}
+\index{jacobi@{jacobi}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{jacobi}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} jacobi ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8cpp_aaf686c3d17b6c76f2d79e291a31c2d02}
+
+
+Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
+
+Uses the Jacobi Method. This is an iterative method.
+
+Warning: A needs to be strictly or irreducibly diagonally dominant. Strict row diagonal dominance means that for each row, the absolute value of the diagonal term is greater than the sum of the absolute values of the other terms.
+
+Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. \hypertarget{_matrix_functions_8cpp_a4211ea2b9a4462e11be36b7ab09ebf5a}{
 \index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!LUPDecompose@{LUPDecompose}}
 \index{LUPDecompose@{LUPDecompose}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
 \subsubsection[{LUPDecompose}]{\setlength{\rightskip}{0pt plus 5cm}boost::tuple$<$ {\bf Matrix}, {\bf Matrix}, {\bf Matrix} $>$ LUPDecompose ({\bf Matrix} {\em A})}}
@@ -83,4 +127,17 @@ Three matrices L, U and P are returned as a boost tuple. Example usage:
     cout << U << endl;
     cout << P << endl;
 \end{DoxyCode}
- 
+ \hypertarget{_matrix_functions_8cpp_a0ad9f45bf1edd75781d68413d162cb0c}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!steepestDescent@{steepestDescent}}
+\index{steepestDescent@{steepestDescent}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{steepestDescent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} steepestDescent ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8cpp_a0ad9f45bf1edd75781d68413d162cb0c}
+
+
+Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. 
+
+Uses the Method of Steepest Descent. This is an iterative method. On sparse matrices, this will usually be faster than using gaussianElimination or gaussJordan.
+
+Warning: A needs to be symmetric and positive definite.
+
+Returns a \hyperlink{class_matrix}{Matrix} object containing the solution. 

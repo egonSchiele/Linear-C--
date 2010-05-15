@@ -48,6 +48,8 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Creates a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object from an array of doubles.  <a href="#a3179cefb929e09cbdc95d143e1d9e3d2"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a375fc575a7e042d0eed3d76c7470e59f">populateRandom</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Populates the matrix with random integers in the range 0-9.  <a href="#a375fc575a7e042d0eed3d76c7470e59f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#abeb4729f525e85a0f1f516675677e105">populateSymmetric</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Populates the matrix with random integers in the range 0-9.  <a href="#abeb4729f525e85a0f1f516675677e105"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0ee71091770a4e83e54860f291ef1b7d">populateIdentity</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Makes this matrix an identity matrix.  <a href="#a0ee71091770a4e83e54860f291ef1b7d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ae23f817021383e3c8636a714dcba1d21">transpose</a> ()</td></tr>
@@ -76,6 +78,8 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns an iterator to the beginning of the matrix.  <a href="#a8969f52f950b124d5a40128c3df11efe"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix_iterator.html">MatrixIterator</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa6e886dcd213fdf5c54743f3b8ac7209">end</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns an iterator to one past the end of the matrix.  <a href="#aa6e886dcd213fdf5c54743f3b8ac7209"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a94d5e009cbba7556f48a720cff9eedbe">operator double</a> () const </td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">if the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> is a 1x1 matrix, allows conversion to a double.  <a href="#a94d5e009cbba7556f48a720cff9eedbe"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
 &lt; double &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#adab4557133e13b08ae470a8e5df7b99c">data</a></td></tr>
@@ -395,6 +399,25 @@
 
 </div>
 </div>
+<a class="anchor" id="a94d5e009cbba7556f48a720cff9eedbe"></a><!-- doxytag: member="Matrix::operator double" ref="a94d5e009cbba7556f48a720cff9eedbe" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Matrix::operator double </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>if the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> is a 1x1 matrix, allows conversion to a double. </p>
+
+</div>
+</div>
 <a class="anchor" id="a3d361fded5f8992d2202894ca141eb72"></a><!-- doxytag: member="Matrix::operator()" ref="a3d361fded5f8992d2202894ca141eb72" args="(int i, int j) const " -->
 <div class="memitem">
 <div class="memproto">
@@ -425,7 +448,7 @@
 <div class="fragment"><pre class="fragment">                <a class="code" href="class_matrix.html" title="The general Matrix class.">Matrix</a> m(10,10);        <span class="comment">// create a 10x10 Matrix</span>
                 m(0,0) = 10;            <span class="comment">// set it&#39;s first element to 10</span>
                 cout &lt;&lt; m(9,9) &lt;&lt; endl; <span class="comment">// print it&#39;s last element</span>
-</pre></div><p> This is similar to MATLAB's notation for matrices, but our matrices are zero-indexed. </p>
+</pre></div><p> This is similar to MATLAB's notation for matrices, but our matrices are zero-indexed. Data is accessed via (row#, colunm#). </p>
 
 </div>
 </div>
@@ -465,6 +488,26 @@
 <div class="memdoc">
 
 <p>Populates the matrix with random integers in the range 0-9. </p>
+
+</div>
+</div>
+<a class="anchor" id="abeb4729f525e85a0f1f516675677e105"></a><!-- doxytag: member="Matrix::populateSymmetric" ref="abeb4729f525e85a0f1f516675677e105" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> &amp; Matrix::populateSymmetric </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Populates the matrix with random integers in the range 0-9. </p>
+<p>Ensures that the matrix is symmetric. </p>
 
 </div>
 </div>
@@ -585,7 +628,7 @@
 <li><a class="el" href="_matrix_8cpp.html">Matrix.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Apr 26 23:25:54 2010 for LinearC++ by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat May 15 13:18:11 2010 for LinearC++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

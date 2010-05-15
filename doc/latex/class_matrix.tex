@@ -30,6 +30,8 @@ int \hyperlink{class_matrix_ac9586a9d7bba127292ce84b1e8ee9cc1}{cols} () const
 \begin{DoxyCompactList}\small\item\em Creates a \hyperlink{class_matrix}{Matrix} object from an array of doubles. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a375fc575a7e042d0eed3d76c7470e59f}{populateRandom} ()
 \begin{DoxyCompactList}\small\item\em Populates the matrix with random integers in the range 0-\/9. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_abeb4729f525e85a0f1f516675677e105}{populateSymmetric} ()
+\begin{DoxyCompactList}\small\item\em Populates the matrix with random integers in the range 0-\/9. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a0ee71091770a4e83e54860f291ef1b7d}{populateIdentity} ()
 \begin{DoxyCompactList}\small\item\em Makes this matrix an identity matrix. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix}{Matrix} \hyperlink{class_matrix_ae23f817021383e3c8636a714dcba1d21}{transpose} ()
@@ -57,7 +59,9 @@ void \hyperlink{class_matrix_a505f924baa7c236280751499da56ecee}{swapCols} (int c
 \hyperlink{class_matrix_iterator}{MatrixIterator} \hyperlink{class_matrix_a8969f52f950b124d5a40128c3df11efe}{begin} () const 
 \begin{DoxyCompactList}\small\item\em Returns an iterator to the beginning of the matrix. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix_iterator}{MatrixIterator} \hyperlink{class_matrix_aa6e886dcd213fdf5c54743f3b8ac7209}{end} () const 
-\begin{DoxyCompactList}\small\item\em Returns an iterator to one past the end of the matrix. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns an iterator to one past the end of the matrix. \item\end{DoxyCompactList}\item 
+\hyperlink{class_matrix_a94d5e009cbba7556f48a720cff9eedbe}{operator double} () const 
+\begin{DoxyCompactList}\small\item\em if the \hyperlink{class_matrix}{Matrix} is a 1x1 matrix, allows conversion to a double. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -202,6 +206,15 @@ Returns an iterator to one past the end of the matrix.
 
 Returns a \hyperlink{class_matrix}{Matrix} object that is the inverse of the current \hyperlink{class_matrix}{Matrix}. 
 
+\hypertarget{class_matrix_a94d5e009cbba7556f48a720cff9eedbe}{
+\index{Matrix@{Matrix}!operator double@{operator double}}
+\index{operator double@{operator double}!Matrix@{Matrix}}
+\subsubsection[{operator double}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::operator double () const}}
+\label{class_matrix_a94d5e009cbba7556f48a720cff9eedbe}
+
+
+if the \hyperlink{class_matrix}{Matrix} is a 1x1 matrix, allows conversion to a double. 
+
 \hypertarget{class_matrix_a3d361fded5f8992d2202894ca141eb72}{
 \index{Matrix@{Matrix}!operator()@{operator()}}
 \index{operator()@{operator()}!Matrix@{Matrix}}
@@ -217,7 +230,7 @@ Example:
                 m(0,0) = 10;            // set it's first element to 10
                 cout << m(9,9) << endl; // print it's last element
 \end{DoxyCode}
- This is similar to MATLAB's notation for matrices, but our matrices are zero-\/indexed. \hypertarget{class_matrix_a0ee71091770a4e83e54860f291ef1b7d}{
+ This is similar to MATLAB's notation for matrices, but our matrices are zero-\/indexed. Data is accessed via (row\#, colunm\#). \hypertarget{class_matrix_a0ee71091770a4e83e54860f291ef1b7d}{
 \index{Matrix@{Matrix}!populateIdentity@{populateIdentity}}
 \index{populateIdentity@{populateIdentity}!Matrix@{Matrix}}
 \subsubsection[{populateIdentity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::populateIdentity ()}}
@@ -235,7 +248,16 @@ Throws an error if this is not a square matrix. \hypertarget{class_matrix_a375fc
 
 Populates the matrix with random integers in the range 0-\/9. 
 
-\hypertarget{class_matrix_af238216c5c5ebf0a80e37bba96c99662}{
+\hypertarget{class_matrix_abeb4729f525e85a0f1f516675677e105}{
+\index{Matrix@{Matrix}!populateSymmetric@{populateSymmetric}}
+\index{populateSymmetric@{populateSymmetric}!Matrix@{Matrix}}
+\subsubsection[{populateSymmetric}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::populateSymmetric ()}}
+\label{class_matrix_abeb4729f525e85a0f1f516675677e105}
+
+
+Populates the matrix with random integers in the range 0-\/9. 
+
+Ensures that the matrix is symmetric. \hypertarget{class_matrix_af238216c5c5ebf0a80e37bba96c99662}{
 \index{Matrix@{Matrix}!rows@{rows}}
 \index{rows@{rows}!Matrix@{Matrix}}
 \subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix::rows () const}}

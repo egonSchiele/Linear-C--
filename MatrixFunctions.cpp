@@ -280,14 +280,11 @@ Matrix steepestDescent(Matrix& A, Matrix& b)
     {
         /* STEP 2: Calculate the residual r_0 = b - Ax_0 */
         ColumnVector r =  static_cast<ColumnVector> (b - A*x);
-        
-        cout << "residual: " << r << endl;
+
         if (r.length() < .01) break;
         
         /* STEP 3: Calculate alpha */
-        double alpha = (r.transpose() * r) / (r.transpose() * A * r);
-        
-        cout << "alpha:" << alpha << endl;
+        double alpha = (r.transpose() * r)(0,0) / (r.transpose() * A * r)(0,0);
                 
         /* STEP 4: Calculate new X_1 where X_1 = X_0 + alpha*r_0 */
         x = x + alpha * r;
@@ -309,13 +306,13 @@ Matrix conjugateGradient(Matrix& A, Matrix& b)
     ColumnVector r = static_cast<ColumnVector>(b - A*x);
     ColumnVector d = r;
     double sigma_old = 0; // will be used later on, in the loop
-    double sigma_new = r.transpose() * r;
+    double sigma_new = (r.transpose() * r)(0,0);
     double sigma_0 = sigma_new;
     
     while (i < max_iter && sigma_new > error_tol * error_tol * sigma_0)
     {
         ColumnVector q = A * d;
-        double alpha = sigma_new / (d.transpose() * q);
+        double alpha = sigma_new / (d.transpose() * q)(0,0);
         x = x + alpha * d;
         
         if (i % 50 == 0)
@@ -325,7 +322,7 @@ Matrix conjugateGradient(Matrix& A, Matrix& b)
             r = r - alpha * q;
         }
         sigma_old = sigma_new;
-        sigma_new = r.transpose() * r;
+        sigma_new = (r.transpose() * r)(0,0);
         double beta = sigma_new / sigma_old;
         d = r + beta * d;
         i++;

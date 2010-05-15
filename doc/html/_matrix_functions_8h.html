@@ -56,10 +56,50 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr><td class="memItemLeft" align="right" valign="top">boost::tuple&lt; <a class="el" href="class_matrix.html">Matrix</a>, <a class="el" href="class_matrix.html">Matrix</a>, <br class="typebreak"/>
 <a class="el" href="class_matrix.html">Matrix</a> &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8h.html#a3a79c07a22dd5e176404f713b54e5dfc">LUPDecompose</a> (<a class="el" href="class_matrix.html">Matrix</a> A)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given a matrix, returns it's LUP decomposition.  <a href="#a3a79c07a22dd5e176404f713b54e5dfc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8h.html#afd17d61898fe54cfb57b97238a20eab5">isSymmetric</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Checks whether a matrix is symmetric or not.  <a href="#afd17d61898fe54cfb57b97238a20eab5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8h.html#a0ad9f45bf1edd75781d68413d162cb0c">steepestDescent</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given two matrices A and b, solves the linear system of equations assuming the form Ax = b.  <a href="#a0ad9f45bf1edd75781d68413d162cb0c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8h.html#a12c19521809b4f556360bbea91aea576">conjugateGradient</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given two matrices A and b, solves the linear system of equations assuming the form Ax = b.  <a href="#a12c19521809b4f556360bbea91aea576"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8h.html#aaf686c3d17b6c76f2d79e291a31c2d02">jacobi</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given two matrices A and b, solves the linear system of equations assuming the form Ax = b.  <a href="#aaf686c3d17b6c76f2d79e291a31c2d02"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <p>This file contains the declarations of the basic Linear Algebra classes and some methods that operate on them. </p>
 <hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a12c19521809b4f556360bbea91aea576"></a><!-- doxytag: member="MatrixFunctions.h::conjugateGradient" ref="a12c19521809b4f556360bbea91aea576" args="(Matrix &amp;A, Matrix &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> conjugateGradient </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. </p>
+<p>Uses the Method of Conjugate Gradients. This is an iterative method. On sparse matrices, this will usually be faster than using gaussianElimination, gaussJordan and steepestDescent as well (it's a modified version of steepestDescent).</p>
+<p>Warning: A needs to be symmetric and positive definite.</p>
+<p>Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object containing the solution. </p>
+
+</div>
+</div>
 <a class="anchor" id="aa7678f1d5dfe64cad1897e1a78da2c10"></a><!-- doxytag: member="MatrixFunctions.h::findNonZero" ref="aa7678f1d5dfe64cad1897e1a78da2c10" args="(Matrix &amp;m, int col)" -->
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +156,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="memdoc">
 
 <p>Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. </p>
-<p>Uses Gaussian Elimination with backsubstitution. Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object containing the solution. </p>
+<p>Uses Gaussian Elimination with backsubstitution. This is faster than using gaussJordan. Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object containing the solution. </p>
 
 </div>
 </div>
@@ -147,6 +187,58 @@ This graph shows which files directly or indirectly include this file:</div>
 
 <p>Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. </p>
 <p>Uses Gauss-Jordan. Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object containing the solution. </p>
+
+</div>
+</div>
+<a class="anchor" id="afd17d61898fe54cfb57b97238a20eab5"></a><!-- doxytag: member="MatrixFunctions.h::isSymmetric" ref="afd17d61898fe54cfb57b97238a20eab5" args="(Matrix &amp;A)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool isSymmetric </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>A</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Checks whether a matrix is symmetric or not. </p>
+
+</div>
+</div>
+<a class="anchor" id="aaf686c3d17b6c76f2d79e291a31c2d02"></a><!-- doxytag: member="MatrixFunctions.h::jacobi" ref="aaf686c3d17b6c76f2d79e291a31c2d02" args="(Matrix &amp;A, Matrix &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> jacobi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. </p>
+<p>Uses the Jacobi Method. This is an iterative method.</p>
+<p>Warning: A needs to be strictly or irreducibly diagonally dominant. Strict row diagonal dominance means that for each row, the absolute value of the diagonal term is greater than the sum of the absolute values of the other terms.</p>
+<p>Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object containing the solution. </p>
 
 </div>
 </div>
@@ -187,8 +279,40 @@ This graph shows which files directly or indirectly include this file:</div>
 </pre></div> 
 </div>
 </div>
+<a class="anchor" id="a0ad9f45bf1edd75781d68413d162cb0c"></a><!-- doxytag: member="MatrixFunctions.h::steepestDescent" ref="a0ad9f45bf1edd75781d68413d162cb0c" args="(Matrix &amp;A, Matrix &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> steepestDescent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Mon Apr 26 23:25:53 2010 for LinearC++ by&nbsp;
+<div class="memdoc">
+
+<p>Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. </p>
+<p>Uses the Method of Steepest Descent. This is an iterative method. On sparse matrices, this will usually be faster than using gaussianElimination or gaussJordan.</p>
+<p>Warning: A needs to be symmetric and positive definite.</p>
+<p>Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object containing the solution. </p>
+
+</div>
+</div>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat May 15 13:18:10 2010 for LinearC++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>
