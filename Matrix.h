@@ -81,6 +81,10 @@ class Matrix {
 
         /** Returns a Matrix object that is the inverse of the current Matrix. */
         Matrix inverse();
+        
+        /** Returns the determinant of the Matrix. */
+        double det();
+        
         /** This allows you to access the elements in the matrix using subscripts.
 
             Example:

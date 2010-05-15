@@ -342,6 +342,21 @@ Matrix Matrix::inverse()
     return gaussJordan(*this,*b);
 }
 
+// get the determinant of the Matrix
+double Matrix::det()
+{
+    assert(rows() == cols()); // we can only take determinants of square matrices
+    boost::tuple<Matrix, Matrix, Matrix> LUP = LUPDecompose(*this);
+    Matrix U = LUP.get<1>();
+    
+    double det = 1;
+    for (int i=0;i<U.rows();i++)
+    {
+        det *= U(i,i);
+    }
+    return det;
+}
+
 // test two Matrix objects to see if they are equal
 bool operator==(const Matrix &a, const Matrix &b)
 {

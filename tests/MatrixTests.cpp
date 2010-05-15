@@ -3,6 +3,7 @@
 #include "../Matrix.h"
 #include "../MatrixFunctions.h"
 #include <vector>
+#include <cmath>
 using namespace std;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -166,6 +167,15 @@ TEST_FIXTURE(TestMatrix,TestInverse)
     Matrix I(2,2);
     I.populateIdentity();
     CHECK((*m)*n==I);
+}
+
+TEST_FIXTURE(TestMatrix,TestDeterminant)
+{
+    delete m;
+    // 3x3 matrix with determinant = 14
+    double ar[] = {3, 1, 8, 2, -5, 4, -1, 6, -2};
+    m = new Matrix(ar,3,3);
+    CHECK(fabs(m->det() - 14) < .01);
 }
 
 TEST_FIXTURE(TestMatrix,TestElementAccess)
