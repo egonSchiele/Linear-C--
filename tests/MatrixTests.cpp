@@ -178,6 +178,13 @@ TEST_FIXTURE(TestMatrix,TestDeterminant)
     CHECK(fabs(m->det() - 14) < .01);
 }
 
+TEST_FIXTURE(TestMatrix,TestTrace)
+{
+    m->populateIdentity();
+    CHECK(m->trace() == 3);
+}
+
+
 TEST_FIXTURE(TestMatrix,TestElementAccess)
 {
     // Test that we can access each element of the Matrix using

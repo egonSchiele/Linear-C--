@@ -90,6 +90,9 @@ class Matrix {
         /** Returns the determinant of the Matrix. */
         double det();
         
+        /** Returns the trace of the Matrix. */
+        double trace();
+        
         /** This allows you to access the elements in the matrix using subscripts.
 
             Example:

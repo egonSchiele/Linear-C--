@@ -367,6 +367,17 @@ double Matrix::det()
     return det;
 }
 
+double Matrix::trace()
+{
+    assert(rows()==cols());
+    double sum = 0;
+    for (int i=0;i<rows();i++)
+    {
+        sum += (*this)(i,i);
+    }
+    return sum;
+}
+
 // test two Matrix objects to see if they are equal
 bool operator==(const Matrix &a, const Matrix &b)
 {
