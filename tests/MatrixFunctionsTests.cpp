@@ -130,6 +130,16 @@ TEST_FIXTURE(TestMatrixFunctions, TestJacobi)
     delete b;
 }
 
+TEST_FIXTURE(TestMatrixFunctions, TestSimplex)
+{
+    double var[] = {1, -2, -3, -4, 0, 0, 0, 3, 2, 1, 1, 0, 0, 2, 5, 3, 0, 1};
+    double val[] = {0,10,15};
+    
+    Matrix mat1(var,3,6);
+    ColumnVector mat2(val,3);
+    CHECK(simplex(mat1, mat2)==20);
+}
+
 int main(int argc, char * argv[])
 {
     return UnitTest::RunAllTests();
