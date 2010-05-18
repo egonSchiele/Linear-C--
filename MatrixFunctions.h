@@ -108,4 +108,9 @@ Matrix conjugateGradient(Matrix& A, Matrix& b);
 
 */
 Matrix jacobi(Matrix& A, Matrix& b);
+
+/** \fn Matrix simplex(Matrix &A, Matrix &b);
+    Solve a Linear Programming Problem using the Simplex Method.
+*/
+int simplex(Matrix &A, Matrix &b);
 #endif

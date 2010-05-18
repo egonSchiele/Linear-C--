@@ -56,6 +56,10 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object that is the transpose of the current <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a>.  <a href="#ae23f817021383e3c8636a714dcba1d21"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ac4f5e7d4bb1bfd6586bd3384bd2a02b0">inverse</a> ()</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object that is the inverse of the current <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a>.  <a href="#ac4f5e7d4bb1bfd6586bd3384bd2a02b0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ace95025dd985ddaa6c1ed72e8b464a0a">det</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the determinant of the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a>.  <a href="#ace95025dd985ddaa6c1ed72e8b464a0a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#af7403d8c02553a4fba253380e4e0bc40">trace</a> ()</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns the trace of the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a>.  <a href="#af7403d8c02553a4fba253380e4e0bc40"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">double &amp;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a3d361fded5f8992d2202894ca141eb72">operator()</a> (int i, int j) const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">This allows you to access the elements in the matrix using subscripts.  <a href="#a3d361fded5f8992d2202894ca141eb72"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a20c175983a6b23a83fccfe8f726b3b07">appendRow</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
@@ -78,8 +82,6 @@
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns an iterator to the beginning of the matrix.  <a href="#a8969f52f950b124d5a40128c3df11efe"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix_iterator.html">MatrixIterator</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa6e886dcd213fdf5c54743f3b8ac7209">end</a> () const </td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Returns an iterator to one past the end of the matrix.  <a href="#aa6e886dcd213fdf5c54743f3b8ac7209"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a94d5e009cbba7556f48a720cff9eedbe">operator double</a> () const </td></tr>
-<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">if the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> is a 1x1 matrix, allows conversion to a double.  <a href="#a94d5e009cbba7556f48a720cff9eedbe"></a><br/></td></tr>
 <tr><td colspan="2"><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector<br class="typebreak"/>
 &lt; double &gt; &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#adab4557133e13b08ae470a8e5df7b99c">data</a></td></tr>
@@ -361,6 +363,25 @@
 
 </div>
 </div>
+<a class="anchor" id="ace95025dd985ddaa6c1ed72e8b464a0a"></a><!-- doxytag: member="Matrix::det" ref="ace95025dd985ddaa6c1ed72e8b464a0a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Matrix::det </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the determinant of the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a>. </p>
+
+</div>
+</div>
 <a class="anchor" id="aa6e886dcd213fdf5c54743f3b8ac7209"></a><!-- doxytag: member="Matrix::end" ref="aa6e886dcd213fdf5c54743f3b8ac7209" args="() const " -->
 <div class="memitem">
 <div class="memproto">
@@ -396,25 +417,6 @@
 <div class="memdoc">
 
 <p>Returns a <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> object that is the inverse of the current <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a>. </p>
-
-</div>
-</div>
-<a class="anchor" id="a94d5e009cbba7556f48a720cff9eedbe"></a><!-- doxytag: member="Matrix::operator double" ref="a94d5e009cbba7556f48a720cff9eedbe" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Matrix::operator double </td>
-          <td>(</td>
-          <td class="paramname"></td>
-          <td>&nbsp;)&nbsp;</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>if the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> is a 1x1 matrix, allows conversion to a double. </p>
 
 </div>
 </div>
@@ -488,6 +490,7 @@
 <div class="memdoc">
 
 <p>Populates the matrix with random integers in the range 0-9. </p>
+<p>Guaranteed to be non-singular if the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a> is square. </p>
 
 </div>
 </div>
@@ -507,7 +510,7 @@
 <div class="memdoc">
 
 <p>Populates the matrix with random integers in the range 0-9. </p>
-<p>Ensures that the matrix is symmetric. </p>
+<p>Ensures that the matrix is symmetric. Guaranteed to be non-singular. </p>
 
 </div>
 </div>
@@ -588,6 +591,25 @@
 
 </div>
 </div>
+<a class="anchor" id="af7403d8c02553a4fba253380e4e0bc40"></a><!-- doxytag: member="Matrix::trace" ref="af7403d8c02553a4fba253380e4e0bc40" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Matrix::trace </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the trace of the <a class="el" href="class_matrix.html" title="The general Matrix class.">Matrix</a>. </p>
+
+</div>
+</div>
 <a class="anchor" id="ae23f817021383e3c8636a714dcba1d21"></a><!-- doxytag: member="Matrix::transpose" ref="ae23f817021383e3c8636a714dcba1d21" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -628,7 +650,7 @@
 <li><a class="el" href="_matrix_8cpp.html">Matrix.cpp</a></li>
 </ul>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat May 15 13:18:11 2010 for LinearC++ by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue May 18 16:51:49 2010 for LinearC++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

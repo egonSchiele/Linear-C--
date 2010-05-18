@@ -38,6 +38,10 @@ int \hyperlink{class_matrix_ac9586a9d7bba127292ce84b1e8ee9cc1}{cols} () const
 \begin{DoxyCompactList}\small\item\em Returns a \hyperlink{class_matrix}{Matrix} object that is the transpose of the current \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix}{Matrix} \hyperlink{class_matrix_ac4f5e7d4bb1bfd6586bd3384bd2a02b0}{inverse} ()
 \begin{DoxyCompactList}\small\item\em Returns a \hyperlink{class_matrix}{Matrix} object that is the inverse of the current \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\item 
+double \hyperlink{class_matrix_ace95025dd985ddaa6c1ed72e8b464a0a}{det} ()
+\begin{DoxyCompactList}\small\item\em Returns the determinant of the \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\item 
+double \hyperlink{class_matrix_af7403d8c02553a4fba253380e4e0bc40}{trace} ()
+\begin{DoxyCompactList}\small\item\em Returns the trace of the \hyperlink{class_matrix}{Matrix}. \item\end{DoxyCompactList}\item 
 double \& \hyperlink{class_matrix_a3d361fded5f8992d2202894ca141eb72}{operator()} (int i, int j) const 
 \begin{DoxyCompactList}\small\item\em This allows you to access the elements in the matrix using subscripts. \item\end{DoxyCompactList}\item 
 virtual void \hyperlink{class_matrix_a20c175983a6b23a83fccfe8f726b3b07}{appendRow} (\hyperlink{class_matrix}{Matrix} \&b)
@@ -59,9 +63,7 @@ void \hyperlink{class_matrix_a505f924baa7c236280751499da56ecee}{swapCols} (int c
 \hyperlink{class_matrix_iterator}{MatrixIterator} \hyperlink{class_matrix_a8969f52f950b124d5a40128c3df11efe}{begin} () const 
 \begin{DoxyCompactList}\small\item\em Returns an iterator to the beginning of the matrix. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix_iterator}{MatrixIterator} \hyperlink{class_matrix_aa6e886dcd213fdf5c54743f3b8ac7209}{end} () const 
-\begin{DoxyCompactList}\small\item\em Returns an iterator to one past the end of the matrix. \item\end{DoxyCompactList}\item 
-\hyperlink{class_matrix_a94d5e009cbba7556f48a720cff9eedbe}{operator double} () const 
-\begin{DoxyCompactList}\small\item\em if the \hyperlink{class_matrix}{Matrix} is a 1x1 matrix, allows conversion to a double. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns an iterator to one past the end of the matrix. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -188,6 +190,15 @@ Returns an iterator to the beginning of the matrix.
 
 Returns the number of columns in the matrix. 
 
+\hypertarget{class_matrix_ace95025dd985ddaa6c1ed72e8b464a0a}{
+\index{Matrix@{Matrix}!det@{det}}
+\index{det@{det}!Matrix@{Matrix}}
+\subsubsection[{det}]{\setlength{\rightskip}{0pt plus 5cm}double Matrix::det ()}}
+\label{class_matrix_ace95025dd985ddaa6c1ed72e8b464a0a}
+
+
+Returns the determinant of the \hyperlink{class_matrix}{Matrix}. 
+
 \hypertarget{class_matrix_aa6e886dcd213fdf5c54743f3b8ac7209}{
 \index{Matrix@{Matrix}!end@{end}}
 \index{end@{end}!Matrix@{Matrix}}
@@ -205,15 +216,6 @@ Returns an iterator to one past the end of the matrix.
 
 
 Returns a \hyperlink{class_matrix}{Matrix} object that is the inverse of the current \hyperlink{class_matrix}{Matrix}. 
-
-\hypertarget{class_matrix_a94d5e009cbba7556f48a720cff9eedbe}{
-\index{Matrix@{Matrix}!operator double@{operator double}}
-\index{operator double@{operator double}!Matrix@{Matrix}}
-\subsubsection[{operator double}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::operator double () const}}
-\label{class_matrix_a94d5e009cbba7556f48a720cff9eedbe}
-
-
-if the \hyperlink{class_matrix}{Matrix} is a 1x1 matrix, allows conversion to a double. 
 
 \hypertarget{class_matrix_a3d361fded5f8992d2202894ca141eb72}{
 \index{Matrix@{Matrix}!operator()@{operator()}}
@@ -248,7 +250,7 @@ Throws an error if this is not a square matrix. \hypertarget{class_matrix_a375fc
 
 Populates the matrix with random integers in the range 0-\/9. 
 
-\hypertarget{class_matrix_abeb4729f525e85a0f1f516675677e105}{
+Guaranteed to be non-\/singular if the \hyperlink{class_matrix}{Matrix} is square. \hypertarget{class_matrix_abeb4729f525e85a0f1f516675677e105}{
 \index{Matrix@{Matrix}!populateSymmetric@{populateSymmetric}}
 \index{populateSymmetric@{populateSymmetric}!Matrix@{Matrix}}
 \subsubsection[{populateSymmetric}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::populateSymmetric ()}}
@@ -257,7 +259,7 @@ Populates the matrix with random integers in the range 0-\/9.
 
 Populates the matrix with random integers in the range 0-\/9. 
 
-Ensures that the matrix is symmetric. \hypertarget{class_matrix_af238216c5c5ebf0a80e37bba96c99662}{
+Ensures that the matrix is symmetric. Guaranteed to be non-\/singular. \hypertarget{class_matrix_af238216c5c5ebf0a80e37bba96c99662}{
 \index{Matrix@{Matrix}!rows@{rows}}
 \index{rows@{rows}!Matrix@{Matrix}}
 \subsubsection[{rows}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix::rows () const}}
@@ -283,6 +285,15 @@ Swaps the given cols in the \hyperlink{class_matrix}{Matrix}.
 
 
 Swaps the given rows in the \hyperlink{class_matrix}{Matrix}. 
+
+\hypertarget{class_matrix_af7403d8c02553a4fba253380e4e0bc40}{
+\index{Matrix@{Matrix}!trace@{trace}}
+\index{trace@{trace}!Matrix@{Matrix}}
+\subsubsection[{trace}]{\setlength{\rightskip}{0pt plus 5cm}double Matrix::trace ()}}
+\label{class_matrix_af7403d8c02553a4fba253380e4e0bc40}
+
+
+Returns the trace of the \hyperlink{class_matrix}{Matrix}. 
 
 \hypertarget{class_matrix_ae23f817021383e3c8636a714dcba1d21}{
 \index{Matrix@{Matrix}!transpose@{transpose}}

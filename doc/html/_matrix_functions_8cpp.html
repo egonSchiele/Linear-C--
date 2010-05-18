@@ -30,6 +30,7 @@
 <code>#include &lt;boost/tuple/tuple.hpp&gt;</code><br/>
 <code>#include &lt;boost/shared_ptr.hpp&gt;</code><br/>
 <code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;limits&gt;</code><br/>
 <div class="dynheader">
 Include dependency graph for MatrixFunctions.cpp:</div>
 <div class="dynsection">
@@ -56,6 +57,8 @@ Include dependency graph for MatrixFunctions.cpp:</div>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given two matrices A and b, solves the linear system of equations assuming the form Ax = b.  <a href="#a12c19521809b4f556360bbea91aea576"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#aaf686c3d17b6c76f2d79e291a31c2d02">jacobi</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
 <tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Given two matrices A and b, solves the linear system of equations assuming the form Ax = b.  <a href="#aaf686c3d17b6c76f2d79e291a31c2d02"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix_functions_8cpp.html#af2959f191427ede389ab67e042741261">simplex</a> (<a class="el" href="class_matrix.html">Matrix</a> &amp;A, <a class="el" href="class_matrix.html">Matrix</a> &amp;b)</td></tr>
+<tr><td class="mdescLeft">&nbsp;</td><td class="mdescRight">Solve a Linear Programming Problem using the Simplex Method.  <a href="#af2959f191427ede389ab67e042741261"></a><br/></td></tr>
 </table>
 <hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a12c19521809b4f556360bbea91aea576"></a><!-- doxytag: member="MatrixFunctions.cpp::conjugateGradient" ref="a12c19521809b4f556360bbea91aea576" args="(Matrix &amp;A, Matrix &amp;b)" -->
@@ -269,6 +272,35 @@ Include dependency graph for MatrixFunctions.cpp:</div>
 </pre></div> 
 </div>
 </div>
+<a class="anchor" id="af2959f191427ede389ab67e042741261"></a><!-- doxytag: member="MatrixFunctions.cpp::simplex" ref="af2959f191427ede389ab67e042741261" args="(Matrix &amp;A, Matrix &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a> simplex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a> &amp;&nbsp;</td>
+          <td class="paramname"> <em>b</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Solve a Linear Programming Problem using the Simplex Method. </p>
+
+</div>
+</div>
 <a class="anchor" id="a0ad9f45bf1edd75781d68413d162cb0c"></a><!-- doxytag: member="MatrixFunctions.cpp::steepestDescent" ref="a0ad9f45bf1edd75781d68413d162cb0c" args="(Matrix &amp;A, Matrix &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
@@ -302,7 +334,7 @@ Include dependency graph for MatrixFunctions.cpp:</div>
 </div>
 </div>
 </div>
-<hr class="footer"/><address style="text-align: right;"><small>Generated on Sat May 15 13:18:09 2010 for LinearC++ by&nbsp;
+<hr class="footer"/><address style="text-align: right;"><small>Generated on Tue May 18 16:51:47 2010 for LinearC++ by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
 </body>

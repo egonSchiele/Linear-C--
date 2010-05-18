@@ -1,3 +1,5 @@
+debug: test.cpp Matrix.cpp MatrixFunctions.cpp
+	g++ -g -I/usr/local/boost test.cpp Matrix.cpp MatrixFunctions.cpp -o test	
 test: test.cpp Matrix.cpp MatrixFunctions.cpp
 	g++ -I/usr/local/boost test.cpp Matrix.cpp MatrixFunctions.cpp -o test	
 lib: Matrix.o MatrixFunctions.o

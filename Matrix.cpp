@@ -59,7 +59,7 @@ Matrix::Matrix(double *a, int rows, int cols)
     data.resize(rows);
     for (int i=0;i<rows;i++)
     {
-        copy(&a[i*rows],&a[(i*rows)+cols],back_inserter(data[i]));
+        copy(&a[i*cols],&a[(i*cols)+cols],back_inserter(data[i]));
     }
 }
 
@@ -146,7 +146,7 @@ void Matrix::appendCol(double *r, int size)
 }
 
 // populate the matrix with random numbers in the range 0-9.
-// guaranteed to be non-singular.
+// guaranteed to be non-singular if the Matrix is square.
 Matrix& Matrix::populateRandom()
 {
     double determinant = 0;
@@ -160,6 +160,7 @@ Matrix& Matrix::populateRandom()
                 data[i][j] = rand() % 10;
             }                
         }
+        if (rows()!=cols()) break;
         determinant = det();
     }
     return *this;

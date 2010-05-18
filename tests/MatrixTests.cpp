@@ -98,6 +98,11 @@ TEST_FIXTURE(TestMatrix,TestArrayConstructor)
     double a[] = {1,0,0,0,1,0,0,0,1};
     Matrix *I = new Matrix(a,3,3);
     CHECK((*m)==(*I));
+    
+    // testing on non-square matrices.
+    double var[] = {1, -2, -3, -4, 0, 0, 0, 3, 2, 1, 1, 0, 0, 2, 5, 3, 0, 1};
+    Matrix m2(var,3,6);    
+    CHECK(m2(1,1) == 3);
     delete I;
 }
 

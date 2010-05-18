@@ -67,7 +67,7 @@ class Matrix {
 
         
         /** Populates the matrix with random integers in the range 0-9.
-            Guaranteed to be non-singular.
+            Guaranteed to be non-singular if the Matrix is square.
          */
         Matrix& populateRandom();
 

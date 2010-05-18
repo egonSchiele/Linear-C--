@@ -4,6 +4,7 @@
 #include <boost/tuple/tuple.hpp>
 #include <boost/shared_ptr.hpp>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 using boost::shared_ptr;
@@ -362,4 +363,97 @@ Matrix jacobi(Matrix& A, Matrix& b)
     
     shared_ptr<Matrix> final_x(new Matrix(static_cast<Matrix>(x0)));
     return *final_x;
+}
+
+/*  Solve a linear programming problem using the simplex method.
+    Good resource: http://www.slideshare.net/sbishop2/simplex-algorithm
+ */
+int simplex(Matrix &A, Matrix &b)
+{
+    /*  we assume that we're given this in a tableau form.
+        Matrix A contains all the variables, and
+        Matrib b contains all the values.
+        
+        We also assume that the first row of the Matrices
+        contains the values for the objective function.
+    */
+    
+    while(true) // there's a break statement inside.
+    {
+        /*  STEP 1: Look at the negative values in the first row of A
+            to determine the pivot column. We want the largest negative
+            value (i.e. the smallest value), because removing that bit
+            will increase the objective function the most. For example,
+            if we have z -10x -20y = 0, the y is lowering the value more.
+        */
+        MatrixIterator min_e = min_element(A.begin(),A.begin() + A.cols());
+        int pivotCol = min_e - A.begin();
+        
+        /*  if the minimum value is non-negative, we have found
+            the optimal solution.
+        */
+        if (*min_e >= 0)
+        {
+            /*  FINAL STEP: Find the values of the variables.
+                any variable that is still in the objective function
+                has to have a value of 0, so we can zero those columns
+                out.
+            */
+            for (int i=0;i<A.cols();i++)
+            {
+                if (A(0,i) > 0)
+                {
+                    for (int j=0;j<A.rows();j++)
+                    {
+                        A(j,i) = 0;
+                    }
+                    
+                }
+            }
+            
+            return b(0,0);
+        }
+            
+        /*  STEP 2: (Temporarily) Divide all the values in Matrix b by
+            the corresponding value in that row that is part of the pivot column
+        */
+        Matrix c = b;
+        for (int i=0;i<b.rows();i++)
+        {
+            c(i,0) = c(i,0) / A(i,pivotCol);
+        }
+        
+        /*  STEP 3: The least value in b tells us the pivot row.
+            The smallest value is the constraining value; it's the
+            reason that our result can't be bigger. It's constrained
+            by this smallest value.
+        */
+        MatrixIterator min_val = min_element(c.begin()+1,c.end());
+        int pivotRow = min_val - c.begin();
+        
+        /*  STEP 4: Divide pivot row by pivot value so pivot becomes 1
+        */
+        double divisor = A(pivotRow,pivotCol);
+        for (int i=0;i<A.cols();i++)
+        {
+            A(pivotRow,i) = A(pivotRow,i) / divisor;
+        }
+        b(pivotRow,0) = b(pivotRow,0) / divisor;
+        
+        /*  STEP 5: Zero out the pivot column:
+        */
+        
+        for (int i=0;i<A.rows();i++)
+        {
+            if (i==pivotRow) continue; // no point doing it for the same row.
+            double ratio = A(i,pivotCol) / A(pivotRow, pivotCol);
+            for (int j=0;j<A.cols();j++)
+            {
+                A(i,j) -= ratio * A(pivotRow,j);
+            }
+            b(i,0) -= ratio * b(pivotRow,0);
+        }
+    }    
+    
+    return -10;
 }

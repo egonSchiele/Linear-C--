@@ -8,11 +8,12 @@
 {\ttfamily \#include $<$boost/tuple/tuple.hpp$>$}\par
 {\ttfamily \#include $<$boost/shared\_\-ptr.hpp$>$}\par
 {\ttfamily \#include $<$algorithm$>$}\par
+{\ttfamily \#include $<$limits$>$}\par
 Include dependency graph for MatrixFunctions.cpp:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=306pt]{_matrix_functions_8cpp__incl}
+\includegraphics[width=335pt]{_matrix_functions_8cpp__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -33,7 +34,9 @@ bool \hyperlink{_matrix_functions_8cpp_afd17d61898fe54cfb57b97238a20eab5}{isSymm
 \hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8cpp_a12c19521809b4f556360bbea91aea576}{conjugateGradient} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
 \begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
 \hyperlink{class_matrix}{Matrix} \hyperlink{_matrix_functions_8cpp_aaf686c3d17b6c76f2d79e291a31c2d02}{jacobi} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
-\begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Given two matrices A and b, solves the linear system of equations assuming the form Ax = b. \item\end{DoxyCompactList}\item 
+int \hyperlink{_matrix_functions_8cpp_af2959f191427ede389ab67e042741261}{simplex} (\hyperlink{class_matrix}{Matrix} \&A, \hyperlink{class_matrix}{Matrix} \&b)
+\begin{DoxyCompactList}\small\item\em Solve a Linear Programming Problem using the Simplex Method. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
@@ -127,7 +130,16 @@ Three matrices L, U and P are returned as a boost tuple. Example usage:
     cout << U << endl;
     cout << P << endl;
 \end{DoxyCode}
- \hypertarget{_matrix_functions_8cpp_a0ad9f45bf1edd75781d68413d162cb0c}{
+ \hypertarget{_matrix_functions_8cpp_af2959f191427ede389ab67e042741261}{
+\index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!simplex@{simplex}}
+\index{simplex@{simplex}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
+\subsubsection[{simplex}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} simplex ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
+\label{_matrix_functions_8cpp_af2959f191427ede389ab67e042741261}
+
+
+Solve a Linear Programming Problem using the Simplex Method. 
+
+\hypertarget{_matrix_functions_8cpp_a0ad9f45bf1edd75781d68413d162cb0c}{
 \index{MatrixFunctions.cpp@{MatrixFunctions.cpp}!steepestDescent@{steepestDescent}}
 \index{steepestDescent@{steepestDescent}!MatrixFunctions.cpp@{MatrixFunctions.cpp}}
 \subsubsection[{steepestDescent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} steepestDescent ({\bf Matrix} \& {\em A}, \/  {\bf Matrix} \& {\em b})}}
