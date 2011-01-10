@@ -113,4 +113,16 @@ Matrix jacobi(Matrix& A, Matrix& b);
     Solve a Linear Programming Problem using the Simplex Method.
 */
 int simplex(Matrix &A, Matrix &b);
+
+
+/** \fn Matrix convolve(Matrix& A, Matrix &kernel)
+	given a Matrix A and a kernel, 
+	convolve that Matrix with that kernel
+	and return the result.
+
+	Convolution explained simply:
+	http://manual.gimp.org/en/plug-in-convmatrix.html
+*/
+Matrix convolve(Matrix& A, Matrix &kernel);
+
 #endif

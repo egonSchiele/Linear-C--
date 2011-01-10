@@ -457,3 +457,33 @@ int simplex(Matrix &A, Matrix &b)
     
     return -10;
 }
+
+Matrix convolve(Matrix& A, Matrix &kernel) {
+	// have to be odd, otherwise how would we center
+	// the kernel on a particular element?
+	assert(kernel.rows() % 2 == 1);
+	assert(kernel.cols() % 2 == 1);
+
+	int k_w = kernel.cols();
+	int k_h = kernel.rows();
+	
+	shared_ptr<Matrix> ret(new Matrix(A.rows(), A.cols()));
+
+	for (int x = 0; x < A.cols(); x++) {
+		for (int y = 0; y < A.rows(); y++) {
+			// for each element, apply the filter
+			int sum = 0;
+			for (int i = 0; i < k_w; i++) {
+				for (int j = 0; j < k_h; j++) {
+					int x_index = x - (k_w - 1)/2 + i;
+					int y_index = y - (k_h - 1)/2 + j;
+					if (x_index < 0 || y_index < 0) continue;
+					if (x_index >= A.cols() || y_index >= A.rows()) continue;
+					sum += A(x_index,y_index) * kernel(i,j);
+				}
+			}
+			(*ret)(x,y) = sum;
+		}
+	}
+	return *ret;
+}
